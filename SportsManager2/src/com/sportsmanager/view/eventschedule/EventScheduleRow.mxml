@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="100%"
+		 creationComplete="onCreationComplete(event)">
+	<fx:Script>
+		<![CDATA[
+			import com.loki.utils.Convert;
+			
+			import mx.collections.ArrayCollection;
+			import mx.events.FlexEvent;
+			
+			import valueObjects.EventMatch;
+			import valueObjects.SeasonEvent;
+			import valueObjects.Team;
+			
+			public static const TIME_WIDTH:int = 35;
+			
+			private var _matchList:Array;
+			//private var _teamMap:Object;
+			private var _seasonEvent:SeasonEvent;
+			private var _timeHours:Number;
+			
+
+			
+
+			public function get timeHours():Number
+			{
+				return _timeHours;
+			}
+
+			public function set timeHours(value:Number):void
+			{
+				_timeHours = value;
+			}
+
+			public function get seasonEvent():SeasonEvent
+			{
+				return _seasonEvent;
+			}
+
+			public function set seasonEvent(value:SeasonEvent):void
+			{
+				_seasonEvent = value;
+			}
+
+			protected function onCreationComplete(event:FlexEvent):void
+			{
+				lblTime.width=EventScheduleRow.TIME_WIDTH;
+				lblTime.text = Convert.timeString(_timeHours);
+				if (_matchList != null)
+				{
+					for (var i:int=0; i<_matchList.length; i++)
+					{
+						var match:EventMatch = _matchList[i];
+						var cell:EventMatchCell = new EventMatchCell();
+						if (_matchList.length == _seasonEvent.courtCount)
+						{
+							cell.percentWidth = 100/_seasonEvent.courtCount;
+						}
+						else
+						{
+							cell.percentWidth = (100-_matchList.length)/_seasonEvent.courtCount
+						}
+						cell.match = match;
+						cell.label = match.team1.name +  "\nvs\n" + match.team2.name;
+						cellHolder.addElement(cell);
+					}
+				}
+				else
+				{
+					trace("No matchList in EventScheduleRow");
+				}
+				
+			}
+
+			/* public function get teamMap():Object
+			{
+				return _teamMap;
+			}
+			
+			public function set teamMap(value:Object):void
+			{
+				_teamMap = value;
+			} */
+
+			
+			public function get matchList():Array
+			{
+				return _matchList;
+			}
+
+			public function set matchList(value:Array):void
+			{
+				_matchList = value;
+			}
+
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:HGroup width="100%">
+		<s:Label id="lblTime" text="xx:yy" />
+		<s:HGroup id="cellHolder" width="100%" />
+	</s:HGroup>
+</s:Group>

@@ -1,0 +1,1700 @@
+
+<model xmlns="http://ns.adobe.com/Fiber/1.0">
+  <annotation name="ActionScriptGeneration">
+    <item name="FullyQualifyReferences">true</item>
+  </annotation>
+  <entity name="EventPackage">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">EventPackage</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dto.EventPackage</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">Dummy,PlayerService,PlayerServiceDummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <annotation name="getEventPackage">
+      <item name="propertySpecifier">seasonEvent,teamList,matchList,playerList,teamPlayerList</item>
+    </annotation>
+    <property name="seasonEvent" type="SeasonEvent"/>
+    <property name="teamList" type="Team[]"/>
+    <property name="matchList" type="EventMatch[]"/>
+    <property name="playerList" type="Player[]"/>
+    <property name="teamPlayerList" type="TeamPlayer[]"/>
+  </entity>
+  <service name="PlayerService">
+    <annotation name="ActionScriptGeneration">
+      <item name="ServiceType">RemoteObject</item>
+      <item name="Package">services</item>
+      <item name="Destination">PlayerService</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="contextRoot">/SportsManager</item>
+      <item name="rootUrl">http://localhost:8400/SportsManager</item>
+      <item name="LINKED_FILE"></item>
+      <item name="ABSOLUTE_ENDPOINT">http://localhost:8400/SportsManager/messagebroker/amf</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">BlazeDS</item>
+    </annotation>
+    <function name="listMatchSets" return-type="MatchSet[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">integer</item>
+        <item name="returnType">MatchSet</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">id,winningTeam,matchId,eventMatch,scoreTeam1,scoreTeam2,finished,setPoints,setNo</item>
+      </annotation>
+      <parameter name="arg0" type="integer"/>
+    </function>
+    <function name="listEventMatches" return-type="EventMatch[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">integer</item>
+        <item name="returnType">EventMatch</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">id,team2Id,eventId,setList,seasonEvent,courtNo,team1Id,team1,team2,timeSlot</item>
+      </annotation>
+      <parameter name="arg0" type="integer"/>
+    </function>
+    <function name="addTeamPlayer" return-type="TransacResult">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">integer,integer,integer</item>
+        <item name="returnType">TransacResult</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">id,message,errorCode,success</item>
+      </annotation>
+      <parameter name="arg0" type="integer"/>
+      <parameter name="arg1" type="integer"/>
+      <parameter name="arg2" type="integer"/>
+    </function>
+    <function name="listSeasonTeams" return-type="Team[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">integer</item>
+        <item name="returnType">Team</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">id,teamPlayers,lost,pool,name,won,pos</item>
+      </annotation>
+      <parameter name="arg0" type="integer"/>
+    </function>
+    <function name="updateInvitation" return-type="boolean">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">InvitationDAO</item>
+        <item name="returnType">boolean</item>
+      </annotation>
+      <parameter name="arg0" type="InvitationDAO"/>
+    </function>
+    <function name="updateLeague" return-type="boolean">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">LeagueDAO</item>
+        <item name="returnType">boolean</item>
+      </annotation>
+      <parameter name="arg0" type="LeagueDAO"/>
+    </function>
+    <function name="removeTeamPlayer" return-type="boolean">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">integer,integer</item>
+        <item name="returnType">boolean</item>
+      </annotation>
+      <parameter name="arg0" type="integer"/>
+      <parameter name="arg1" type="integer"/>
+    </function>
+    <function name="listOrganizations" return-type="Organization[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">Organization</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">id,name_short,leagueList,name_long</item>
+      </annotation>
+    </function>
+    <function name="addLocation" return-type="TransacResult">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">Location</item>
+        <item name="returnType">TransacResult</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">id,message,errorCode,success</item>
+      </annotation>
+      <parameter name="arg0" type="Location"/>
+    </function>
+    <function name="login" return-type="Player">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">string,string</item>
+        <item name="returnType">Player</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">id,lastName,sex,phone,height,email,zipCode,birthDate,longitude,latitude,firstName,password</item>
+      </annotation>
+      <parameter name="arg0" type="string"/>
+      <parameter name="arg1" type="string"/>
+    </function>
+    <function name="addEventTeam" return-type="boolean">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">integer,TeamDAO</item>
+        <item name="returnType">boolean</item>
+      </annotation>
+      <parameter name="arg0" type="integer"/>
+      <parameter name="arg1" type="TeamDAO"/>
+    </function>
+    <function name="addLeague" return-type="integer">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">integer,LeagueDAO</item>
+        <item name="returnType">integer</item>
+      </annotation>
+      <parameter name="arg0" type="integer"/>
+      <parameter name="arg1" type="LeagueDAO"/>
+    </function>
+    <function name="listLeagueSeasons" return-type="LeagueSeason[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">integer</item>
+        <item name="returnType">LeagueSeason</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">startDate,seasonTeamList,defaultLocation,defaultCapOn21,defaultCourtCount,eventCount,endDate,defaultStartTime,league,eventList,id,defaultMaxPlayerPerPool,defaultSetConfig,name,defaultTimePerPoint,defaultCapOn15,defaultCapOn25</item>
+      </annotation>
+      <parameter name="arg0" type="integer"/>
+    </function>
+    <function name="addSeasonTeam" return-type="boolean">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">integer,integer</item>
+        <item name="returnType">boolean</item>
+      </annotation>
+      <parameter name="arg0" type="integer"/>
+      <parameter name="arg1" type="integer"/>
+    </function>
+    <function name="removeSeasonTeam" return-type="boolean">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">integer,integer</item>
+        <item name="returnType">boolean</item>
+      </annotation>
+      <parameter name="arg0" type="integer"/>
+      <parameter name="arg1" type="integer"/>
+    </function>
+    <function name="updateOrganization" return-type="boolean">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">OrganizationDAO</item>
+        <item name="returnType">boolean</item>
+      </annotation>
+      <parameter name="arg0" type="OrganizationDAO"/>
+    </function>
+    <function name="testConnection" return-type="boolean">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">boolean</item>
+      </annotation>
+    </function>
+    <function name="setPlayerLevelInterest" return-type="boolean">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">integer,LevelInterestDAO</item>
+        <item name="returnType">boolean</item>
+      </annotation>
+      <parameter name="arg0" type="integer"/>
+      <parameter name="arg1" type="LevelInterestDAO"/>
+    </function>
+    <function name="addInvitation" return-type="boolean">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">Invitation</item>
+        <item name="returnType">boolean</item>
+      </annotation>
+      <parameter name="arg0" type="Invitation"/>
+    </function>
+    <function name="addSeasonEvent" return-type="integer">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">SeasonEventDAO</item>
+        <item name="returnType">integer</item>
+      </annotation>
+      <parameter name="arg0" type="SeasonEventDAO"/>
+    </function>
+    <function name="listSeasonEvents" return-type="SeasonEvent[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">integer</item>
+        <item name="returnType">SeasonEvent</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">capOn15,capOn21,timePerPoint,capOn25,maxPlayerPerPool,date,setConfig,poolCount,id,startTime,scheduleLocked,courtCount,matchList,teamPosList</item>
+      </annotation>
+      <parameter name="arg0" type="integer"/>
+    </function>
+    <function name="updateEventTeamRankings" return-type="boolean">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">integer,opaque</item>
+        <item name="returnType">boolean</item>
+      </annotation>
+      <parameter name="arg0" type="integer"/>
+      <parameter name="arg1" type="opaque[]"/>
+    </function>
+    <function name="listLeagueAdministrators" return-type="Player[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">integer</item>
+        <item name="returnType">Player</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">id,lastName,sex,phone,height,email,zipCode,birthDate,longitude,latitude,firstName,password</item>
+      </annotation>
+      <parameter name="arg0" type="integer"/>
+    </function>
+    <function name="addOrganization" return-type="integer">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">OrganizationDAO</item>
+        <item name="returnType">integer</item>
+      </annotation>
+      <parameter name="arg0" type="OrganizationDAO"/>
+    </function>
+    <function name="updateSeasonEvent" return-type="boolean">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">SeasonEventDAO</item>
+        <item name="returnType">boolean</item>
+      </annotation>
+      <parameter name="arg0" type="SeasonEventDAO"/>
+    </function>
+    <function name="listLeagues" return-type="League[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">integer</item>
+        <item name="returnType">League</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">id,organization,seasonList,name,volleyType,hasSeasonTeams,adminList</item>
+      </annotation>
+      <parameter name="arg0" type="integer"/>
+    </function>
+    <function name="listPlayerInvitations" return-type="Invitation[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">integer</item>
+        <item name="returnType">Invitation</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">fromPlayer,response,id,status,seasonEvent,toPlayer,team,fromMessage</item>
+      </annotation>
+      <parameter name="arg0" type="integer"/>
+    </function>
+    <function name="removeEventTeam" return-type="boolean">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">integer,integer</item>
+        <item name="returnType">boolean</item>
+      </annotation>
+      <parameter name="arg0" type="integer"/>
+      <parameter name="arg1" type="integer"/>
+    </function>
+    <function name="updateLeagueSeason" return-type="boolean">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">LeagueSeasonDAO</item>
+        <item name="returnType">boolean</item>
+      </annotation>
+      <parameter name="arg0" type="LeagueSeasonDAO"/>
+    </function>
+    <function name="generateSeasonEvents" return-type="SeasonEvent[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">integer</item>
+        <item name="returnType">SeasonEvent</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">capOn15,capOn21,timePerPoint,capOn25,maxPlayerPerPool,date,setConfig,poolCount,id,startTime,scheduleLocked,courtCount,matchList,teamPosList</item>
+      </annotation>
+      <parameter name="arg0" type="integer"/>
+    </function>
+    <function name="listLocations" return-type="Location[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">Location</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">id,googleMapsUrl,address,name,zipcode,province,longitude,latitude,city,country</item>
+      </annotation>
+    </function>
+    <function name="addLeagueSeason" return-type="integer">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">integer,LeagueSeasonDAO</item>
+        <item name="returnType">integer</item>
+      </annotation>
+      <parameter name="arg0" type="integer"/>
+      <parameter name="arg1" type="LeagueSeasonDAO"/>
+    </function>
+    <function name="createTeam" return-type="integer">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">TeamDAO</item>
+        <item name="returnType">integer</item>
+      </annotation>
+      <parameter name="arg0" type="TeamDAO"/>
+    </function>
+    <function name="getPlayerById" return-type="Player">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">integer</item>
+        <item name="returnType">Player</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">id,lastName,sex,phone,height,email,zipCode,birthDate,longitude,latitude,firstName,password</item>
+      </annotation>
+      <parameter name="arg0" type="integer"/>
+    </function>
+    <function name="getServerVersion" return-type="string">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">string</item>
+      </annotation>
+    </function>
+    <function name="savePlayerProfile" return-type="TransacResult">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">Player</item>
+        <item name="returnType">TransacResult</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">id,message,errorCode,success</item>
+      </annotation>
+      <parameter name="arg0" type="Player"/>
+    </function>
+    <function name="getPlayerSchedule" return-type="PlayerScheduleItem[]">
+      <annotation name="original signature">
+        <item name="inputParams">integer</item>
+        <item name="returnType">PlayerScheduleItem</item>
+      </annotation>
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">teamName,leagueId,leagueName,eventId,locationId,locationName,date,teamId</item>
+      </annotation>
+      <parameter name="arg0" type="integer"/>
+    </function>
+    <function name="setSessionFactory" return-type="void">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">SessionFactory</item>
+      </annotation>
+      <parameter name="arg0" type="SessionFactory"/>
+    </function>
+    <function name="getSession" return-type="Session">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">Session</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">defaultReadOnly,flushMode,open,sessionFactory,lobHelper,connected,dirty,cacheMode,typeHelper,statistics</item>
+      </annotation>
+    </function>
+    <function name="getSessionFactory" return-type="SessionFactory">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">SessionFactory</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">allClassMetadata,sessionFactoryOptions,cache,closed,currentSession,definedFilterNames,typeHelper,allCollectionMetadata,statistics</item>
+      </annotation>
+    </function>
+    <function name="listEventTeams" return-type="Team[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">integer</item>
+        <item name="returnType">Team</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">id,teamPlayers,lost,pool,name,won,pos</item>
+      </annotation>
+      <parameter name="arg0" type="integer"/>
+    </function>
+    <function name="generateEventSchedule" return-type="TransacResult">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">integer</item>
+        <item name="returnType">TransacResult</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">id,message,errorCode,success</item>
+      </annotation>
+      <parameter name="arg0" type="integer"/>
+    </function>
+    <function name="getSeasonEvent" return-type="SeasonEvent">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">integer</item>
+        <item name="returnType">SeasonEvent</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">capOn15,capOn21,timePerPoint,capOn25,maxPlayerPerPool,date,setConfig,poolCount,id,startTime,scheduleLocked,courtCount,matchList,teamPosList</item>
+      </annotation>
+      <parameter name="arg0" type="integer"/>
+    </function>
+    <function name="getEventPackage" return-type="SeasonEvent">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">integer</item>
+        <item name="returnType">SeasonEvent</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">capOn15,capOn21,timePerPoint,capOn25,maxPlayerPerPool,date,setConfig,poolCount,id,startTime,scheduleLocked,courtCount,matchList,teamPosList</item>
+      </annotation>
+      <parameter name="arg0" type="integer"/>
+    </function>
+    <function name="saveSetScore" return-type="TransacResult">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">MatchSet</item>
+        <item name="returnType">TransacResult</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">id,message,errorCode,success</item>
+      </annotation>
+      <parameter name="arg0" type="MatchSet"/>
+    </function>
+  </service>
+  <entity name="Statistics">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">Statistics</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">org.hibernate.stat.Statistics</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">Dummy,PlayerService</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="naturalIdCacheHitCount" type="long"/>
+    <property name="updateTimestampsCacheMissCount" type="long"/>
+    <property name="secondLevelCacheMissCount" type="long"/>
+    <property name="entityLoadCount" type="long"/>
+    <property name="secondLevelCachePutCount" type="long"/>
+    <property name="secondLevelCacheHitCount" type="long"/>
+    <property name="collectionRecreateCount" type="long"/>
+    <property name="queryCacheHitCount" type="long"/>
+    <property name="startTime" type="long"/>
+    <property name="updateTimestampsCacheHitCount" type="long"/>
+    <property name="sessionOpenCount" type="long"/>
+    <property name="statisticsEnabled" type="boolean"/>
+    <property name="entityFetchCount" type="long"/>
+    <property name="naturalIdQueryExecutionCount" type="long"/>
+    <property name="connectCount" type="long"/>
+    <property name="sessionCloseCount" type="long"/>
+    <property name="naturalIdCachePutCount" type="long"/>
+    <property name="collectionFetchCount" type="long"/>
+    <property name="queryExecutionMaxTime" type="long"/>
+    <property name="queryCacheMissCount" type="long"/>
+    <property name="entityInsertCount" type="long"/>
+    <property name="naturalIdCacheMissCount" type="long"/>
+    <property name="collectionLoadCount" type="long"/>
+    <property name="entityUpdateCount" type="long"/>
+    <property name="transactionCount" type="long"/>
+    <property name="queryExecutionMaxTimeQueryString" type="string"/>
+    <property name="naturalIdQueryExecutionMaxTimeRegion" type="string"/>
+    <property name="queryCachePutCount" type="long"/>
+    <property name="naturalIdQueryExecutionMaxTime" type="long"/>
+    <property name="closeStatementCount" type="long"/>
+    <property name="queryExecutionCount" type="long"/>
+    <property name="optimisticFailureCount" type="long"/>
+    <property name="entityDeleteCount" type="long"/>
+    <property name="collectionUpdateCount" type="long"/>
+    <property name="flushCount" type="long"/>
+    <property name="prepareStatementCount" type="long"/>
+    <property name="updateTimestampsCachePutCount" type="long"/>
+    <property name="queries" type="string[]"/>
+    <property name="collectionRemoveCount" type="long"/>
+    <property name="successfulTransactionCount" type="long"/>
+    <property name="collectionRoleNames" type="string[]"/>
+    <property name="secondLevelCacheRegionNames" type="string[]"/>
+    <property name="entityNames" type="string[]"/>
+  </entity>
+  <entity name="TeamPlayer">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">TeamPlayer</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dto.TeamPlayer</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="team" type="Team"/>
+    <property name="id" type="integer"/>
+    <property name="player" type="Player"/>
+    <property name="playerId" type="integer"/>
+    <property name="role" type="integer"/>
+    <property name="teamId" type="integer"/>
+  </entity>
+  <entity name="Player">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">Player</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dto.Player</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <annotation name="login">
+      <item name="propertySpecifier">id,lastName,sex,phone,height,email,zipCode,birthDate,longitude,latitude,firstName,password</item>
+    </annotation>
+    <annotation name="listLeagueAdministrators">
+      <item name="propertySpecifier">id,lastName,sex,phone,height,email,zipCode,birthDate,longitude,latitude,firstName,password</item>
+    </annotation>
+    <annotation name="getPlayerById">
+      <item name="propertySpecifier">id,lastName,sex,phone,height,email,zipCode,birthDate,longitude,latitude,firstName,password</item>
+    </annotation>
+    <property name="id" type="integer"/>
+    <property name="lastName" type="string"/>
+    <property name="sex" type="integer"/>
+    <property name="phone" type="string"/>
+    <property name="height" type="integer"/>
+    <property name="email" type="string"/>
+    <property name="zipCode" type="string"/>
+    <property name="birthDate" type="long"/>
+    <property name="longitude" type="float"/>
+    <property name="latitude" type="float"/>
+    <property name="firstName" type="string"/>
+    <property name="password" type="string"/>
+  </entity>
+  <entity name="PlayerScheduleItem">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">PlayerScheduleItem</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dto.PlayerScheduleItem</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">Dummy,PlayerService</item>
+    </annotation>
+    <annotation name="getPlayerSchedule">
+      <item name="propertySpecifier">teamName,leagueId,leagueName,eventId,locationId,locationName,date,teamId</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="teamName" type="string"/>
+    <property name="leagueId" type="integer"/>
+    <property name="leagueName" type="string"/>
+    <property name="eventId" type="integer"/>
+    <property name="locationId" type="integer"/>
+    <property name="locationName" type="string"/>
+    <property name="date" type="long"/>
+    <property name="teamId" type="integer"/>
+  </entity>
+  <entity name="VolleyTypeDAO">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">VolleyTypeDAO</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dao.VolleyTypeDAO</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="id" type="integer"/>
+    <property name="sex" type="integer"/>
+    <property name="interestedPlayers" type="LevelInterestDAO[]"/>
+    <property name="name_short" type="string"/>
+    <property name="env" type="integer"/>
+    <property name="playerCount" type="integer"/>
+    <property name="name_long" type="string"/>
+  </entity>
+  <entity name="LevelInterest">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">LevelInterest</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dto.LevelInterest</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="id" type="integer"/>
+    <property name="player" type="Player"/>
+    <property name="maxLevel" type="VolleyLevel"/>
+    <property name="minLevel" type="VolleyLevel"/>
+    <property name="volleyType" type="VolleyType"/>
+  </entity>
+  <entity name="Organization">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">Organization</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dto.Organization</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <annotation name="listOrganizations">
+      <item name="propertySpecifier">id,name_short,leagueList,name_long</item>
+    </annotation>
+    <property name="id" type="integer"/>
+    <property name="name_short" type="string"/>
+    <property name="leagueList" type="League[]"/>
+    <property name="name_long" type="string"/>
+  </entity>
+  <entity name="PlayerAvailabilityDAO">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">PlayerAvailabilityDAO</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dao.PlayerAvailabilityDAO</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="startTime" type="double"/>
+    <property name="id" type="integer"/>
+    <property name="player" type="PlayerDAO"/>
+    <property name="endTime" type="double"/>
+    <property name="dayOfWeek" type="integer"/>
+  </entity>
+  <entity name="EventMatchDAO">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">EventMatchDAO</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dao.EventMatchDAO</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="team1" type="TeamDAO"/>
+    <property name="team2" type="TeamDAO"/>
+    <property name="id" type="integer"/>
+    <property name="scheduled" type="boolean"/>
+    <property name="setList" type="MatchSetDAO[]"/>
+    <property name="seasonEvent" type="SeasonEventDAO"/>
+    <property name="courtNo" type="integer"/>
+    <property name="eventTeam2" type="EventTeamDAO"/>
+    <property name="eventTeam1" type="EventTeamDAO"/>
+    <property name="poolNo" type="integer"/>
+    <property name="timeSlot" type="integer"/>
+  </entity>
+  <entity name="LobHelper">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">LobHelper</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">org.hibernate.LobHelper</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">Dummy,PlayerService</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+  </entity>
+  <entity name="TeamDAO">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">TeamDAO</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dao.TeamDAO</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">Dummy,PlayerService,PlayerServiceDummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="id" type="integer"/>
+    <property name="invitations" type="InvitationDAO[]"/>
+    <property name="teamEvents" type="EventTeamDAO[]"/>
+    <property name="teamPlayers" type="TeamPlayerDAO[]"/>
+    <property name="leagueSeasonList" type="LeagueSeasonDAO[]"/>
+    <property name="name" type="string"/>
+  </entity>
+  <entity name="TeamPlayerDAO">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">TeamPlayerDAO</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dao.TeamPlayerDAO</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="id" type="integer"/>
+    <property name="player" type="PlayerDAO"/>
+    <property name="role" type="integer"/>
+    <property name="team" type="TeamDAO"/>
+  </entity>
+  <entity name="EventTeam">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">EventTeam</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dto.EventTeam</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="seasonEvent" type="SeasonEvent"/>
+    <property name="teamPlayerList" type="TeamPlayer[]"/>
+    <property name="id" type="integer"/>
+    <property name="lost" type="integer"/>
+    <property name="pool" type="integer"/>
+    <property name="team" type="Team"/>
+    <property name="won" type="integer"/>
+    <property name="teamId" type="integer"/>
+    <property name="pos" type="integer"/>
+  </entity>
+  <entity name="LeagueAdminDAO">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">LeagueAdminDAO</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dao.LeagueAdminDAO</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="id" type="integer"/>
+    <property name="player" type="PlayerDAO"/>
+    <property name="role" type="integer"/>
+    <property name="league" type="LeagueDAO"/>
+  </entity>
+  <entity name="EntityNotFoundDelegate">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">EntityNotFoundDelegate</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">org.hibernate.proxy.EntityNotFoundDelegate</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">Dummy,PlayerService</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+  </entity>
+  <entity name="SessionFactoryOptions">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">SessionFactoryOptions</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">org.hibernate.SessionFactory.SessionFactoryOptions</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">Dummy,PlayerService</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="interceptor" type="Interceptor"/>
+    <property name="entityNotFoundDelegate" type="EntityNotFoundDelegate"/>
+  </entity>
+  <entity name="Session">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">Session</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">org.hibernate.Session</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">Dummy,PlayerService</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <annotation name="getSession">
+      <item name="propertySpecifier">defaultReadOnly,flushMode,open,sessionFactory,lobHelper,connected,dirty,cacheMode,typeHelper,statistics</item>
+    </annotation>
+    <property name="defaultReadOnly" type="boolean"/>
+    <property name="flushMode" type="string"/>
+    <property name="open" type="boolean"/>
+    <property name="sessionFactory" type="SessionFactory"/>
+    <property name="lobHelper" type="LobHelper"/>
+    <property name="connected" type="boolean"/>
+    <property name="dirty" type="boolean"/>
+    <property name="cacheMode" type="string"/>
+    <property name="typeHelper" type="TypeHelper"/>
+    <property name="statistics" type="SessionStatistics"/>
+  </entity>
+  <entity name="VolleyLevel">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">VolleyLevel</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dto.VolleyLevel</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="id" type="integer"/>
+    <property name="minInterest" type="LevelInterest[]"/>
+    <property name="maxInterest" type="LevelInterest[]"/>
+    <property name="skillLevel" type="integer"/>
+    <property name="name" type="string"/>
+  </entity>
+  <entity name="VolleyLevelDAO">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">VolleyLevelDAO</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dao.VolleyLevelDAO</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="minInterest" type="LevelInterestDAO[]"/>
+    <property name="id" type="integer"/>
+    <property name="maxInterest" type="LevelInterestDAO[]"/>
+    <property name="skillLevel" type="integer"/>
+    <property name="name" type="string"/>
+  </entity>
+  <entity name="SeasonEventDAO">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">SeasonEventDAO</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dao.SeasonEventDAO</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="setTime" type="integer"/>
+    <property name="setPoints" type="integer"/>
+    <property name="setCount" type="integer"/>
+    <property name="capOn15" type="integer"/>
+    <property name="capOn21" type="integer"/>
+    <property name="timePerPoint" type="integer"/>
+    <property name="location" type="LocationDAO"/>
+    <property name="capOn25" type="integer"/>
+    <property name="maxPlayerPerPool" type="integer"/>
+    <property name="setConfig" type="integer"/>
+    <property name="date" type="long"/>
+    <property name="poolCount" type="integer"/>
+    <property name="id" type="integer"/>
+    <property name="startTime" type="double"/>
+    <property name="leagueSeason" type="LeagueSeasonDAO"/>
+    <property name="scheduleLocked" type="boolean"/>
+    <property name="courtCount" type="integer"/>
+    <property name="teamInvitations" type="InvitationDAO[]"/>
+    <property name="matchList" type="EventMatchDAO[]"/>
+    <property name="teamPosList" type="EventTeamDAO[]"/>
+  </entity>
+  <entity name="LevelInterestDAO">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">LevelInterestDAO</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dao.LevelInterestDAO</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="id" type="integer"/>
+    <property name="maxLevel" type="VolleyLevelDAO"/>
+    <property name="player" type="PlayerDAO"/>
+    <property name="minLevel" type="VolleyLevelDAO"/>
+    <property name="volleyType" type="VolleyTypeDAO"/>
+  </entity>
+  <entity name="LeagueDAO">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">LeagueDAO</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dao.LeagueDAO</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="id" type="integer"/>
+    <property name="organization" type="OrganizationDAO"/>
+    <property name="seasonList" type="LeagueSeasonDAO[]"/>
+    <property name="name" type="string"/>
+    <property name="volleyType" type="VolleyTypeDAO"/>
+    <property name="hasSeasonTeams" type="boolean"/>
+    <property name="adminList" type="LeagueAdminDAO[]"/>
+  </entity>
+  <entity name="LeagueSeason">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">LeagueSeason</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dto.LeagueSeason</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <annotation name="listLeagueSeasons">
+      <item name="propertySpecifier">startDate,seasonTeamList,defaultLocation,defaultCapOn21,defaultCourtCount,eventCount,endDate,defaultStartTime,league,eventList,id,defaultMaxPlayerPerPool,defaultSetConfig,name,defaultTimePerPoint,defaultCapOn15,defaultCapOn25</item>
+    </annotation>
+    <property name="setTime" type="integer"/>
+    <property name="startTime" type="double"/>
+    <property name="courtCount" type="integer"/>
+    <property name="setPoints" type="integer"/>
+    <property name="setCount" type="integer"/>
+    <property name="defaultSetCount" type="integer"/>
+    <property name="defaultSetTime" type="integer"/>
+    <property name="defaultSetPoints" type="integer"/>
+    <property name="startDate" type="long"/>
+    <property name="seasonTeamList" type="Team[]"/>
+    <property name="defaultLocation" type="Location"/>
+    <property name="defaultCapOn21" type="integer"/>
+    <property name="defaultCourtCount" type="integer"/>
+    <property name="eventCount" type="integer"/>
+    <property name="endDate" type="long"/>
+    <property name="defaultStartTime" type="double"/>
+    <property name="league" type="League"/>
+    <property name="eventList" type="SeasonEvent[]"/>
+    <property name="id" type="integer"/>
+    <property name="defaultMaxPlayerPerPool" type="integer"/>
+    <property name="defaultSetConfig" type="integer"/>
+    <property name="name" type="string"/>
+    <property name="defaultTimePerPoint" type="integer"/>
+    <property name="defaultCapOn15" type="integer"/>
+    <property name="defaultCapOn25" type="integer"/>
+  </entity>
+  <entity name="LeagueAdmin">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">LeagueAdmin</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dto.LeagueAdmin</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="id" type="integer"/>
+    <property name="player" type="Player"/>
+    <property name="role" type="integer"/>
+    <property name="league" type="League"/>
+  </entity>
+  <entity name="PlayerDAO">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">PlayerDAO</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dao.PlayerDAO</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="lastName" type="string"/>
+    <property name="phone" type="string"/>
+    <property name="sex" type="integer"/>
+    <property name="invitationsSent" type="InvitationDAO[]"/>
+    <property name="levelInterestList" type="LevelInterestDAO[]"/>
+    <property name="leagueSeasonInterest" type="LeagueSeasonDAO[]"/>
+    <property name="password" type="string"/>
+    <property name="invitationsReceived" type="InvitationDAO[]"/>
+    <property name="id" type="integer"/>
+    <property name="height" type="integer"/>
+    <property name="availabilityList" type="PlayerAvailabilityDAO[]"/>
+    <property name="email" type="string"/>
+    <property name="zipCode" type="string"/>
+    <property name="longitude" type="float"/>
+    <property name="birthDate" type="long"/>
+    <property name="latitude" type="float"/>
+    <property name="firstName" type="string"/>
+    <property name="teamList" type="TeamPlayerDAO[]"/>
+    <property name="adminList" type="LeagueAdminDAO[]"/>
+  </entity>
+  <entity name="TypeHelper">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">TypeHelper</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">org.hibernate.TypeHelper</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">Dummy,PlayerService</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+  </entity>
+  <entity name="InvitationDAO">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">InvitationDAO</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dao.InvitationDAO</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="id" type="integer"/>
+    <property name="fromPlayer" type="PlayerDAO"/>
+    <property name="response" type="string"/>
+    <property name="status" type="integer"/>
+    <property name="seasonEvent" type="SeasonEventDAO"/>
+    <property name="toPlayer" type="PlayerDAO"/>
+    <property name="team" type="TeamDAO"/>
+    <property name="fromMessage" type="string"/>
+  </entity>
+  <entity name="LocationDAO">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">LocationDAO</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dao.LocationDAO</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="id" type="integer"/>
+    <property name="googleMapsUrl" type="string"/>
+    <property name="address" type="string"/>
+    <property name="name" type="string"/>
+    <property name="zipcode" type="string"/>
+    <property name="province" type="string"/>
+    <property name="longitude" type="float"/>
+    <property name="latitude" type="float"/>
+    <property name="country" type="string"/>
+    <property name="city" type="string"/>
+  </entity>
+  <entity name="League">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">League</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dto.League</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <annotation name="listLeagues">
+      <item name="propertySpecifier">id,organization,seasonList,name,volleyType,hasSeasonTeams,adminList</item>
+    </annotation>
+    <property name="id" type="integer"/>
+    <property name="organization" type="Organization"/>
+    <property name="seasonList" type="LeagueSeason[]"/>
+    <property name="name" type="string"/>
+    <property name="volleyType" type="VolleyType"/>
+    <property name="hasSeasonTeams" type="boolean"/>
+    <property name="adminList" type="LeagueAdmin[]"/>
+  </entity>
+  <entity name="SeasonEvent">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">SeasonEvent</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dto.SeasonEvent</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy,PlayerServiceDummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <annotation name="listSeasonEvents">
+      <item name="propertySpecifier">capOn15,capOn21,timePerPoint,capOn25,maxPlayerPerPool,date,setConfig,poolCount,id,startTime,scheduleLocked,courtCount,matchList,teamPosList</item>
+    </annotation>
+    <annotation name="generateSeasonEvents">
+      <item name="propertySpecifier">capOn15,capOn21,timePerPoint,capOn25,maxPlayerPerPool,date,setConfig,poolCount,id,startTime,scheduleLocked,courtCount,matchList,teamPosList</item>
+    </annotation>
+    <annotation name="getSeasonEvent">
+      <item name="propertySpecifier">capOn15,capOn21,timePerPoint,capOn25,maxPlayerPerPool,date,setConfig,poolCount,id,startTime,scheduleLocked,courtCount,matchList,teamPosList</item>
+    </annotation>
+    <annotation name="getEventPackage">
+      <item name="propertySpecifier">capOn15,capOn21,timePerPoint,capOn25,maxPlayerPerPool,date,setConfig,poolCount,id,startTime,scheduleLocked,courtCount,matchList,teamPosList</item>
+    </annotation>
+    <property name="location" type="Location"/>
+    <property name="teamInvitations" type="Invitation[]"/>
+    <property name="leagueSeason" type="LeagueSeason"/>
+    <property name="setTime" type="integer"/>
+    <property name="setPoints" type="integer"/>
+    <property name="setCount" type="integer"/>
+    <property name="capOn15" type="integer"/>
+    <property name="capOn21" type="integer"/>
+    <property name="timePerPoint" type="integer"/>
+    <property name="capOn25" type="integer"/>
+    <property name="maxPlayerPerPool" type="integer"/>
+    <property name="date" type="long"/>
+    <property name="setConfig" type="integer"/>
+    <property name="poolCount" type="integer"/>
+    <property name="id" type="integer"/>
+    <property name="startTime" type="double"/>
+    <property name="scheduleLocked" type="boolean"/>
+    <property name="courtCount" type="integer"/>
+    <property name="matchList" type="EventMatch[]"/>
+    <property name="teamPosList" type="EventTeam[]"/>
+  </entity>
+  <entity name="EventTeamDAO">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">EventTeamDAO</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dao.EventTeamDAO</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="id" type="integer"/>
+    <property name="lost" type="integer"/>
+    <property name="pool" type="integer"/>
+    <property name="happy" type="integer"/>
+    <property name="seasonEvent" type="SeasonEventDAO"/>
+    <property name="team" type="TeamDAO"/>
+    <property name="won" type="integer"/>
+    <property name="pos" type="integer"/>
+  </entity>
+  <entity name="SessionFactory">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">SessionFactory</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">org.hibernate.SessionFactory</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">Dummy,PlayerService</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <annotation name="getSessionFactory">
+      <item name="propertySpecifier">allClassMetadata,sessionFactoryOptions,cache,closed,currentSession,definedFilterNames,typeHelper,allCollectionMetadata,statistics</item>
+    </annotation>
+    <property name="allClassMetadata" type="opaque"/>
+    <property name="sessionFactoryOptions" type="SessionFactoryOptions"/>
+    <property name="cache" type="Cache"/>
+    <property name="closed" type="boolean"/>
+    <property name="currentSession" type="Session"/>
+    <property name="definedFilterNames" type="opaque[]"/>
+    <property name="typeHelper" type="TypeHelper"/>
+    <property name="allCollectionMetadata" type="opaque"/>
+    <property name="statistics" type="Statistics"/>
+  </entity>
+  <entity name="Location">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">Location</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dto.Location</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <annotation name="listLocations">
+      <item name="propertySpecifier">id,googleMapsUrl,address,name,zipcode,province,longitude,latitude,city,country</item>
+    </annotation>
+    <property name="id" type="integer"/>
+    <property name="googleMapsUrl" type="string"/>
+    <property name="address" type="string"/>
+    <property name="name" type="string"/>
+    <property name="zipcode" type="string"/>
+    <property name="province" type="string"/>
+    <property name="longitude" type="float"/>
+    <property name="latitude" type="float"/>
+    <property name="city" type="string"/>
+    <property name="country" type="string"/>
+  </entity>
+  <entity name="Cache">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">Cache</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">org.hibernate.Cache</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">Dummy,PlayerService</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+  </entity>
+  <entity name="VolleyType">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">VolleyType</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dto.VolleyType</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="id" type="integer"/>
+    <property name="sex" type="integer"/>
+    <property name="interestedPlayers" type="LevelInterest[]"/>
+    <property name="name_short" type="string"/>
+    <property name="env" type="integer"/>
+    <property name="playerCount" type="integer"/>
+    <property name="name_long" type="string"/>
+  </entity>
+  <entity name="Invitation">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">Invitation</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dto.Invitation</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <annotation name="listPlayerInvitations">
+      <item name="propertySpecifier">fromPlayer,response,id,status,seasonEvent,toPlayer,team,fromMessage</item>
+    </annotation>
+    <property name="fromPlayer" type="Player"/>
+    <property name="response" type="string"/>
+    <property name="id" type="integer"/>
+    <property name="status" type="integer"/>
+    <property name="seasonEvent" type="SeasonEvent"/>
+    <property name="toPlayer" type="Player"/>
+    <property name="team" type="Team"/>
+    <property name="fromMessage" type="string"/>
+  </entity>
+  <entity name="MatchSetDAO">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">MatchSetDAO</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dao.MatchSetDAO</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="id" type="integer"/>
+    <property name="winningTeam" type="integer"/>
+    <property name="eventMatch" type="EventMatchDAO"/>
+    <property name="scoreTeam1" type="integer"/>
+    <property name="scoreTeam2" type="integer"/>
+    <property name="finished" type="boolean"/>
+    <property name="setPoints" type="integer"/>
+    <property name="setNo" type="integer"/>
+  </entity>
+  <entity name="Team">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">Team</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dto.Team</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <annotation name="listSeasonTeams">
+      <item name="propertySpecifier">id,teamPlayers,lost,pool,name,won,pos</item>
+    </annotation>
+    <annotation name="listEventTeams">
+      <item name="propertySpecifier">id,teamPlayers,lost,pool,name,won,pos</item>
+    </annotation>
+    <property name="invitations" type="Invitation[]"/>
+    <property name="leagueSeasonList" type="LeagueSeason[]"/>
+    <property name="id" type="integer"/>
+    <property name="teamPlayers" type="TeamPlayer[]"/>
+    <property name="lost" type="integer"/>
+    <property name="pool" type="integer"/>
+    <property name="name" type="string"/>
+    <property name="won" type="integer"/>
+    <property name="pos" type="integer"/>
+  </entity>
+  <entity name="TransacResult">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">TransacResult</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dto.TransacResult</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">Dummy,PlayerService</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <annotation name="savePlayerProfile">
+      <item name="propertySpecifier">id,message,errorCode,success</item>
+    </annotation>
+    <annotation name="addTeamPlayer">
+      <item name="propertySpecifier">id,message,errorCode,success</item>
+    </annotation>
+    <annotation name="addLocation">
+      <item name="propertySpecifier">id,message,errorCode,success</item>
+    </annotation>
+    <annotation name="generateEventSchedule">
+      <item name="propertySpecifier">id,message,errorCode,success</item>
+    </annotation>
+    <annotation name="saveSetScore">
+      <item name="propertySpecifier">id,message,errorCode,success</item>
+    </annotation>
+    <property name="id" type="integer"/>
+    <property name="message" type="string"/>
+    <property name="errorCode" type="integer"/>
+    <property name="success" type="boolean"/>
+  </entity>
+  <entity name="LeagueSeasonDAO">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">LeagueSeasonDAO</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dao.LeagueSeasonDAO</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="startTime" type="double"/>
+    <property name="setTime" type="integer"/>
+    <property name="courtCount" type="integer"/>
+    <property name="setPoints" type="integer"/>
+    <property name="setCount" type="integer"/>
+    <property name="defaultSetCount" type="integer"/>
+    <property name="defaultSetTime" type="integer"/>
+    <property name="defaultSetPoints" type="integer"/>
+    <property name="seasonTeamList" type="TeamDAO[]"/>
+    <property name="startDate" type="long"/>
+    <property name="defaultLocation" type="LocationDAO"/>
+    <property name="defaultCapOn21" type="integer"/>
+    <property name="defaultCourtCount" type="integer"/>
+    <property name="eventCount" type="integer"/>
+    <property name="endDate" type="long"/>
+    <property name="defaultStartTime" type="double"/>
+    <property name="league" type="LeagueDAO"/>
+    <property name="eventList" type="SeasonEventDAO[]"/>
+    <property name="id" type="integer"/>
+    <property name="defaultMaxPlayerPerPool" type="integer"/>
+    <property name="defaultSetConfig" type="integer"/>
+    <property name="name" type="string"/>
+    <property name="defaultCapOn15" type="integer"/>
+    <property name="defaultTimePerPoint" type="integer"/>
+    <property name="defaultCapOn25" type="integer"/>
+  </entity>
+  <entity name="Interceptor">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">Interceptor</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">org.hibernate.Interceptor</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">Dummy,PlayerService</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+  </entity>
+  <entity name="MatchSet">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">MatchSet</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dto.MatchSet</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <annotation name="listMatchSets">
+      <item name="propertySpecifier">id,winningTeam,matchId,eventMatch,scoreTeam1,scoreTeam2,finished,setPoints,setNo</item>
+    </annotation>
+    <property name="id" type="integer"/>
+    <property name="winningTeam" type="integer"/>
+    <property name="matchId" type="integer"/>
+    <property name="eventMatch" type="EventMatch"/>
+    <property name="scoreTeam1" type="integer"/>
+    <property name="scoreTeam2" type="integer"/>
+    <property name="finished" type="boolean"/>
+    <property name="setPoints" type="integer"/>
+    <property name="setNo" type="integer"/>
+  </entity>
+  <entity name="SessionStatistics">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">SessionStatistics</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">org.hibernate.stat.SessionStatistics</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">Dummy,PlayerService</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="collectionCount" type="integer"/>
+    <property name="collectionKeys" type="opaque[]"/>
+    <property name="entityKeys" type="opaque[]"/>
+    <property name="entityCount" type="integer"/>
+  </entity>
+  <entity name="EventMatch">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">EventMatch</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dto.EventMatch</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <annotation name="listEventMatches">
+      <item name="propertySpecifier">id,team2Id,eventId,setList,seasonEvent,courtNo,team1Id,team1,team2,timeSlot</item>
+    </annotation>
+    <property name="id" type="integer"/>
+    <property name="team2Id" type="integer"/>
+    <property name="eventId" type="integer"/>
+    <property name="setList" type="MatchSet[]"/>
+    <property name="seasonEvent" type="SeasonEvent"/>
+    <property name="courtNo" type="integer"/>
+    <property name="team1Id" type="integer"/>
+    <property name="team1" type="Team"/>
+    <property name="team2" type="Team"/>
+    <property name="timeSlot" type="integer"/>
+  </entity>
+  <entity name="OrganizationDAO">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">OrganizationDAO</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dao.OrganizationDAO</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="id" type="integer"/>
+    <property name="name_short" type="string"/>
+    <property name="name_long" type="string"/>
+    <property name="leagueList" type="LeagueDAO[]"/>
+  </entity>
+</model>

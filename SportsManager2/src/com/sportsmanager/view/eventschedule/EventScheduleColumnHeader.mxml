@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="100%" creationComplete="onCreationComplete(event)">
+
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+	
+			private var _label:String;
+			
+			
+			
+			public function get label():String
+			{
+				return _label;
+			}
+
+			public function set label(value:String):void
+			{
+				_label = value;
+			}
+
+			protected function onCreationComplete(event:FlexEvent):void
+			{
+				lblTitle.text = _label;	
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<s:BorderContainer id="container" width="100%" height="25" backgroundColor="#1A2A3B" cornerRadius="0" dropShadowVisible="true" >
+		<s:Label id="lblTitle" width="100%" color="#EAFF00" fontSize="16" paddingTop="5" textAlign="center"/>
+	</s:BorderContainer>
+</s:Group>

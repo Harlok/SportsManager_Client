@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" height="100%" 
+		 creationComplete="onCreateComplete(event)">
+	<fx:Script>
+		<![CDATA[
+			import com.sportsmanager.controller.RootController;
+			
+			import mx.collections.ArrayCollection;
+			import mx.events.FlexEvent;
+			import mx.rpc.events.FaultEvent;
+			import mx.rpc.events.ResultEvent;
+			
+			import services.ServerTransac;
+			
+			import valueObjects.PlayerScheduleItem;
+			
+			private var _itemList:ArrayCollection;
+			
+			protected function onCreateComplete(event:FlexEvent):void
+			{
+				var trans:ServerTransac = new ServerTransac(onScheduleLoadSuccess, onScheduleLoadFailed);
+				trans.getPlayerSchedule(RootController.instance.profileManager.player.id);
+			}
+			
+			private function onScheduleLoadSuccess(result:ResultEvent):void
+			{
+				trace("onScheduleLoadSuccess)");
+				
+				var item:PlayerScheduleItem;
+				var row:PlayerScheduleRow;
+				
+				_itemList = result.result as ArrayCollection;
+				
+				for (var i:int = 0; i< _itemList.length; i++)
+				{
+					item = _itemList[i];
+					//trace("Date = " + item.date + " team = " + item.teamName);
+					row = new PlayerScheduleRow();
+					row.item = item;
+					rowHolder.addElement(row);
+				}
+				
+			}
+			
+			private function onScheduleLoadFailed(fault:FaultEvent):void
+			{
+				trace("onScheduleLoadFailed)");
+				
+			}
+			
+			protected function onClickBack(event:MouseEvent):void
+			{
+				RootController.instance.requestScreen(RootController.SCREEN_BACK);
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:VGroup>
+		<s:HGroup width="100%">
+			<s:Button id="butBack" label="Back" click="onClickBack(event)" />
+			<s:Label width="100%" text="Mon Horaire" fontSize="24" backgroundColor="#EEEEEE" />	
+		</s:HGroup>
+		<s:VGroup id="rowHolder" width="100%" />
+	</s:VGroup>
+</s:Group>

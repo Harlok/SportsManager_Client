@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" 
+		 creationComplete="onCreationComplete(event)">
+	<fx:Script>
+		<![CDATA[
+			import com.loki.utils.Convert;
+			import com.sportsmanager.controller.RootController;
+			import com.sportsmanager.events.NavigationEvent;
+			import com.sportsmanager.view.RootContainer;
+			
+			import mx.events.FlexEvent;
+			
+			import valueObjects.PlayerScheduleItem;
+			
+			private var _item:PlayerScheduleItem;
+			
+			
+			public function get item():PlayerScheduleItem
+			{
+				return _item;
+			}
+
+			public function set item(value:PlayerScheduleItem):void
+			{
+				_item = value;
+			}
+
+			protected function onCreationComplete(event:FlexEvent):void
+			{
+				trace("_item = " + item);
+				
+				var date:Date = new Date();
+				date.time = item.date;
+				var dateStr:String = Convert.getDayName(date.day) + " " + date.date + " " + Convert.getMonthName(date.month) + " " + date.fullYear;
+				lblDate.text = dateStr;
+				butLeague.label = item.leagueName;
+				butTeam.label = item.teamName;
+				butWhere.label = item.locationName;
+			}
+			
+			protected function onClickSchedule(event:MouseEvent):void
+			{
+				RootController.instance.requestScreen(RootController.SCREEN_EVENT_SCHEDULE, _item.eventId);
+				
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<s:BorderContainer width="100%" backgroundColor="#9999BB">
+		<s:HGroup paddingTop="3" paddingLeft="5" paddingRight="5" verticalAlign="middle">
+			<s:Label id="lblDate" width="100" color="#FCFF00" text="day Month year"/>
+			<s:Button id="butLeague" width="150" label="League" />
+			<s:Button id="butTeam" width="150" label="Team name and what not" />
+			<s:Button id="butWhere" width="150" label="Where is this event?" />
+			<s:Button id="butSchedule" width="100" label="Horaire" click="onClickSchedule(event)" />
+		</s:HGroup>
+	</s:BorderContainer>
+</s:Group>

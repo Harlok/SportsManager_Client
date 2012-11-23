@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="100%" height="100%" xmlns:match="com.sportsmanager.view.match.*" creationComplete="onCreationComplete(event)">
+	
+	<fx:Script>
+		<![CDATA[
+			import com.sportsmanager.controller.DataBox;
+			import com.sportsmanager.controller.RootController;
+			
+			import mx.collections.ArrayCollection;
+			import mx.controls.Alert;
+			import mx.events.FlexEvent;
+			import mx.rpc.events.FaultEvent;
+			import mx.rpc.events.ResultEvent;
+			
+			import services.ServerTransac;
+			
+			import valueObjects.EventMatch;
+			import valueObjects.MatchSet;
+			import valueObjects.Team;
+			
+			private var _match:EventMatch
+			private var _setList:Array = new Array();
+			private var _rowList:Array = new Array();
+			
+			protected function onCreationComplete(event:FlexEvent):void
+			{
+				var trans:ServerTransac = new ServerTransac(onSetsLoadSuccess, onSetsLoadFault);
+				trans.listMatchSets(_match.id);
+				
+				trace("Loading set for match " + _match.id);
+			}
+			
+			private function onSetsLoadSuccess(result:ResultEvent):void
+			{
+				trace("onSetsLoadSuccess)");
+				
+				trace("EventId = " + _match.eventId + " = " + _match.seasonEvent.id);
+				var i:int;
+				var rawList:ArrayCollection = result.result as ArrayCollection;
+								
+				var matchSet:MatchSet;
+				
+				for each (matchSet in rawList)
+				{
+					matchSet.matchId = _match.id;
+					_setList[matchSet.setNo-1] = matchSet;	
+				}
+				
+				chooseNextStep();
+			}
+			
+			private function chooseNextStep():void
+			{
+				var config:Array = String(_match.seasonEvent.setConfig).split(""); // split the config on each char
+				if (_setList.length == 0) // if there are no sets started
+				{
+					addSet(1,config[0]); // add a first set
+				}
+				else if (_setList.length == 1) // if we only have one set created so far
+				{
+					if ((_setList[0].finished) && (config.length > 1)) // if it's finished and we're configured to have more than 1 set
+					{
+						addSet(2,config[1]); // add the second set 
+					}
+				}
+				else if (_setList.length == 2) // if we have 2 sets created so far
+				{
+					if (!_setList[1].finished) // and it's not finished
+					{
+						// do nothing 
+					}
+					else if (config.length > 2) // else if we planned on having a tie breaker
+					{
+						var set1:MatchSet = _setList[0] as MatchSet;
+						var set2:MatchSet = _setList[1] as MatchSet;
+						if (set1.winningTeam != set2.winningTeam) // if the two first sets were split, we need a tie breaker
+						{
+							addSet(3,config[2]);
+						}
+					}
+				}
+				
+				refreshRows();
+			}
+			
+			private function addSet(no:int, setPoints:int):void
+			{
+				var matchSet:MatchSet = new MatchSet();
+				matchSet.matchId = _match.id;
+				matchSet.setNo = no;
+				matchSet.scoreTeam1 = 0;
+				matchSet.scoreTeam2 = 0;
+				matchSet.setPoints = [,15,21,25][setPoints];
+				_setList[no-1] = matchSet;
+			}
+			
+			private function refreshRows():void
+			{
+				var i:int;
+				var row:MatchSetRow;
+				
+				for (i = _rowList.length; i<_setList.length; i++)
+				{
+					row = new MatchSetRow();
+					_rowList[i] = row;
+					row.matchSet = _setList[i];
+					setRowHolder.addElement(row);
+					row.addEventListener("FINISHED",onSetFinished);
+					/* if (i < _setList.length)
+					{
+						row.enabled = false;
+					} */
+				}
+			}
+			
+			protected function onSetFinished(event:Event):void
+			{
+				trace("onSetFinished)");
+				chooseNextStep();
+				
+			}
+			
+			private function onSetsLoadFault(fault:FaultEvent):void
+			{
+				Alert.show("Problem loading sets: " + fault.message,"Error");
+				
+			}
+			
+			
+			
+			
+			public function get match():EventMatch
+			{
+				return _match;
+			}
+
+			public function set match(value:EventMatch):void
+			{
+				_match = value;
+			}
+
+			protected function onClickBack(event:MouseEvent):void
+			{
+				RootController.instance.requestScreen(RootController.SCREEN_BACK);
+				
+			}
+			
+			protected function onTeamPanel1Created(event:FlexEvent):void
+			{
+				//var team:Team = DataBox.instance.teamList.getItemById(_match.team1Id) as Team;
+				teamPanel1.team = _match.team1;
+				
+			}
+			
+			protected function onTeamPanel2Created(event:FlexEvent):void
+			{
+				//var team:Team = DataBox.instance.teamList.getItemById(_match.team2Id) as Team;
+				teamPanel2.team = _match.team2;
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<s:VGroup width="100%" height="100%">
+		<s:HGroup width="100%">
+			<s:Button id="butBack" label="Back" click="onClickBack(event)" />
+			<s:Label width="100%" text="Match" fontSize="24" backgroundColor="#EEEEEE" />	
+		</s:HGroup>
+		
+		<s:BorderContainer width="100%" >
+			<s:HGroup width="100%" height="100%" >
+				<match:MatchTeamPanel id="teamPanel1" creationComplete="onTeamPanel1Created(event)" />
+				<match:MatchTeamPanel id="teamPanel2" creationComplete="onTeamPanel2Created(event)" />
+			</s:HGroup>
+		</s:BorderContainer>
+
+		<s:HGroup width="100%">
+			<s:Spacer width="100%" />
+			<s:VGroup id="setRowHolder" />
+			<s:Spacer width="100%" />
+		</s:HGroup>
+		
+	</s:VGroup>
+	
+</s:Group>

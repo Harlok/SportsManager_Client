@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:BorderContainer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				   xmlns:s="library://ns.adobe.com/flex/spark" 
+				   xmlns:mx="library://ns.adobe.com/flex/mx" width="100%" creationComplete="onCreationComplete(event)">
+	<fx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+			import mx.events.FlexEvent;
+			
+			import valueObjects.Team;
+			
+			private var _team:Team
+			private var _playerList:ArrayCollection;
+			
+			
+			
+			public function get playerList():ArrayCollection
+			{
+				return _playerList;
+			}
+
+			public function set playerList(value:ArrayCollection):void
+			{
+				_playerList = value;
+			}
+
+			public function get team():Team
+			{
+				return _team;
+			}
+
+			public function set team(value:Team):void
+			{
+				_team = value;
+				lblTeamName.text = _team.name;
+			}
+
+			protected function onCreationComplete(event:FlexEvent):void
+			{
+				//lblTeamName.text = _team.name;
+				//DataBox
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	
+	
+	<s:VGroup width="100%" >
+		<s:Label id="lblTeamName" width="100%" backgroundColor="0x33BB66" fontSize="18" />
+		<s:VGroup id="cellHolder" width="100%" height="100%" />
+	</s:VGroup>
+</s:BorderContainer>

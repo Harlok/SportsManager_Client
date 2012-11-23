@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009"
+		 xmlns:s="library://ns.adobe.com/flex/spark"
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 xmlns:valueObjects="valueObjects.*"
+		 xmlns:services="services.*"
+		 width="100%" height="100%"
+		 creationComplete="onCreateComplete(event)">
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>
+	<fx:Script>
+		<![CDATA[
+			import com.loki.utils.Convert;
+			import com.loki.utils.Utils;
+			import com.loki.utils.Validator;
+			import com.sportsmanager.controller.ProfileManager;
+			import com.sportsmanager.controller.RootController;
+			
+			import mx.controls.Alert;
+			import mx.events.FlexEvent;
+			import mx.rpc.events.FaultEvent;
+			import mx.rpc.events.ResultEvent;
+			
+			import services.PlayerService;
+			import services.ServerTransac;
+			
+			import spark.events.TextOperationEvent;
+			
+			import valueObjects.Player;
+			import valueObjects.TransacResult;
+			
+			private var _profileMgr:ProfileManager;
+			private var _player:Player;
+			
+			protected function onCreateComplete(event:FlexEvent):void
+			{
+				_profileMgr = RootController.instance.profileManager;
+				if (_profileMgr.player != null)
+				{
+					player = _profileMgr.player;
+				}
+				else if (false)
+				{
+					trace("Creating default player for testing...");
+					var p:Player = new Player();
+					p.firstName = "John";
+					p.lastName = "Smith";
+					p.email = "lucchevalier75@gmail.com";
+					p.birthDate = (new Date(1975,5,12,0,0,0,0)).time;
+					p.height = 185;
+					p.phone = "5145924396";
+					p.sex = 1;
+					p.password = "qwerty";
+					p.zipCode = "H2J1Y8";
+					
+					player = p;
+				}
+			}
+			
+			public function set player(player:Player):void
+			{
+				_player = player;
+				
+				txtFirstName.text = _player.firstName;
+				txtLastName.text = _player.lastName;
+				txtPhone.text = Convert.formatPhone(_player.phone);
+				txtEmail.text = _player.email;
+				cmbSex.selectedIndex = Utils.getItemIndex(cmbSex.dataProvider.toArray(), "data",_player.sex);
+				txtPassword1.text = _player.password;
+				txtPassword2.text = _player.password;
+				txtHeightCM.text = String(_player.height);
+				txtZipCode.text = String(_player.zipCode).toUpperCase();
+				
+				var date:Date = new Date();
+				date.time = _player.birthDate;
+				txtBirthDay.text = String(date.date);
+				txtBirthMonth.text = String(date.month + 1);
+				txtBirthYear.text = String(date.fullYear);
+				
+				onHeightChanged();
+			}
+			
+			private function clickSave(event:MouseEvent):void
+			{
+				var valid:Boolean = true;
+				var errorMessage:String = "";
+				var val:Validator = new Validator();
+				var p:Player;
+				
+				if ((txtFirstName.text.length < 2) ||
+					(txtLastName.text.length < 2) ||
+					(!val.isPhone(txtPhone.text)) ||
+					(!val.isEmail(txtEmail.text)) ||
+					(txtPassword1.text.length == 0) ||
+					(((txtHeightFeet.text.length ==0) || (txtHeightInches.text.length ==0)) && (txtHeightCM.text.length == 0)) ||
+					(!val.isZipCode(txtZipCode.text)) ||
+					(Convert.numbersOnly(txtBirthDay.text).length == 0) ||
+					(Convert.numbersOnly(txtBirthMonth.text).length == 0) ||
+					(Convert.numbersOnly(txtBirthYear.text).length < 4))
+				{
+					errorMessage = "Veuillez remplir tous les champs";
+				}
+				else if (txtPassword1.text != txtPassword2.text)
+				{
+					errorMessage = "Votre confirmation de mot de passe est incorrecte";
+				}
+
+				if (errorMessage != "")
+				{
+					Alert.show(errorMessage,"Erreur");
+				}
+				else
+				{
+					if (_player != null) { p = _player; }
+					else { p = new Player(); }
+					
+					p.firstName = Convert.cleanName(txtFirstName.text);
+					p.lastName = Convert.cleanName(txtLastName.text);
+					p.email = txtEmail.text.toLowerCase();
+					p.password = txtPassword1.text;
+					p.phone = Convert.numbersOnly(txtPhone.text);
+					p.sex = cmbSex.selectedItem.data;
+					p.height = parseInt(txtHeightCM.text);
+					p.zipCode = Convert.trim(txtZipCode.text);
+					
+					var birthDate:Date = new Date(txtBirthYear.text,txtBirthMonth.text, txtBirthDay.text);
+					p.birthDate = birthDate.time;
+					p.longitude = 0;
+					p.latitude = 0;
+					
+					player = p; 
+					
+					var transac:ServerTransac = new ServerTransac(onSaveResult,onSaveFault);
+					transac.savePlayerProfile(p);
+				}
+			}
+			
+			
+			
+			
+			
+			protected function onSaveResult(event:ResultEvent):void
+			{
+				var result:TransacResult = event.result as TransacResult;
+				trace("onSaveResult) success = " + result.success);
+				if (result.success)
+				{
+					if (_player.id == 0) // if we were creating this profile:
+					{
+						_player.id = result.id;
+					}
+					
+					if (!RootController.instance.profileManager.player)
+					{
+						RootController.instance.profileManager.login(_player.email, _player.password);
+					}
+				}
+				else
+				{
+					Alert.show(result.message, "Erreur");
+				}
+				
+			}
+			
+			protected function onSaveFault(event:FaultEvent):void
+			{
+				trace("onSaveFault)");
+				Alert.show("Echec lors de la création du profil. [" + event.message + "]","Erreur");
+			}
+			
+			
+			
+			protected function onClickBack(event:MouseEvent):void
+			{
+				//RootController.instance.requestScreen(RootController.SCREEN_MAIN_MENU);
+				RootController.instance.requestScreen(RootController.SCREEN_BACK);
+			}
+			
+			protected function onHeightChanged(event:TextOperationEvent = null):void
+			{
+				var cm:Number;
+				var feet:Number;
+				var inches:Number;
+				
+				if ((event == null) || (event.currentTarget == txtHeightCM))
+				{
+					if (txtHeightCM.text.length == 0) { cm = 0; }
+					else { cm = Number(txtHeightCM.text); }
+					
+					inches = cm / 2.54;
+					feet = Math.floor(inches/12);
+					inches = Math.round(inches - 12 * feet);
+					txtHeightFeet.text = String(feet);
+					txtHeightInches.text = String(inches);
+				}
+				else
+				{
+					if (txtHeightFeet.text.length == 0) { feet = 0; }
+					else { feet = Number(txtHeightFeet.text); }
+					
+					if (txtHeightInches.text.length == 0) { inches = 0; }
+					else { inches = Number(txtHeightInches.text); }
+					
+					cm = Math.round(2.54 * (12*feet + inches));
+					txtHeightCM.text = String(cm);
+					
+				}
+				
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<s:VGroup width="100%" paddingLeft="5" paddingRight="5" paddingTop="5" paddingBottom="5">
+		
+		<s:HGroup>
+			<s:Button id="butBack" label="Back" click="onClickBack(event)" />
+			<s:Label width="100%" text="Mon Profil" fontSize="24" backgroundColor="#EEEEEE" />	
+		</s:HGroup>
+			
+		
+		<s:HGroup width="100%" >
+			<s:VGroup>
+				<s:Label text="Prénom" />
+				<s:TextInput id="txtFirstName" />		
+			</s:VGroup>
+			<s:VGroup>
+				<s:Label text="Nom" />
+				<s:TextInput id="txtLastName" />
+			</s:VGroup>
+		</s:HGroup>
+	
+		<s:HGroup width="100%">
+			<s:VGroup>
+				<s:Label text="Téléphone" />
+				<s:TextInput id="txtPhone" restrict="0-9" maxChars="10" />
+			</s:VGroup>
+			<s:VGroup>
+				<s:Label text="Courriel" />
+				<s:TextInput id="txtEmail" width="177" />	
+			</s:VGroup>
+		</s:HGroup>
+		
+		<s:HGroup width="100%">
+			<s:VGroup>
+				<s:Label text="Sexe" />
+				<s:ComboBox id="cmbSex">
+					<s:dataProvider>
+						<s:ArrayList>
+							<fx:Object data="1" label="Homme" />
+							<fx:Object data="0" label="Femme" />
+						</s:ArrayList>
+					</s:dataProvider>
+				</s:ComboBox>
+			</s:VGroup>
+			<s:VGroup>
+				<s:Label text="Mot de passe" />
+				<s:TextInput id="txtPassword1" width="159" displayAsPassword="true" />
+				<s:Label text="Confirmer mot de passe" />
+				<s:TextInput id="txtPassword2" width="159" displayAsPassword="true" />
+			</s:VGroup>
+		</s:HGroup>
+		
+		<s:HGroup width="100%">
+			<s:VGroup paddingTop="5" paddingBottom="5" paddingLeft="5" paddingRight="5">
+				<s:Label text="Grandeur" />
+				<s:HGroup width="100%" verticalAlign="middle" gap="25">
+					<s:HGroup verticalAlign="middle">
+						<s:TextInput id="txtHeightFeet" width="20" textAlign="right" restrict="0-9" maxChars="1" change="onHeightChanged(event)" />
+						<s:Label text="pieds" />
+						<s:TextInput id="txtHeightInches" width="20" textAlign="right" restrict="0-9" maxChars="2" change="onHeightChanged(event)"/>
+						<s:Label text="pouces" />
+					</s:HGroup>
+					<s:Label text="ou" fontStyle="italic" />
+					<s:HGroup verticalAlign="middle">
+						<s:TextInput id="txtHeightCM" width="30" restrict="0-9" maxChars="3" change="onHeightChanged(event)" />
+						<s:Label text="cm" />	
+					</s:HGroup>
+				</s:HGroup>
+			</s:VGroup>
+		</s:HGroup>
+
+		<s:HGroup width="100%">
+			<s:VGroup>
+				<s:Label text="Code postal" />
+				<s:TextInput id="txtZipCode" />
+			</s:VGroup>
+			<s:VGroup>
+				<s:Label text="Date de naissance (jour-mois-année)" />
+				<s:HGroup >
+					<s:TextInput id="txtBirthDay" width="40" />
+					<s:TextInput id="txtBirthMonth" width="40" />
+					<s:TextInput id="txtBirthYear" width="70" />
+				</s:HGroup>
+			</s:VGroup>
+		</s:HGroup>
+
+		<s:Button id="button" label="Sauvegarder" click="clickSave(event)"/>
+		
+	</s:VGroup>
+
+</s:Group>

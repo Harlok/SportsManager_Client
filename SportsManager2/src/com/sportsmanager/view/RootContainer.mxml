@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009"
+		 xmlns:s="library://ns.adobe.com/flex/spark"
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 xmlns:services="services.*"
+		 width="100%" height="100%" creationComplete="onCreationComplete(event)">
+	<fx:Script>
+		<![CDATA[
+			import com.sportsmanager.controller.RootController;
+			import com.sportsmanager.events.LoginEvent;
+			import com.sportsmanager.events.NavigationEvent;
+			import com.sportsmanager.view.eventschedule.EventScheduleWindow;
+			import com.sportsmanager.view.login.LoginWindow;
+			import com.sportsmanager.view.mainmenu.MainMenu;
+			import com.sportsmanager.view.match.MatchWindow;
+			import com.sportsmanager.view.playerschedule.PlayerScheduleWindow;
+			import com.sportsmanager.view.profile.ProfileWindow;
+			
+			import mx.collections.ArrayCollection;
+			import mx.collections.ArrayList;
+			import mx.controls.Alert;
+			import mx.events.FlexEvent;
+			import mx.rpc.events.FaultEvent;
+			import mx.rpc.events.ResultEvent;
+			
+			import services.PlayerService;
+			import services.ServerTransac;
+			
+			private var _root:RootController;
+			private var _errorMessage:String;
+			private var _screen:DisplayObject;
+			private var _stack:ArrayCollection = new ArrayCollection();
+			
+			
+			protected function onCreationComplete(event:FlexEvent):void
+			{
+				_root = RootController.instance;
+				_root.init();
+				
+				_root.profileManager.addEventListener(LoginEvent.LOGIN_SUCCESS, onLoginSuccess);
+				_root.addEventListener(NavigationEvent.NAV_REQUEST, onNavRequest);
+				
+				getServerVersion();
+				
+				//_root.setLocalProp("email","local@test.com");
+				//_root.setLocalProp("psw","qwerty");
+				
+				
+				//trace("autoLogin = " + _root.getLocalProp("autoLogin"));
+				
+			}
+			
+			protected function onNavRequest(event:NavigationEvent):void
+			{
+				//trace("onNavRequest: " + event.screenName); 
+				
+				/* if (_screen != null)
+				{
+					holder.removeChild(_screen);
+					_screen = null;
+				} */
+				
+				if (_screen != null) // Remove the current screen from view
+				{
+					holder.removeChild(_screen);
+				}
+				
+				if (event.screenName == RootController.SCREEN_BACK)
+				{
+					if (_stack.length > 0)
+					{
+						_stack.removeItemAt(_stack.getItemIndex(_screen));
+						_screen = _stack.getItemAt(_stack.length-1) as DisplayObject;
+					}
+				}
+				else if (event.screenName == RootController.SCREEN_LOGIN)
+				{
+					_screen = new LoginWindow();
+				}
+				else if (event.screenName == RootController.SCREEN_MAIN_MENU)
+				{
+					_screen = new MainMenu();
+				}
+				else if (event.screenName == RootController.SCREEN_MY_PROFILE)
+				{
+					_screen = new ProfileWindow();
+				}
+				else if (event.screenName == RootController.SCREEN_MY_SCHEDULE)
+				{
+					_screen = new PlayerScheduleWindow();
+				}
+				else if (event.screenName == RootController.SCREEN_EVENT_SCHEDULE)
+				{
+					_screen = new EventScheduleWindow();
+					(_screen as EventScheduleWindow).eventId = event.itemId;
+				}
+				else if (event.screenName == RootController.SCREEN_MATCH)
+				{
+					_screen = new MatchWindow();
+					(_screen as MatchWindow).match = event.match;
+				}
+				else
+				{
+					_screen = null;						
+				}
+				
+				
+				if (_screen)
+				{
+					holder.addChild(_screen);
+					if (!_stack.contains(_screen))
+					{
+						_stack.addItem(_screen);
+					}
+					//trace("_stack.length = " + _stack.length);
+				}
+				
+			}
+			
+			private function getServerVersion():void
+			{
+				var trans:ServerTransac = new ServerTransac(onServerVersionResult, onServerVersionFault);
+				trans.getServerVersion();
+			}
+			
+			protected function onServerVersionResult(event:ResultEvent):void
+			{
+				trace("Client version: " + RootController.VERSION);
+				trace("Server version: " + event.result);
+				RootController.instance.serverVersion = String(event.result);
+				
+				if (_root.getLocalProp("autoLogin"))
+				{
+					RootController.instance.profileManager.login(_root.getLocalProp("email"),_root.getLocalProp("psw"));
+				}
+				else
+				{
+					RootController.instance.requestScreen(RootController.SCREEN_LOGIN);
+					//RootController.instance.requestScreen(RootController.SCREEN_MAIN_MENU);
+					//RootController.instance.requestScreen(RootController.SCREEN_MY_PROFILE);
+				}
+				
+			}
+			
+			protected function onServerVersionFault(event:FaultEvent):void
+			{
+				Alert.show("Could not connect to server!","Error");
+			}
+			
+			protected function onLoginSuccess(event:Event):void
+			{
+				trace("onLoginSuccess)");
+				//RootController.instance.requestScreen(RootController.SCREEN_MY_PROFILE);
+				RootController.instance.requestScreen(RootController.SCREEN_MAIN_MENU);
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+	</fx:Declarations>
+	<mx:VBox id="holder" width="100%" height="100%" />
+</s:Group>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" creationComplete="onCreationComplete(event)">
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			
+			import valueObjects.Player;
+			
+			
+			private var _player:Player
+			
+			public function get player():Player
+			{
+				return _player;
+			}
+
+			public function set player(value:Player):void
+			{
+				_player = value;
+			}
+
+			protected function onCreationComplete(event:FlexEvent):void
+			{
+				if (_player)
+				{
+					lblName.text = _player.firstName + " " + _player.lastName;
+				}
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:BorderContainer >
+		<s:HGroup >
+			<s:Image id="playerPic" width="64" height="64" />
+			<s:Label id="lblName" text="Jean-Pierre Ferland" />
+		</s:HGroup>
+	</s:BorderContainer>
+</s:Group>

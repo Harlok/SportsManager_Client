@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   width="200" height="270" enabled="true" title="Login" creationComplete="onCreationComplete(event)">
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>
+	
+	<fx:Script>
+		<![CDATA[
+			import com.sportsmanager.controller.RootController;
+			import com.sportsmanager.events.LoginEvent;
+			
+			import mx.events.FlexEvent;
+
+			protected function onCreationComplete(event:FlexEvent):void
+			{
+				title = "Login (" + RootController.VERSION + " / " + RootController.instance.serverVersion + ")";
+				txtEmail.text = RootController.instance.getLocalProp("email");
+				txtPassword.text = RootController.instance.getLocalProp("psw");
+				
+				RootController.instance.profileManager.addEventListener(LoginEvent.LOGIN_SUCCESS, onLoginSuccess);
+			}
+
+			
+			protected function onClickLogin(event:MouseEvent):void
+			{
+				if ((txtEmail.text.length > 0) && (txtPassword.text.length > 0))
+				{
+					RootController.instance.profileManager.login(txtEmail.text, txtPassword.text);
+				}
+				
+			}
+			
+			protected function onClickRegister(event:MouseEvent):void
+			{
+				RootController.instance.requestScreen(RootController.SCREEN_MY_PROFILE);
+			}
+			
+			
+			protected function onLoginSuccess(event:Event):void
+			{
+				RootController.instance.setLocalProp("email",txtEmail.text);
+				RootController.instance.setLocalProp("psw",txtPassword.text);
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	
+	<s:HGroup width="100%">
+		<s:Spacer width="100%" />
+		<s:VGroup>
+			<s:Spacer height="20" />
+			<s:Label text="Courriel" />
+			<s:TextInput id="txtEmail" width="150" />
+			<s:Spacer height="5" />
+			<s:Label text="Mot de passe" />
+			<s:TextInput id="txtPassword" width="150" />
+			<s:Spacer height="5" />
+			<s:VGroup horizontalAlign="right" width="100%">
+				<s:Button id="butLogin" label="Login" click="onClickLogin(event)" />
+				<s:Spacer height="5" />
+				<s:Button id="butRegister" label="Nouveau profil" click="onClickRegister(event)" />
+			</s:VGroup>
+		</s:VGroup>		
+		<s:Spacer width="100%" />
+	</s:HGroup>
+	
+</s:TitleWindow>

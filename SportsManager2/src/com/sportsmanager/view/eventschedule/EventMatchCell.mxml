@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="100%" creationComplete="onCreationComplete(event)" xmlns:view="com.view.*">
+	<fx:Script>
+		<![CDATA[
+			import com.sportsmanager.controller.RootController;
+			import com.sportsmanager.events.NavigationEvent;
+			
+			import mx.events.FlexEvent;
+			
+			import spark.filters.GlowFilter;
+			
+			import valueObjects.EventMatch;
+			
+			private var _match:EventMatch;
+			private var _label:String;
+			
+			public function get label():String
+			{
+				return _label;
+			}
+
+			public function set label(value:String):void
+			{
+				_label = value;
+			}
+
+			public function get match():EventMatch
+			{
+				return _match;
+			}
+
+			public function set match(value:EventMatch):void
+			{
+				_match = value;
+			}
+
+			protected function onCreationComplete(event:FlexEvent):void
+			{
+				lblTeamNames.text = _label;
+			}
+			
+			protected function onMouseOver(event:MouseEvent):void
+			{
+				container.filters = [new spark.filters.GlowFilter(0x99FF99,1)];
+				
+			}
+			
+			protected function onMouseOut(event:MouseEvent):void
+			{
+				container.filters = [];
+			}
+			
+			protected function onClick(event:MouseEvent):void
+			{
+				var navEvent:NavigationEvent = new NavigationEvent(RootController.SCREEN_MATCH);
+				navEvent.match = _match;
+				RootController.instance.dispatchEvent(navEvent);
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	
+	<s:BorderContainer id="container" width="100%" backgroundColor="#2D639A" cornerRadius="5" dropShadowVisible="true" mouseOver="onMouseOver(event)" mouseOut="onMouseOut(event)" click="onClick(event)">
+		<s:Label id="lblTeamNames" width="100%" textAlign="center" paddingTop="3" />
+	</s:BorderContainer>
+</s:Group>

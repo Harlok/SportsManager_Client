@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 
+		 creationComplete="onCreationComplete(event)">
+	
+	<fx:Script>
+		<![CDATA[
+			import com.sportsmanager.controller.DataBox;
+			
+			import mx.controls.Alert;
+			import mx.events.CloseEvent;
+			import mx.events.FlexEvent;
+			import mx.rpc.events.FaultEvent;
+			import mx.rpc.events.ResultEvent;
+			
+			import services.ServerTransac;
+			
+			import spark.events.TextOperationEvent;
+			
+			import valueObjects.EventMatch;
+			import valueObjects.MatchSet;
+			import valueObjects.SeasonEvent;
+			import valueObjects.TransacResult;
+			
+			private var _matchSet:MatchSet;
+			private var _match:EventMatch;
+			private var _seasonEvent:SeasonEvent;
+			private var _scoreCap:int;
+			private var _timer:Timer = new Timer(3000);
+			
+			public function get matchSet():MatchSet
+			{
+				return _matchSet;
+			}
+
+			public function set matchSet(value:MatchSet):void
+			{
+				_matchSet = value;
+				_match = DataBox.instance.eventMatchList.getItemById(_matchSet.matchId) as EventMatch;
+				_seasonEvent = _match.seasonEvent;
+				if (_matchSet.setPoints == 15) { _scoreCap = _seasonEvent.capOn15; }
+				else if (_matchSet.setPoints == 21) { _scoreCap = _seasonEvent.capOn21; }
+				else if (_matchSet.setPoints == 25) { _scoreCap = _seasonEvent.capOn25; }
+				else { _scoreCap = 999; }
+				trace("_scoreCap = " + _scoreCap);
+			}
+
+			protected function onCreationComplete(event:FlexEvent):void
+			{
+				lblTitle.text = "Set #" + _matchSet.setNo;
+				refreshScoreFields();
+				_timer.repeatCount = 0;
+				_timer.addEventListener(TimerEvent.TIMER, onSaveTimer);
+			}
+			
+			private function refreshScoreFields():void
+			{
+				txtScore1.text = String(_matchSet.scoreTeam1);
+				txtScore2.text = String(_matchSet.scoreTeam2);
+			}
+			
+			protected function onClickUpDown(event:MouseEvent):void
+			{
+				if (event.currentTarget == butUp1) { _matchSet.scoreTeam1++; }
+				else if (event.currentTarget == butDown1) { _matchSet.scoreTeam1--; }
+				else if (event.currentTarget == butUp2) { _matchSet.scoreTeam2++; }
+				else if (event.currentTarget == butDown2) { _matchSet.scoreTeam2--; }
+				refreshScoreFields();
+				startSaveTimer();
+				
+				checkFinished();
+			}
+			
+			protected function onTextFieldChanged(event:TextOperationEvent):void
+			{
+				var ti:TextInput = event.currentTarget as TextInput;
+				if (ti.text.length > 0)
+				{
+					if (ti == txtScore1) { _matchSet.scoreTeam1 = Number(ti.text); }
+					else { _matchSet.scoreTeam2 = Number(ti.text); }
+					startSaveTimer();
+					checkFinished();
+				}
+			}
+
+			private function startSaveTimer():void
+			{
+				_timer.reset();
+				_timer.start();				
+			}
+			
+			protected function onSaveTimer(event:TimerEvent = null):void
+			{
+				_timer.stop();
+				trace("onSaveTimer) setNo = " + _matchSet.setNo + " id = " + _matchSet.id);
+				var trans:ServerTransac = new ServerTransac(onSaveSuccess, onSaveFault);
+				trans.saveSetScore(_matchSet);
+			}
+			
+			private function onSaveSuccess(event:ResultEvent):void
+			{
+				var result:TransacResult = event.result as TransacResult;
+				if (result.success && (result.id != 0))
+				{
+					_matchSet.id = result.id
+					trace("_matchSet.id = " + _matchSet.id);
+				}
+			}
+			
+			private function onSaveFault(fault:FaultEvent):void
+			{
+				Alert.show("Unable to save scores: " + fault.message);	
+			}
+			
+			private function checkFinished():void
+			{
+				var a:int;
+				var b:int;
+				var finish:Boolean = false;
+				// put the highest score in A and lowest in B.
+				if (_matchSet.scoreTeam1 > _matchSet.scoreTeam2)
+				{
+					a = _matchSet.scoreTeam1;
+					b = _matchSet.scoreTeam2;
+				}
+				else
+				{
+					b = _matchSet.scoreTeam1;
+					a = _matchSet.scoreTeam2;
+				}
+				
+				if ((a >= _matchSet.setPoints) && ((a-b) > 1)) // if the highest scores is at least the target set points and wins by more than one: confirm finish
+				{
+					finish = true;
+				}
+				else if (a == _scoreCap) // if the high score has hit the score cap
+				{
+					finish = true;
+				}
+				
+				if (finish) // if we need to confirm that the set is finished:
+				{
+					Alert.yesLabel = "Oui";
+					Alert.noLabel = "Non";
+					Alert.show("Fin du set?", "Message", Alert.YES|Alert.NO,null,onConfirmFinish,null,Alert.YES);
+				}
+			}
+			
+			private function onConfirmFinish(event:CloseEvent):void
+			{
+				if (event.detail == Alert.YES)
+				{
+					_matchSet.finished = true;
+					if (_matchSet.scoreTeam1 > _matchSet.scoreTeam2)
+					{ _matchSet.winningTeam = 1; }
+					else
+					{ _matchSet.winningTeam = 2; }
+					onSaveTimer();
+					dispatchEvent(new Event("FINISHED"));
+				}
+				
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<s:BorderContainer cornerRadius="5" backgroundColor="0x333355">
+		<s:HGroup horizontalAlign="center" verticalAlign="middle" height="100%" paddingLeft="5" paddingRight="5" paddingTop="5" paddingBottom="5">
+	
+			<s:Label id="lblTitle" text="Set x" />
+			
+			<s:VGroup>
+				<s:Button id="butUp1" label="+" width="100%" height="15" click="onClickUpDown(event)" />
+				<s:TextInput id="txtScore1" width="100%" textAlign="center" change="onTextFieldChanged(event)" />
+				<s:Button id="butDown1" label="-" width="100%" height="15" click="onClickUpDown(event)" />
+			</s:VGroup>
+			
+			<s:VGroup>
+				<s:Button id="butUp2" label="+" width="100%" height="15" click="onClickUpDown(event)" />
+				<s:TextInput id="txtScore2" width="100%" textAlign="center" change="onTextFieldChanged(event)" />
+				<s:Button id="butDown2" label="-" width="100%" height="15" click="onClickUpDown(event)" />
+			</s:VGroup>
+			
+		</s:HGroup>
+	</s:BorderContainer>
+</s:Group>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="100%" height="100%"
+		 creationComplete="onCreationComplete(event)">
+	<fx:Script>
+		<![CDATA[
+			import com.loki.utils.Convert;
+			import com.sportsmanager.controller.DataBox;
+			import com.sportsmanager.controller.RootController;
+			
+			import mx.collections.ArrayCollection;
+			import mx.controls.Alert;
+			import mx.events.FlexEvent;
+			import mx.rpc.events.FaultEvent;
+			import mx.rpc.events.ResultEvent;
+			
+			import services.ServerTransac;
+			
+			import valueObjects.EventMatch;
+			import valueObjects.EventTeam;
+			import valueObjects.Player;
+			import valueObjects.SeasonEvent;
+			import valueObjects.Team;
+			import valueObjects.TeamPlayer;
+			
+			private var _eventId:int;
+			private var _courtCount:int = 0;
+			
+			private var _seasonEvent:SeasonEvent;
+			
+			private var _teamList:ArrayCollection;
+			private var _teamMap:Object;
+			
+			private var _matchList:ArrayCollection;
+			private var _matchMap:Object;
+			
+			protected function onCreationComplete(event:FlexEvent):void
+			{
+				timeSpacer.width = EventScheduleRow.TIME_WIDTH;
+				refreshSchedule();
+			}
+			
+			public function get eventId():int
+			{
+				return _eventId;
+			}
+			
+			public function set eventId(value:int):void
+			{
+				_eventId = value;
+			}
+			
+			
+			protected function onClickBack(event:MouseEvent):void
+			{
+				RootController.instance.requestScreen(RootController.SCREEN_BACK);
+			}
+			
+			private function refreshSchedule():void
+			{
+				trace("Loading team list for eventId " + _eventId);
+				var eventPackTransac:ServerTransac = new ServerTransac(onEventPackLoad_Success, onEventPackLoad_Fault);
+				eventPackTransac.getEventPackage(_eventId);
+			}
+
+			private function onEventPackLoad_Success(result:ResultEvent):void
+			{
+				trace("onEventPackLoad_Success)");
+				var i:int;
+				var team:Team;
+				var eventTeam:EventTeam;
+				var match:EventMatch;
+				var teamPlayer:TeamPlayer;
+				var player:Player;
+				
+				// Get the SeasonEvent
+				_seasonEvent = result.result as SeasonEvent;
+				_courtCount = _seasonEvent.courtCount;
+				DataBox.instance.seasonEventList.addItem(_seasonEvent);
+
+				// Get the team list
+				for each (eventTeam in _seasonEvent.teamPosList)
+				{
+					// map team
+					DataBox.instance.teamList.addItem(eventTeam.team);
+					for each (teamPlayer in eventTeam.team.teamPlayers)
+					{
+						// Map players
+						DataBox.instance.playerList.addItem(teamPlayer.player);
+					}
+				}
+				
+				// Get the match list
+				_matchList = _seasonEvent.matchList;
+				//_matchMap = new Object();
+				for each (match in _matchList)
+				{
+					//match = _matchList[i];
+					match.seasonEvent = _seasonEvent; // Map back to seasonevent.
+					match.team1 = DataBox.instance.teamList.getItemById(match.team1Id) as Team;
+					match.team2 = DataBox.instance.teamList.getItemById(match.team2Id) as Team;
+					DataBox.instance.eventMatchList.addItem(match);
+				}
+				
+				renderSchedule();
+			}
+			
+			private function onEventPackLoad_Fault(fault:FaultEvent):void
+			{
+				Alert.show("Problem loading schedule: " + fault.message);
+			}
+			
+			private function renderSchedule():void
+			{
+				trace("renderSchedule)");
+				var matchRows:Array = new Array();
+				var rowNo:int;
+				var match:EventMatch;
+				var i:int;
+				var j:int;
+				var rowUI:EventScheduleRow;
+				
+				// Add a header
+				for (i=1; i<=_courtCount; i++)
+				{
+					var colHeader:EventScheduleColumnHeader = new EventScheduleColumnHeader();
+					colHeader.label = "Terrain " + i;
+					header.addElement(colHeader);
+				}
+				
+				// Add matches to their respective row arrays
+				for (i = 0; i<_matchList.length; i++)
+				{
+					match = _matchList[i];
+					
+					rowNo = match.timeSlot;
+					if (matchRows[rowNo] == null)
+					{
+						matchRows[rowNo] = new Array();
+					}
+					(matchRows[rowNo] as Array).push(match);
+				}
+				
+				// creation UI for rows
+				for (i = 0; i<matchRows.length; i++)
+				{
+					var row:Array = matchRows[i];
+					row.sortOn("courtNo");
+					for (j = 0; j<row.length; j++)
+					{
+						match = row[j];
+						//trace("   court " + match.courtNo + " = " + (_teamMap[match.team1Id] as Team).name + " vs " + (_teamMap[match.team2Id] as Team).name);
+					}
+					rowUI = new EventScheduleRow();
+					rowUI.seasonEvent = _seasonEvent;
+					rowUI.matchList = row;
+					//rowUI.timeHours = _seasonEvent.startTime + i * (_seasonEvent.setCount * _seasonEvent.setTime/60);
+					rowHolder.addElement(rowUI);
+				}
+			}
+
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:VGroup width="100%" height="100%" paddingLeft="5" paddingRight="5">
+		
+		<s:HGroup width="100%">
+			<s:Button id="butBack" label="Back" click="onClickBack(event)" />
+			<s:Label width="100%" text="Horaire" fontSize="24" backgroundColor="#EEEEEE" />	
+		</s:HGroup>
+		
+		<s:HGroup id="header" width="100%">
+			<s:Spacer id="timeSpacer" />
+		</s:HGroup>
+			
+		<s:VGroup id="rowHolder" width="100%" />
+	</s:VGroup>
+</s:Group>
