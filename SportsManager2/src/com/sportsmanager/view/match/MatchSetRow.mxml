@@ -44,7 +44,7 @@
 				else if (_matchSet.setPoints == 21) { _scoreCap = _seasonEvent.capOn21; }
 				else if (_matchSet.setPoints == 25) { _scoreCap = _seasonEvent.capOn25; }
 				else { _scoreCap = 999; }
-				trace("_scoreCap = " + _scoreCap);
+				//trace("_scoreCap = " + _scoreCap);
 			}
 
 			protected function onCreationComplete(event:FlexEvent):void
@@ -53,6 +53,8 @@
 				refreshScoreFields();
 				_timer.repeatCount = 0;
 				_timer.addEventListener(TimerEvent.TIMER, onSaveTimer);
+				
+				if (_matchSet.finished) { removeButtons(); }
 			}
 			
 			private function refreshScoreFields():void
@@ -94,7 +96,7 @@
 			protected function onSaveTimer(event:TimerEvent = null):void
 			{
 				_timer.stop();
-				trace("onSaveTimer) setNo = " + _matchSet.setNo + " id = " + _matchSet.id);
+				trace("onSaveTimer) setNo = " + _matchSet.setNo + " id = " + _matchSet.id + " finished = " + _matchSet.finished);
 				var trans:ServerTransac = new ServerTransac(onSaveSuccess, onSaveFault);
 				trans.saveSetScore(_matchSet);
 			}
@@ -105,7 +107,7 @@
 				if (result.success && (result.id != 0))
 				{
 					_matchSet.id = result.id
-					trace("_matchSet.id = " + _matchSet.id);
+					//trace("_matchSet.id = " + _matchSet.id);
 				}
 			}
 			
@@ -153,6 +155,7 @@
 				if (event.detail == Alert.YES)
 				{
 					_matchSet.finished = true;
+					removeButtons();
 					if (_matchSet.scoreTeam1 > _matchSet.scoreTeam2)
 					{ _matchSet.winningTeam = 1; }
 					else
@@ -163,6 +166,15 @@
 				
 			}
 			
+			private function removeButtons():void
+			{
+				group1.removeElement(butUp1);
+				group1.removeElement(butDown1);
+				group2.removeElement(butUp2);
+				group2.removeElement(butDown2);
+				this.enabled = false;
+			}
+			
 		]]>
 	</fx:Script>
 	
@@ -171,13 +183,13 @@
 	
 			<s:Label id="lblTitle" text="Set x" />
 			
-			<s:VGroup>
+			<s:VGroup id="group1">
 				<s:Button id="butUp1" label="+" width="100%" height="15" click="onClickUpDown(event)" />
 				<s:TextInput id="txtScore1" width="100%" textAlign="center" change="onTextFieldChanged(event)" />
 				<s:Button id="butDown1" label="-" width="100%" height="15" click="onClickUpDown(event)" />
 			</s:VGroup>
 			
-			<s:VGroup>
+			<s:VGroup id="group2">
 				<s:Button id="butUp2" label="+" width="100%" height="15" click="onClickUpDown(event)" />
 				<s:TextInput id="txtScore2" width="100%" textAlign="center" change="onTextFieldChanged(event)" />
 				<s:Button id="butDown2" label="-" width="100%" height="15" click="onClickUpDown(event)" />
