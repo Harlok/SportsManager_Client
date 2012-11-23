@@ -177,7 +177,7 @@
 	
 	<s:VGroup width="100%" height="100%">
 		<s:HGroup width="100%">
-			<s:Button id="butBack" label="Back" click="onClickBack(event)" />
+			<s:Button id="butBack" skinClass="com.sportsmanager.skins.BackButtonSkin" label="Back" click="onClickBack(event)" />
 			<s:Label width="100%" text="Match" fontSize="24" backgroundColor="#EEEEEE" />	
 		</s:HGroup>
 		

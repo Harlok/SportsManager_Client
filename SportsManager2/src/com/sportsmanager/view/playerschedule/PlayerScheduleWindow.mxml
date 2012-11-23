@@ -62,7 +62,7 @@
 	</fx:Declarations>
 	<s:VGroup>
 		<s:HGroup width="100%">
-			<s:Button id="butBack" label="Back" click="onClickBack(event)" />
+			<s:Button id="butBack" skinClass="com.sportsmanager.skins.BackButtonSkin" label="Back" click="onClickBack(event)" />
 			<s:Label width="100%" text="Mon Horaire" fontSize="24" backgroundColor="#EEEEEE" />	
 		</s:HGroup>
 		<s:VGroup id="rowHolder" width="100%" />
