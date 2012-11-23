@@ -27,14 +27,14 @@ internal class _PlayerDAOEntityMetadata extends com.adobe.fiber.valueobjects.Abs
 {
     private static var emptyArray:Array = new Array();
 
-    model_internal static var allProperties:Array = new Array("lastName", "phone", "sex", "invitationsSent", "levelInterestList", "leagueSeasonInterest", "password", "invitationsReceived", "id", "height", "availabilityList", "email", "zipCode", "longitude", "birthDate", "latitude", "firstName", "teamList", "adminList");
+    model_internal static var allProperties:Array = new Array("lastName", "phone", "sex", "invitationsSent", "levelInterestList", "leagueSeasonInterest", "password", "invitationsReceived", "id", "height", "email", "availabilityList", "zipCode", "birthDate", "longitude", "latitude", "firstName", "teamList", "adminList");
     model_internal static var allAssociationProperties:Array = new Array();
     model_internal static var allRequiredProperties:Array = new Array();
-    model_internal static var allAlwaysAvailableProperties:Array = new Array("lastName", "phone", "sex", "invitationsSent", "levelInterestList", "leagueSeasonInterest", "password", "invitationsReceived", "id", "height", "availabilityList", "email", "zipCode", "longitude", "birthDate", "latitude", "firstName", "teamList", "adminList");
+    model_internal static var allAlwaysAvailableProperties:Array = new Array("lastName", "phone", "sex", "invitationsSent", "levelInterestList", "leagueSeasonInterest", "password", "invitationsReceived", "id", "height", "email", "availabilityList", "zipCode", "birthDate", "longitude", "latitude", "firstName", "teamList", "adminList");
     model_internal static var guardedProperties:Array = new Array();
-    model_internal static var dataProperties:Array = new Array("lastName", "phone", "sex", "invitationsSent", "levelInterestList", "leagueSeasonInterest", "password", "invitationsReceived", "id", "height", "availabilityList", "email", "zipCode", "longitude", "birthDate", "latitude", "firstName", "teamList", "adminList");
+    model_internal static var dataProperties:Array = new Array("lastName", "phone", "sex", "invitationsSent", "levelInterestList", "leagueSeasonInterest", "password", "invitationsReceived", "id", "height", "email", "availabilityList", "zipCode", "birthDate", "longitude", "latitude", "firstName", "teamList", "adminList");
     model_internal static var sourceProperties:Array = emptyArray
-    model_internal static var nonDerivedProperties:Array = new Array("lastName", "phone", "sex", "invitationsSent", "levelInterestList", "leagueSeasonInterest", "password", "invitationsReceived", "id", "height", "availabilityList", "email", "zipCode", "longitude", "birthDate", "latitude", "firstName", "teamList", "adminList");
+    model_internal static var nonDerivedProperties:Array = new Array("lastName", "phone", "sex", "invitationsSent", "levelInterestList", "leagueSeasonInterest", "password", "invitationsReceived", "id", "height", "email", "availabilityList", "zipCode", "birthDate", "longitude", "latitude", "firstName", "teamList", "adminList");
     model_internal static var derivedProperties:Array = new Array();
     model_internal static var collectionProperties:Array = new Array("invitationsSent", "levelInterestList", "leagueSeasonInterest", "invitationsReceived", "availabilityList", "teamList", "adminList");
     model_internal static var collectionBaseMap:Object;
@@ -64,11 +64,11 @@ internal class _PlayerDAOEntityMetadata extends com.adobe.fiber.valueobjects.Abs
             model_internal::dependentsOnMap["invitationsReceived"] = new Array();
             model_internal::dependentsOnMap["id"] = new Array();
             model_internal::dependentsOnMap["height"] = new Array();
-            model_internal::dependentsOnMap["availabilityList"] = new Array();
             model_internal::dependentsOnMap["email"] = new Array();
+            model_internal::dependentsOnMap["availabilityList"] = new Array();
             model_internal::dependentsOnMap["zipCode"] = new Array();
-            model_internal::dependentsOnMap["longitude"] = new Array();
             model_internal::dependentsOnMap["birthDate"] = new Array();
+            model_internal::dependentsOnMap["longitude"] = new Array();
             model_internal::dependentsOnMap["latitude"] = new Array();
             model_internal::dependentsOnMap["firstName"] = new Array();
             model_internal::dependentsOnMap["teamList"] = new Array();
@@ -97,11 +97,11 @@ internal class _PlayerDAOEntityMetadata extends com.adobe.fiber.valueobjects.Abs
         model_internal::propertyTypeMap["invitationsReceived"] = "ArrayCollection";
         model_internal::propertyTypeMap["id"] = "int";
         model_internal::propertyTypeMap["height"] = "int";
-        model_internal::propertyTypeMap["availabilityList"] = "ArrayCollection";
         model_internal::propertyTypeMap["email"] = "String";
+        model_internal::propertyTypeMap["availabilityList"] = "ArrayCollection";
         model_internal::propertyTypeMap["zipCode"] = "String";
-        model_internal::propertyTypeMap["longitude"] = "Number";
         model_internal::propertyTypeMap["birthDate"] = "Number";
+        model_internal::propertyTypeMap["longitude"] = "Number";
         model_internal::propertyTypeMap["latitude"] = "Number";
         model_internal::propertyTypeMap["firstName"] = "String";
         model_internal::propertyTypeMap["teamList"] = "ArrayCollection";
@@ -395,13 +395,13 @@ internal class _PlayerDAOEntityMetadata extends com.adobe.fiber.valueobjects.Abs
     }
 
     [Bindable(event="propertyChange")]
-    public function get isAvailabilityListAvailable():Boolean
+    public function get isEmailAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
-    public function get isEmailAvailable():Boolean
+    public function get isAvailabilityListAvailable():Boolean
     {
         return true;
     }
@@ -413,13 +413,13 @@ internal class _PlayerDAOEntityMetadata extends com.adobe.fiber.valueobjects.Abs
     }
 
     [Bindable(event="propertyChange")]
-    public function get isLongitudeAvailable():Boolean
+    public function get isBirthDateAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
-    public function get isBirthDateAvailable():Boolean
+    public function get isLongitudeAvailable():Boolean
     {
         return true;
     }
@@ -519,13 +519,13 @@ internal class _PlayerDAOEntityMetadata extends com.adobe.fiber.valueobjects.Abs
     }
 
     [Bindable(event="propertyChange")]   
-    public function get availabilityListStyle():com.adobe.fiber.styles.Style
+    public function get emailStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
-    public function get emailStyle():com.adobe.fiber.styles.Style
+    public function get availabilityListStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
@@ -537,13 +537,13 @@ internal class _PlayerDAOEntityMetadata extends com.adobe.fiber.valueobjects.Abs
     }
 
     [Bindable(event="propertyChange")]   
-    public function get longitudeStyle():com.adobe.fiber.styles.Style
+    public function get birthDateStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
-    public function get birthDateStyle():com.adobe.fiber.styles.Style
+    public function get longitudeStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }

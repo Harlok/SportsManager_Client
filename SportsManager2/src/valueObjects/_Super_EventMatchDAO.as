@@ -71,10 +71,12 @@ public class _Super_EventMatchDAO extends flash.events.EventDispatcher implement
     private var _internal_team2 : valueObjects.TeamDAO;
     private var _internal_id : int;
     private var _internal_scheduled : Boolean;
+    private var _internal_winningTeam : int;
     private var _internal_setList : ArrayCollection;
     model_internal var _internal_setList_leaf:valueObjects.MatchSetDAO;
     private var _internal_seasonEvent : valueObjects.SeasonEventDAO;
     private var _internal_courtNo : int;
+    private var _internal_finished : Boolean;
     private var _internal_eventTeam2 : valueObjects.EventTeamDAO;
     private var _internal_eventTeam1 : valueObjects.EventTeamDAO;
     private var _internal_poolNo : int;
@@ -127,6 +129,12 @@ public class _Super_EventMatchDAO extends flash.events.EventDispatcher implement
     }
 
     [Bindable(event="propertyChange")]
+    public function get winningTeam() : int
+    {
+        return _internal_winningTeam;
+    }
+
+    [Bindable(event="propertyChange")]
     public function get setList() : ArrayCollection
     {
         return _internal_setList;
@@ -142,6 +150,12 @@ public class _Super_EventMatchDAO extends flash.events.EventDispatcher implement
     public function get courtNo() : int
     {
         return _internal_courtNo;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get finished() : Boolean
+    {
+        return _internal_finished;
     }
 
     [Bindable(event="propertyChange")]
@@ -216,6 +230,16 @@ public class _Super_EventMatchDAO extends flash.events.EventDispatcher implement
         }
     }
 
+    public function set winningTeam(value:int) : void
+    {
+        var oldValue:int = _internal_winningTeam;
+        if (oldValue !== value)
+        {
+            _internal_winningTeam = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "winningTeam", oldValue, _internal_winningTeam));
+        }
+    }
+
     public function set setList(value:*) : void
     {
         var oldValue:ArrayCollection = _internal_setList;
@@ -258,6 +282,16 @@ public class _Super_EventMatchDAO extends flash.events.EventDispatcher implement
         {
             _internal_courtNo = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "courtNo", oldValue, _internal_courtNo));
+        }
+    }
+
+    public function set finished(value:Boolean) : void
+    {
+        var oldValue:Boolean = _internal_finished;
+        if (oldValue !== value)
+        {
+            _internal_finished = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "finished", oldValue, _internal_finished));
         }
     }
 

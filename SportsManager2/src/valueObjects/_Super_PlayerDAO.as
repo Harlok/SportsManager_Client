@@ -94,12 +94,12 @@ public class _Super_PlayerDAO extends flash.events.EventDispatcher implements co
     model_internal var _internal_invitationsReceived_leaf:valueObjects.InvitationDAO;
     private var _internal_id : int;
     private var _internal_height : int;
+    private var _internal_email : String;
     private var _internal_availabilityList : ArrayCollection;
     model_internal var _internal_availabilityList_leaf:valueObjects.PlayerAvailabilityDAO;
-    private var _internal_email : String;
     private var _internal_zipCode : String;
-    private var _internal_longitude : Number;
     private var _internal_birthDate : Number;
+    private var _internal_longitude : Number;
     private var _internal_latitude : Number;
     private var _internal_firstName : String;
     private var _internal_teamList : ArrayCollection;
@@ -192,15 +192,15 @@ public class _Super_PlayerDAO extends flash.events.EventDispatcher implements co
     }
 
     [Bindable(event="propertyChange")]
-    public function get availabilityList() : ArrayCollection
-    {
-        return _internal_availabilityList;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get email() : String
     {
         return _internal_email;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get availabilityList() : ArrayCollection
+    {
+        return _internal_availabilityList;
     }
 
     [Bindable(event="propertyChange")]
@@ -210,15 +210,15 @@ public class _Super_PlayerDAO extends flash.events.EventDispatcher implements co
     }
 
     [Bindable(event="propertyChange")]
-    public function get longitude() : Number
-    {
-        return _internal_longitude;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get birthDate() : Number
     {
         return _internal_birthDate;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get longitude() : Number
+    {
+        return _internal_longitude;
     }
 
     [Bindable(event="propertyChange")]
@@ -413,6 +413,16 @@ public class _Super_PlayerDAO extends flash.events.EventDispatcher implements co
         }
     }
 
+    public function set email(value:String) : void
+    {
+        var oldValue:String = _internal_email;
+        if (oldValue !== value)
+        {
+            _internal_email = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "email", oldValue, _internal_email));
+        }
+    }
+
     public function set availabilityList(value:*) : void
     {
         var oldValue:ArrayCollection = _internal_availabilityList;
@@ -438,16 +448,6 @@ public class _Super_PlayerDAO extends flash.events.EventDispatcher implements co
         }
     }
 
-    public function set email(value:String) : void
-    {
-        var oldValue:String = _internal_email;
-        if (oldValue !== value)
-        {
-            _internal_email = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "email", oldValue, _internal_email));
-        }
-    }
-
     public function set zipCode(value:String) : void
     {
         var oldValue:String = _internal_zipCode;
@@ -458,16 +458,6 @@ public class _Super_PlayerDAO extends flash.events.EventDispatcher implements co
         }
     }
 
-    public function set longitude(value:Number) : void
-    {
-        var oldValue:Number = _internal_longitude;
-        if (isNaN(_internal_longitude) == true || Math.abs(oldValue - value) > epsilon)
-        {
-            _internal_longitude = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "longitude", oldValue, _internal_longitude));
-        }
-    }
-
     public function set birthDate(value:Number) : void
     {
         var oldValue:Number = _internal_birthDate;
@@ -475,6 +465,16 @@ public class _Super_PlayerDAO extends flash.events.EventDispatcher implements co
         {
             _internal_birthDate = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "birthDate", oldValue, _internal_birthDate));
+        }
+    }
+
+    public function set longitude(value:Number) : void
+    {
+        var oldValue:Number = _internal_longitude;
+        if (isNaN(_internal_longitude) == true || Math.abs(oldValue - value) > epsilon)
+        {
+            _internal_longitude = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "longitude", oldValue, _internal_longitude));
         }
     }
 

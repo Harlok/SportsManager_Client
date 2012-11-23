@@ -66,6 +66,7 @@ public class _Super_EventMatch extends flash.events.EventDispatcher implements c
      * properties
      */
     private var _internal_id : int;
+    private var _internal_winningTeam : int;
     private var _internal_team2Id : int;
     private var _internal_eventId : int;
     private var _internal_setList : ArrayCollection;
@@ -73,6 +74,7 @@ public class _Super_EventMatch extends flash.events.EventDispatcher implements c
     private var _internal_seasonEvent : valueObjects.SeasonEvent;
     private var _internal_courtNo : int;
     private var _internal_team1Id : int;
+    private var _internal_finished : Boolean;
     private var _internal_team1 : valueObjects.Team;
     private var _internal_team2 : valueObjects.Team;
     private var _internal_timeSlot : int;
@@ -103,6 +105,12 @@ public class _Super_EventMatch extends flash.events.EventDispatcher implements c
     public function get id() : int
     {
         return _internal_id;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get winningTeam() : int
+    {
+        return _internal_winningTeam;
     }
 
     [Bindable(event="propertyChange")]
@@ -142,6 +150,12 @@ public class _Super_EventMatch extends flash.events.EventDispatcher implements c
     }
 
     [Bindable(event="propertyChange")]
+    public function get finished() : Boolean
+    {
+        return _internal_finished;
+    }
+
+    [Bindable(event="propertyChange")]
     public function get team1() : valueObjects.Team
     {
         return _internal_team1;
@@ -174,6 +188,16 @@ public class _Super_EventMatch extends flash.events.EventDispatcher implements c
         {
             _internal_id = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "id", oldValue, _internal_id));
+        }
+    }
+
+    public function set winningTeam(value:int) : void
+    {
+        var oldValue:int = _internal_winningTeam;
+        if (oldValue !== value)
+        {
+            _internal_winningTeam = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "winningTeam", oldValue, _internal_winningTeam));
         }
     }
 
@@ -249,6 +273,16 @@ public class _Super_EventMatch extends flash.events.EventDispatcher implements c
         {
             _internal_team1Id = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "team1Id", oldValue, _internal_team1Id));
+        }
+    }
+
+    public function set finished(value:Boolean) : void
+    {
+        var oldValue:Boolean = _internal_finished;
+        if (oldValue !== value)
+        {
+            _internal_finished = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "finished", oldValue, _internal_finished));
         }
     }
 

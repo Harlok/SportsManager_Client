@@ -65,8 +65,8 @@ public class _Super_EventTeamDAO extends flash.events.EventDispatcher implements
     private var _internal_id : int;
     private var _internal_lost : int;
     private var _internal_pool : int;
-    private var _internal_happy : int;
     private var _internal_seasonEvent : valueObjects.SeasonEventDAO;
+    private var _internal_happy : int;
     private var _internal_team : valueObjects.TeamDAO;
     private var _internal_won : int;
     private var _internal_pos : int;
@@ -112,15 +112,15 @@ public class _Super_EventTeamDAO extends flash.events.EventDispatcher implements
     }
 
     [Bindable(event="propertyChange")]
-    public function get happy() : int
-    {
-        return _internal_happy;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get seasonEvent() : valueObjects.SeasonEventDAO
     {
         return _internal_seasonEvent;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get happy() : int
+    {
+        return _internal_happy;
     }
 
     [Bindable(event="propertyChange")]
@@ -179,16 +179,6 @@ public class _Super_EventTeamDAO extends flash.events.EventDispatcher implements
         }
     }
 
-    public function set happy(value:int) : void
-    {
-        var oldValue:int = _internal_happy;
-        if (oldValue !== value)
-        {
-            _internal_happy = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "happy", oldValue, _internal_happy));
-        }
-    }
-
     public function set seasonEvent(value:valueObjects.SeasonEventDAO) : void
     {
         var oldValue:valueObjects.SeasonEventDAO = _internal_seasonEvent;
@@ -196,6 +186,16 @@ public class _Super_EventTeamDAO extends flash.events.EventDispatcher implements
         {
             _internal_seasonEvent = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "seasonEvent", oldValue, _internal_seasonEvent));
+        }
+    }
+
+    public function set happy(value:int) : void
+    {
+        var oldValue:int = _internal_happy;
+        if (oldValue !== value)
+        {
+            _internal_happy = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "happy", oldValue, _internal_happy));
         }
     }
 

@@ -74,9 +74,9 @@ public class _Super_Invitation extends flash.events.EventDispatcher implements c
     /**
      * properties
      */
-    private var _internal_fromPlayer : valueObjects.Player;
     private var _internal_response : String;
     private var _internal_id : int;
+    private var _internal_fromPlayer : valueObjects.Player;
     private var _internal_status : int;
     private var _internal_seasonEvent : valueObjects.SeasonEvent;
     private var _internal_toPlayer : valueObjects.Player;
@@ -106,12 +106,6 @@ public class _Super_Invitation extends flash.events.EventDispatcher implements c
      */
 
     [Bindable(event="propertyChange")]
-    public function get fromPlayer() : valueObjects.Player
-    {
-        return _internal_fromPlayer;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get response() : String
     {
         return _internal_response;
@@ -121,6 +115,12 @@ public class _Super_Invitation extends flash.events.EventDispatcher implements c
     public function get id() : int
     {
         return _internal_id;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get fromPlayer() : valueObjects.Player
+    {
+        return _internal_fromPlayer;
     }
 
     [Bindable(event="propertyChange")]
@@ -161,16 +161,6 @@ public class _Super_Invitation extends flash.events.EventDispatcher implements c
      * data/source property setters
      */
 
-    public function set fromPlayer(value:valueObjects.Player) : void
-    {
-        var oldValue:valueObjects.Player = _internal_fromPlayer;
-        if (oldValue !== value)
-        {
-            _internal_fromPlayer = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "fromPlayer", oldValue, _internal_fromPlayer));
-        }
-    }
-
     public function set response(value:String) : void
     {
         var oldValue:String = _internal_response;
@@ -188,6 +178,16 @@ public class _Super_Invitation extends flash.events.EventDispatcher implements c
         {
             _internal_id = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "id", oldValue, _internal_id));
+        }
+    }
+
+    public function set fromPlayer(value:valueObjects.Player) : void
+    {
+        var oldValue:valueObjects.Player = _internal_fromPlayer;
+        if (oldValue !== value)
+        {
+            _internal_fromPlayer = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "fromPlayer", oldValue, _internal_fromPlayer));
         }
     }
 

@@ -22,14 +22,14 @@ internal class _EventTeamDAOEntityMetadata extends com.adobe.fiber.valueobjects.
 {
     private static var emptyArray:Array = new Array();
 
-    model_internal static var allProperties:Array = new Array("id", "lost", "pool", "happy", "seasonEvent", "team", "won", "pos");
+    model_internal static var allProperties:Array = new Array("id", "lost", "pool", "seasonEvent", "happy", "team", "won", "pos");
     model_internal static var allAssociationProperties:Array = new Array();
     model_internal static var allRequiredProperties:Array = new Array();
-    model_internal static var allAlwaysAvailableProperties:Array = new Array("id", "lost", "pool", "happy", "seasonEvent", "team", "won", "pos");
+    model_internal static var allAlwaysAvailableProperties:Array = new Array("id", "lost", "pool", "seasonEvent", "happy", "team", "won", "pos");
     model_internal static var guardedProperties:Array = new Array();
-    model_internal static var dataProperties:Array = new Array("id", "lost", "pool", "happy", "seasonEvent", "team", "won", "pos");
+    model_internal static var dataProperties:Array = new Array("id", "lost", "pool", "seasonEvent", "happy", "team", "won", "pos");
     model_internal static var sourceProperties:Array = emptyArray
-    model_internal static var nonDerivedProperties:Array = new Array("id", "lost", "pool", "happy", "seasonEvent", "team", "won", "pos");
+    model_internal static var nonDerivedProperties:Array = new Array("id", "lost", "pool", "seasonEvent", "happy", "team", "won", "pos");
     model_internal static var derivedProperties:Array = new Array();
     model_internal static var collectionProperties:Array = new Array();
     model_internal static var collectionBaseMap:Object;
@@ -52,8 +52,8 @@ internal class _EventTeamDAOEntityMetadata extends com.adobe.fiber.valueobjects.
             model_internal::dependentsOnMap["id"] = new Array();
             model_internal::dependentsOnMap["lost"] = new Array();
             model_internal::dependentsOnMap["pool"] = new Array();
-            model_internal::dependentsOnMap["happy"] = new Array();
             model_internal::dependentsOnMap["seasonEvent"] = new Array();
+            model_internal::dependentsOnMap["happy"] = new Array();
             model_internal::dependentsOnMap["team"] = new Array();
             model_internal::dependentsOnMap["won"] = new Array();
             model_internal::dependentsOnMap["pos"] = new Array();
@@ -67,8 +67,8 @@ internal class _EventTeamDAOEntityMetadata extends com.adobe.fiber.valueobjects.
         model_internal::propertyTypeMap["id"] = "int";
         model_internal::propertyTypeMap["lost"] = "int";
         model_internal::propertyTypeMap["pool"] = "int";
-        model_internal::propertyTypeMap["happy"] = "int";
         model_internal::propertyTypeMap["seasonEvent"] = "valueObjects.SeasonEventDAO";
+        model_internal::propertyTypeMap["happy"] = "int";
         model_internal::propertyTypeMap["team"] = "valueObjects.TeamDAO";
         model_internal::propertyTypeMap["won"] = "int";
         model_internal::propertyTypeMap["pos"] = "int";
@@ -319,13 +319,13 @@ internal class _EventTeamDAOEntityMetadata extends com.adobe.fiber.valueobjects.
     }
 
     [Bindable(event="propertyChange")]
-    public function get isHappyAvailable():Boolean
+    public function get isSeasonEventAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
-    public function get isSeasonEventAvailable():Boolean
+    public function get isHappyAvailable():Boolean
     {
         return true;
     }
@@ -377,13 +377,13 @@ internal class _EventTeamDAOEntityMetadata extends com.adobe.fiber.valueobjects.
     }
 
     [Bindable(event="propertyChange")]   
-    public function get happyStyle():com.adobe.fiber.styles.Style
+    public function get seasonEventStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
-    public function get seasonEventStyle():com.adobe.fiber.styles.Style
+    public function get happyStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }

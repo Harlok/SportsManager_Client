@@ -50,8 +50,8 @@ public class _Super_Team extends flash.events.EventDispatcher implements com.ado
         valueObjects.Organization.initRemoteClassAliasSingleChild();
         valueObjects.VolleyType.initRemoteClassAliasSingleChild();
         valueObjects.LevelInterest.initRemoteClassAliasSingleChild();
-        valueObjects.Player.initRemoteClassAliasSingleChild();
         valueObjects.VolleyLevel.initRemoteClassAliasSingleChild();
+        valueObjects.Player.initRemoteClassAliasSingleChild();
         valueObjects.LeagueAdmin.initRemoteClassAliasSingleChild();
         valueObjects.SeasonEvent.initRemoteClassAliasSingleChild();
         valueObjects.TeamPlayer.initRemoteClassAliasSingleChild();
@@ -79,9 +79,9 @@ public class _Super_Team extends flash.events.EventDispatcher implements com.ado
     private var _internal_leagueSeasonList : ArrayCollection;
     model_internal var _internal_leagueSeasonList_leaf:valueObjects.LeagueSeason;
     private var _internal_id : int;
+    private var _internal_lost : int;
     private var _internal_teamPlayers : ArrayCollection;
     model_internal var _internal_teamPlayers_leaf:valueObjects.TeamPlayer;
-    private var _internal_lost : int;
     private var _internal_pool : int;
     private var _internal_name : String;
     private var _internal_won : int;
@@ -128,15 +128,15 @@ public class _Super_Team extends flash.events.EventDispatcher implements com.ado
     }
 
     [Bindable(event="propertyChange")]
-    public function get teamPlayers() : ArrayCollection
-    {
-        return _internal_teamPlayers;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get lost() : int
     {
         return _internal_lost;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get teamPlayers() : ArrayCollection
+    {
+        return _internal_teamPlayers;
     }
 
     [Bindable(event="propertyChange")]
@@ -231,6 +231,16 @@ public class _Super_Team extends flash.events.EventDispatcher implements com.ado
         }
     }
 
+    public function set lost(value:int) : void
+    {
+        var oldValue:int = _internal_lost;
+        if (oldValue !== value)
+        {
+            _internal_lost = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "lost", oldValue, _internal_lost));
+        }
+    }
+
     public function set teamPlayers(value:*) : void
     {
         var oldValue:ArrayCollection = _internal_teamPlayers;
@@ -253,16 +263,6 @@ public class _Super_Team extends flash.events.EventDispatcher implements com.ado
                 throw new Error("value of teamPlayers must be a collection");
             }
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "teamPlayers", oldValue, _internal_teamPlayers));
-        }
-    }
-
-    public function set lost(value:int) : void
-    {
-        var oldValue:int = _internal_lost;
-        if (oldValue !== value)
-        {
-            _internal_lost = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "lost", oldValue, _internal_lost));
         }
     }
 

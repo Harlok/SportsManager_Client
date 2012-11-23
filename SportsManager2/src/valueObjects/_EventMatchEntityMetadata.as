@@ -24,14 +24,14 @@ internal class _EventMatchEntityMetadata extends com.adobe.fiber.valueobjects.Ab
 {
     private static var emptyArray:Array = new Array();
 
-    model_internal static var allProperties:Array = new Array("id", "team2Id", "eventId", "setList", "seasonEvent", "courtNo", "team1Id", "team1", "team2", "timeSlot");
+    model_internal static var allProperties:Array = new Array("id", "winningTeam", "team2Id", "eventId", "setList", "seasonEvent", "courtNo", "team1Id", "finished", "team1", "team2", "timeSlot");
     model_internal static var allAssociationProperties:Array = new Array();
     model_internal static var allRequiredProperties:Array = new Array();
-    model_internal static var allAlwaysAvailableProperties:Array = new Array("id", "team2Id", "eventId", "setList", "seasonEvent", "courtNo", "team1Id", "team1", "team2", "timeSlot");
+    model_internal static var allAlwaysAvailableProperties:Array = new Array("id", "winningTeam", "team2Id", "eventId", "setList", "seasonEvent", "courtNo", "team1Id", "finished", "team1", "team2", "timeSlot");
     model_internal static var guardedProperties:Array = new Array();
-    model_internal static var dataProperties:Array = new Array("id", "team2Id", "eventId", "setList", "seasonEvent", "courtNo", "team1Id", "team1", "team2", "timeSlot");
+    model_internal static var dataProperties:Array = new Array("id", "winningTeam", "team2Id", "eventId", "setList", "seasonEvent", "courtNo", "team1Id", "finished", "team1", "team2", "timeSlot");
     model_internal static var sourceProperties:Array = emptyArray
-    model_internal static var nonDerivedProperties:Array = new Array("id", "team2Id", "eventId", "setList", "seasonEvent", "courtNo", "team1Id", "team1", "team2", "timeSlot");
+    model_internal static var nonDerivedProperties:Array = new Array("id", "winningTeam", "team2Id", "eventId", "setList", "seasonEvent", "courtNo", "team1Id", "finished", "team1", "team2", "timeSlot");
     model_internal static var derivedProperties:Array = new Array();
     model_internal static var collectionProperties:Array = new Array("setList");
     model_internal static var collectionBaseMap:Object;
@@ -52,12 +52,14 @@ internal class _EventMatchEntityMetadata extends com.adobe.fiber.valueobjects.Ab
             // dependents map
             model_internal::dependentsOnMap = new Object();
             model_internal::dependentsOnMap["id"] = new Array();
+            model_internal::dependentsOnMap["winningTeam"] = new Array();
             model_internal::dependentsOnMap["team2Id"] = new Array();
             model_internal::dependentsOnMap["eventId"] = new Array();
             model_internal::dependentsOnMap["setList"] = new Array();
             model_internal::dependentsOnMap["seasonEvent"] = new Array();
             model_internal::dependentsOnMap["courtNo"] = new Array();
             model_internal::dependentsOnMap["team1Id"] = new Array();
+            model_internal::dependentsOnMap["finished"] = new Array();
             model_internal::dependentsOnMap["team1"] = new Array();
             model_internal::dependentsOnMap["team2"] = new Array();
             model_internal::dependentsOnMap["timeSlot"] = new Array();
@@ -70,12 +72,14 @@ internal class _EventMatchEntityMetadata extends com.adobe.fiber.valueobjects.Ab
         // Property type Map
         model_internal::propertyTypeMap = new Object();
         model_internal::propertyTypeMap["id"] = "int";
+        model_internal::propertyTypeMap["winningTeam"] = "int";
         model_internal::propertyTypeMap["team2Id"] = "int";
         model_internal::propertyTypeMap["eventId"] = "int";
         model_internal::propertyTypeMap["setList"] = "ArrayCollection";
         model_internal::propertyTypeMap["seasonEvent"] = "valueObjects.SeasonEvent";
         model_internal::propertyTypeMap["courtNo"] = "int";
         model_internal::propertyTypeMap["team1Id"] = "int";
+        model_internal::propertyTypeMap["finished"] = "Boolean";
         model_internal::propertyTypeMap["team1"] = "valueObjects.Team";
         model_internal::propertyTypeMap["team2"] = "valueObjects.Team";
         model_internal::propertyTypeMap["timeSlot"] = "int";
@@ -314,6 +318,12 @@ internal class _EventMatchEntityMetadata extends com.adobe.fiber.valueobjects.Ab
     }
 
     [Bindable(event="propertyChange")]
+    public function get isWinningTeamAvailable():Boolean
+    {
+        return true;
+    }
+
+    [Bindable(event="propertyChange")]
     public function get isTeam2IdAvailable():Boolean
     {
         return true;
@@ -345,6 +355,12 @@ internal class _EventMatchEntityMetadata extends com.adobe.fiber.valueobjects.Ab
 
     [Bindable(event="propertyChange")]
     public function get isTeam1IdAvailable():Boolean
+    {
+        return true;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get isFinishedAvailable():Boolean
     {
         return true;
     }
@@ -384,6 +400,12 @@ internal class _EventMatchEntityMetadata extends com.adobe.fiber.valueobjects.Ab
     }
 
     [Bindable(event="propertyChange")]   
+    public function get winningTeamStyle():com.adobe.fiber.styles.Style
+    {
+        return model_internal::_nullStyle;
+    }
+
+    [Bindable(event="propertyChange")]   
     public function get team2IdStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
@@ -415,6 +437,12 @@ internal class _EventMatchEntityMetadata extends com.adobe.fiber.valueobjects.Ab
 
     [Bindable(event="propertyChange")]   
     public function get team1IdStyle():com.adobe.fiber.styles.Style
+    {
+        return model_internal::_nullStyle;
+    }
+
+    [Bindable(event="propertyChange")]   
+    public function get finishedStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }

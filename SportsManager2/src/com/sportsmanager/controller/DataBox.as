@@ -59,12 +59,14 @@ package com.sportsmanager.controller
 		{
 			return _orgList;
 		}
-
+		
 		public static function get instance():DataBox
 		{
 			if (_instance == null) { _instance = new DataBox(); }
 			return _instance;
 		}
+		
+		
 
 	}
 }

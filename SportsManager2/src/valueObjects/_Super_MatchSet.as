@@ -62,13 +62,13 @@ public class _Super_MatchSet extends flash.events.EventDispatcher implements com
      */
     private var _internal_id : int;
     private var _internal_winningTeam : int;
-    private var _internal_matchId : int;
     private var _internal_eventMatch : valueObjects.EventMatch;
+    private var _internal_matchId : int;
     private var _internal_scoreTeam1 : int;
     private var _internal_scoreTeam2 : int;
     private var _internal_finished : Boolean;
-    private var _internal_setPoints : int;
     private var _internal_setNo : int;
+    private var _internal_setPoints : int;
 
     private static var emptyArray:Array = new Array();
 
@@ -105,15 +105,15 @@ public class _Super_MatchSet extends flash.events.EventDispatcher implements com
     }
 
     [Bindable(event="propertyChange")]
-    public function get matchId() : int
-    {
-        return _internal_matchId;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get eventMatch() : valueObjects.EventMatch
     {
         return _internal_eventMatch;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get matchId() : int
+    {
+        return _internal_matchId;
     }
 
     [Bindable(event="propertyChange")]
@@ -135,15 +135,15 @@ public class _Super_MatchSet extends flash.events.EventDispatcher implements com
     }
 
     [Bindable(event="propertyChange")]
-    public function get setPoints() : int
-    {
-        return _internal_setPoints;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get setNo() : int
     {
         return _internal_setNo;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get setPoints() : int
+    {
+        return _internal_setPoints;
     }
 
     public function clearAssociations() : void
@@ -174,16 +174,6 @@ public class _Super_MatchSet extends flash.events.EventDispatcher implements com
         }
     }
 
-    public function set matchId(value:int) : void
-    {
-        var oldValue:int = _internal_matchId;
-        if (oldValue !== value)
-        {
-            _internal_matchId = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "matchId", oldValue, _internal_matchId));
-        }
-    }
-
     public function set eventMatch(value:valueObjects.EventMatch) : void
     {
         var oldValue:valueObjects.EventMatch = _internal_eventMatch;
@@ -191,6 +181,16 @@ public class _Super_MatchSet extends flash.events.EventDispatcher implements com
         {
             _internal_eventMatch = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "eventMatch", oldValue, _internal_eventMatch));
+        }
+    }
+
+    public function set matchId(value:int) : void
+    {
+        var oldValue:int = _internal_matchId;
+        if (oldValue !== value)
+        {
+            _internal_matchId = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "matchId", oldValue, _internal_matchId));
         }
     }
 
@@ -224,16 +224,6 @@ public class _Super_MatchSet extends flash.events.EventDispatcher implements com
         }
     }
 
-    public function set setPoints(value:int) : void
-    {
-        var oldValue:int = _internal_setPoints;
-        if (oldValue !== value)
-        {
-            _internal_setPoints = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "setPoints", oldValue, _internal_setPoints));
-        }
-    }
-
     public function set setNo(value:int) : void
     {
         var oldValue:int = _internal_setNo;
@@ -241,6 +231,16 @@ public class _Super_MatchSet extends flash.events.EventDispatcher implements com
         {
             _internal_setNo = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "setNo", oldValue, _internal_setNo));
+        }
+    }
+
+    public function set setPoints(value:int) : void
+    {
+        var oldValue:int = _internal_setPoints;
+        if (oldValue !== value)
+        {
+            _internal_setPoints = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "setPoints", oldValue, _internal_setPoints));
         }
     }
 

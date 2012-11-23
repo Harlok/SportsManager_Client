@@ -60,9 +60,9 @@ public class _Super_VolleyLevel extends flash.events.EventDispatcher implements 
     /**
      * properties
      */
-    private var _internal_id : int;
     private var _internal_minInterest : ArrayCollection;
     model_internal var _internal_minInterest_leaf:valueObjects.LevelInterest;
+    private var _internal_id : int;
     private var _internal_maxInterest : ArrayCollection;
     model_internal var _internal_maxInterest_leaf:valueObjects.LevelInterest;
     private var _internal_skillLevel : int;
@@ -91,15 +91,15 @@ public class _Super_VolleyLevel extends flash.events.EventDispatcher implements 
      */
 
     [Bindable(event="propertyChange")]
-    public function get id() : int
-    {
-        return _internal_id;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get minInterest() : ArrayCollection
     {
         return _internal_minInterest;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get id() : int
+    {
+        return _internal_id;
     }
 
     [Bindable(event="propertyChange")]
@@ -128,16 +128,6 @@ public class _Super_VolleyLevel extends flash.events.EventDispatcher implements 
      * data/source property setters
      */
 
-    public function set id(value:int) : void
-    {
-        var oldValue:int = _internal_id;
-        if (oldValue !== value)
-        {
-            _internal_id = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "id", oldValue, _internal_id));
-        }
-    }
-
     public function set minInterest(value:*) : void
     {
         var oldValue:ArrayCollection = _internal_minInterest;
@@ -160,6 +150,16 @@ public class _Super_VolleyLevel extends flash.events.EventDispatcher implements 
                 throw new Error("value of minInterest must be a collection");
             }
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "minInterest", oldValue, _internal_minInterest));
+        }
+    }
+
+    public function set id(value:int) : void
+    {
+        var oldValue:int = _internal_id;
+        if (oldValue !== value)
+        {
+            _internal_id = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "id", oldValue, _internal_id));
         }
     }
 

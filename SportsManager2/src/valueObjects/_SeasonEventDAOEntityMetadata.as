@@ -26,14 +26,14 @@ internal class _SeasonEventDAOEntityMetadata extends com.adobe.fiber.valueobject
 {
     private static var emptyArray:Array = new Array();
 
-    model_internal static var allProperties:Array = new Array("setTime", "setPoints", "setCount", "capOn15", "capOn21", "timePerPoint", "location", "capOn25", "maxPlayerPerPool", "setConfig", "date", "poolCount", "id", "startTime", "leagueSeason", "scheduleLocked", "courtCount", "teamInvitations", "matchList", "teamPosList");
+    model_internal static var allProperties:Array = new Array("setTime", "setPoints", "setCount", "capOn15", "capOn21", "timePerPoint", "location", "capOn25", "maxPlayerPerPool", "date", "setConfig", "poolCount", "startTime", "id", "leagueSeason", "scheduleLocked", "courtCount", "teamInvitations", "matchList", "teamPosList");
     model_internal static var allAssociationProperties:Array = new Array();
     model_internal static var allRequiredProperties:Array = new Array();
-    model_internal static var allAlwaysAvailableProperties:Array = new Array("setTime", "setPoints", "setCount", "capOn15", "capOn21", "timePerPoint", "location", "capOn25", "maxPlayerPerPool", "setConfig", "date", "poolCount", "id", "startTime", "leagueSeason", "scheduleLocked", "courtCount", "teamInvitations", "matchList", "teamPosList");
+    model_internal static var allAlwaysAvailableProperties:Array = new Array("setTime", "setPoints", "setCount", "capOn15", "capOn21", "timePerPoint", "location", "capOn25", "maxPlayerPerPool", "date", "setConfig", "poolCount", "startTime", "id", "leagueSeason", "scheduleLocked", "courtCount", "teamInvitations", "matchList", "teamPosList");
     model_internal static var guardedProperties:Array = new Array();
-    model_internal static var dataProperties:Array = new Array("setTime", "setPoints", "setCount", "capOn15", "capOn21", "timePerPoint", "location", "capOn25", "maxPlayerPerPool", "setConfig", "date", "poolCount", "id", "startTime", "leagueSeason", "scheduleLocked", "courtCount", "teamInvitations", "matchList", "teamPosList");
+    model_internal static var dataProperties:Array = new Array("setTime", "setPoints", "setCount", "capOn15", "capOn21", "timePerPoint", "location", "capOn25", "maxPlayerPerPool", "date", "setConfig", "poolCount", "startTime", "id", "leagueSeason", "scheduleLocked", "courtCount", "teamInvitations", "matchList", "teamPosList");
     model_internal static var sourceProperties:Array = emptyArray
-    model_internal static var nonDerivedProperties:Array = new Array("setTime", "setPoints", "setCount", "capOn15", "capOn21", "timePerPoint", "location", "capOn25", "maxPlayerPerPool", "setConfig", "date", "poolCount", "id", "startTime", "leagueSeason", "scheduleLocked", "courtCount", "teamInvitations", "matchList", "teamPosList");
+    model_internal static var nonDerivedProperties:Array = new Array("setTime", "setPoints", "setCount", "capOn15", "capOn21", "timePerPoint", "location", "capOn25", "maxPlayerPerPool", "date", "setConfig", "poolCount", "startTime", "id", "leagueSeason", "scheduleLocked", "courtCount", "teamInvitations", "matchList", "teamPosList");
     model_internal static var derivedProperties:Array = new Array();
     model_internal static var collectionProperties:Array = new Array("teamInvitations", "matchList", "teamPosList");
     model_internal static var collectionBaseMap:Object;
@@ -62,11 +62,11 @@ internal class _SeasonEventDAOEntityMetadata extends com.adobe.fiber.valueobject
             model_internal::dependentsOnMap["location"] = new Array();
             model_internal::dependentsOnMap["capOn25"] = new Array();
             model_internal::dependentsOnMap["maxPlayerPerPool"] = new Array();
-            model_internal::dependentsOnMap["setConfig"] = new Array();
             model_internal::dependentsOnMap["date"] = new Array();
+            model_internal::dependentsOnMap["setConfig"] = new Array();
             model_internal::dependentsOnMap["poolCount"] = new Array();
-            model_internal::dependentsOnMap["id"] = new Array();
             model_internal::dependentsOnMap["startTime"] = new Array();
+            model_internal::dependentsOnMap["id"] = new Array();
             model_internal::dependentsOnMap["leagueSeason"] = new Array();
             model_internal::dependentsOnMap["scheduleLocked"] = new Array();
             model_internal::dependentsOnMap["courtCount"] = new Array();
@@ -92,11 +92,11 @@ internal class _SeasonEventDAOEntityMetadata extends com.adobe.fiber.valueobject
         model_internal::propertyTypeMap["location"] = "valueObjects.LocationDAO";
         model_internal::propertyTypeMap["capOn25"] = "int";
         model_internal::propertyTypeMap["maxPlayerPerPool"] = "int";
-        model_internal::propertyTypeMap["setConfig"] = "int";
         model_internal::propertyTypeMap["date"] = "Number";
+        model_internal::propertyTypeMap["setConfig"] = "int";
         model_internal::propertyTypeMap["poolCount"] = "int";
-        model_internal::propertyTypeMap["id"] = "int";
         model_internal::propertyTypeMap["startTime"] = "Number";
+        model_internal::propertyTypeMap["id"] = "int";
         model_internal::propertyTypeMap["leagueSeason"] = "valueObjects.LeagueSeasonDAO";
         model_internal::propertyTypeMap["scheduleLocked"] = "Boolean";
         model_internal::propertyTypeMap["courtCount"] = "int";
@@ -386,13 +386,13 @@ internal class _SeasonEventDAOEntityMetadata extends com.adobe.fiber.valueobject
     }
 
     [Bindable(event="propertyChange")]
-    public function get isSetConfigAvailable():Boolean
+    public function get isDateAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
-    public function get isDateAvailable():Boolean
+    public function get isSetConfigAvailable():Boolean
     {
         return true;
     }
@@ -404,13 +404,13 @@ internal class _SeasonEventDAOEntityMetadata extends com.adobe.fiber.valueobject
     }
 
     [Bindable(event="propertyChange")]
-    public function get isIdAvailable():Boolean
+    public function get isStartTimeAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
-    public function get isStartTimeAvailable():Boolean
+    public function get isIdAvailable():Boolean
     {
         return true;
     }
@@ -516,13 +516,13 @@ internal class _SeasonEventDAOEntityMetadata extends com.adobe.fiber.valueobject
     }
 
     [Bindable(event="propertyChange")]   
-    public function get setConfigStyle():com.adobe.fiber.styles.Style
+    public function get dateStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
-    public function get dateStyle():com.adobe.fiber.styles.Style
+    public function get setConfigStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
@@ -534,13 +534,13 @@ internal class _SeasonEventDAOEntityMetadata extends com.adobe.fiber.valueobject
     }
 
     [Bindable(event="propertyChange")]   
-    public function get idStyle():com.adobe.fiber.styles.Style
+    public function get startTimeStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
-    public function get startTimeStyle():com.adobe.fiber.styles.Style
+    public function get idStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }

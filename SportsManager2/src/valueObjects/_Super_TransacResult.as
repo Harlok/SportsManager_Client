@@ -58,8 +58,8 @@ public class _Super_TransacResult extends flash.events.EventDispatcher implement
     /**
      * properties
      */
-    private var _internal_id : int;
     private var _internal_message : String;
+    private var _internal_id : int;
     private var _internal_errorCode : int;
     private var _internal_success : Boolean;
 
@@ -86,15 +86,15 @@ public class _Super_TransacResult extends flash.events.EventDispatcher implement
      */
 
     [Bindable(event="propertyChange")]
-    public function get id() : int
-    {
-        return _internal_id;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get message() : String
     {
         return _internal_message;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get id() : int
+    {
+        return _internal_id;
     }
 
     [Bindable(event="propertyChange")]
@@ -117,16 +117,6 @@ public class _Super_TransacResult extends flash.events.EventDispatcher implement
      * data/source property setters
      */
 
-    public function set id(value:int) : void
-    {
-        var oldValue:int = _internal_id;
-        if (oldValue !== value)
-        {
-            _internal_id = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "id", oldValue, _internal_id));
-        }
-    }
-
     public function set message(value:String) : void
     {
         var oldValue:String = _internal_message;
@@ -134,6 +124,16 @@ public class _Super_TransacResult extends flash.events.EventDispatcher implement
         {
             _internal_message = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "message", oldValue, _internal_message));
+        }
+    }
+
+    public function set id(value:int) : void
+    {
+        var oldValue:int = _internal_id;
+        if (oldValue !== value)
+        {
+            _internal_id = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "id", oldValue, _internal_id));
         }
     }
 

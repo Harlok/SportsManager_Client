@@ -20,14 +20,14 @@ internal class _LocationEntityMetadata extends com.adobe.fiber.valueobjects.Abst
 {
     private static var emptyArray:Array = new Array();
 
-    model_internal static var allProperties:Array = new Array("id", "googleMapsUrl", "address", "name", "zipcode", "province", "longitude", "latitude", "city", "country");
+    model_internal static var allProperties:Array = new Array("id", "googleMapsUrl", "address", "zipcode", "name", "province", "longitude", "latitude", "city", "country");
     model_internal static var allAssociationProperties:Array = new Array();
     model_internal static var allRequiredProperties:Array = new Array();
-    model_internal static var allAlwaysAvailableProperties:Array = new Array("id", "googleMapsUrl", "address", "name", "zipcode", "province", "longitude", "latitude", "city", "country");
+    model_internal static var allAlwaysAvailableProperties:Array = new Array("id", "googleMapsUrl", "address", "zipcode", "name", "province", "longitude", "latitude", "city", "country");
     model_internal static var guardedProperties:Array = new Array();
-    model_internal static var dataProperties:Array = new Array("id", "googleMapsUrl", "address", "name", "zipcode", "province", "longitude", "latitude", "city", "country");
+    model_internal static var dataProperties:Array = new Array("id", "googleMapsUrl", "address", "zipcode", "name", "province", "longitude", "latitude", "city", "country");
     model_internal static var sourceProperties:Array = emptyArray
-    model_internal static var nonDerivedProperties:Array = new Array("id", "googleMapsUrl", "address", "name", "zipcode", "province", "longitude", "latitude", "city", "country");
+    model_internal static var nonDerivedProperties:Array = new Array("id", "googleMapsUrl", "address", "zipcode", "name", "province", "longitude", "latitude", "city", "country");
     model_internal static var derivedProperties:Array = new Array();
     model_internal static var collectionProperties:Array = new Array();
     model_internal static var collectionBaseMap:Object;
@@ -50,8 +50,8 @@ internal class _LocationEntityMetadata extends com.adobe.fiber.valueobjects.Abst
             model_internal::dependentsOnMap["id"] = new Array();
             model_internal::dependentsOnMap["googleMapsUrl"] = new Array();
             model_internal::dependentsOnMap["address"] = new Array();
-            model_internal::dependentsOnMap["name"] = new Array();
             model_internal::dependentsOnMap["zipcode"] = new Array();
+            model_internal::dependentsOnMap["name"] = new Array();
             model_internal::dependentsOnMap["province"] = new Array();
             model_internal::dependentsOnMap["longitude"] = new Array();
             model_internal::dependentsOnMap["latitude"] = new Array();
@@ -67,8 +67,8 @@ internal class _LocationEntityMetadata extends com.adobe.fiber.valueobjects.Abst
         model_internal::propertyTypeMap["id"] = "int";
         model_internal::propertyTypeMap["googleMapsUrl"] = "String";
         model_internal::propertyTypeMap["address"] = "String";
-        model_internal::propertyTypeMap["name"] = "String";
         model_internal::propertyTypeMap["zipcode"] = "String";
+        model_internal::propertyTypeMap["name"] = "String";
         model_internal::propertyTypeMap["province"] = "String";
         model_internal::propertyTypeMap["longitude"] = "Number";
         model_internal::propertyTypeMap["latitude"] = "Number";
@@ -321,13 +321,13 @@ internal class _LocationEntityMetadata extends com.adobe.fiber.valueobjects.Abst
     }
 
     [Bindable(event="propertyChange")]
-    public function get isNameAvailable():Boolean
+    public function get isZipcodeAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
-    public function get isZipcodeAvailable():Boolean
+    public function get isNameAvailable():Boolean
     {
         return true;
     }
@@ -391,13 +391,13 @@ internal class _LocationEntityMetadata extends com.adobe.fiber.valueobjects.Abst
     }
 
     [Bindable(event="propertyChange")]   
-    public function get nameStyle():com.adobe.fiber.styles.Style
+    public function get zipcodeStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
-    public function get zipcodeStyle():com.adobe.fiber.styles.Style
+    public function get nameStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }

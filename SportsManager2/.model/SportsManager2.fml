@@ -51,7 +51,7 @@
         <item name="returnType">MatchSet</item>
       </annotation>
       <annotation name="ValidProperties">
-        <item name="propertySpecifier">id,winningTeam,matchId,eventMatch,scoreTeam1,scoreTeam2,finished,setPoints,setNo</item>
+        <item name="propertySpecifier">id,winningTeam,eventMatch,matchId,scoreTeam1,scoreTeam2,finished,setNo,setPoints</item>
       </annotation>
       <parameter name="arg0" type="integer"/>
     </function>
@@ -64,7 +64,7 @@
         <item name="returnType">EventMatch</item>
       </annotation>
       <annotation name="ValidProperties">
-        <item name="propertySpecifier">id,team2Id,eventId,setList,seasonEvent,courtNo,team1Id,team1,team2,timeSlot</item>
+        <item name="propertySpecifier">id,winningTeam,team2Id,eventId,setList,seasonEvent,courtNo,team1Id,finished,team1,team2,timeSlot</item>
       </annotation>
       <parameter name="arg0" type="integer"/>
     </function>
@@ -77,7 +77,7 @@
         <item name="returnType">TransacResult</item>
       </annotation>
       <annotation name="ValidProperties">
-        <item name="propertySpecifier">id,message,errorCode,success</item>
+        <item name="propertySpecifier">message,id,errorCode,success</item>
       </annotation>
       <parameter name="arg0" type="integer"/>
       <parameter name="arg1" type="integer"/>
@@ -92,7 +92,7 @@
         <item name="returnType">Team</item>
       </annotation>
       <annotation name="ValidProperties">
-        <item name="propertySpecifier">id,teamPlayers,lost,pool,name,won,pos</item>
+        <item name="propertySpecifier">id,lost,teamPlayers,pool,name,won,pos</item>
       </annotation>
       <parameter name="arg0" type="integer"/>
     </function>
@@ -147,7 +147,7 @@
         <item name="returnType">TransacResult</item>
       </annotation>
       <annotation name="ValidProperties">
-        <item name="propertySpecifier">id,message,errorCode,success</item>
+        <item name="propertySpecifier">message,id,errorCode,success</item>
       </annotation>
       <parameter name="arg0" type="Location"/>
     </function>
@@ -160,7 +160,7 @@
         <item name="returnType">Player</item>
       </annotation>
       <annotation name="ValidProperties">
-        <item name="propertySpecifier">id,lastName,sex,phone,height,email,zipCode,birthDate,longitude,latitude,firstName,password</item>
+        <item name="propertySpecifier">id,lastName,phone,sex,height,email,zipCode,birthDate,longitude,latitude,firstName,password</item>
       </annotation>
       <parameter name="arg0" type="string"/>
       <parameter name="arg1" type="string"/>
@@ -196,7 +196,7 @@
         <item name="returnType">LeagueSeason</item>
       </annotation>
       <annotation name="ValidProperties">
-        <item name="propertySpecifier">startDate,seasonTeamList,defaultLocation,defaultCapOn21,defaultCourtCount,eventCount,endDate,defaultStartTime,league,eventList,id,defaultMaxPlayerPerPool,defaultSetConfig,name,defaultTimePerPoint,defaultCapOn15,defaultCapOn25</item>
+        <item name="propertySpecifier">id,seasonTeamList,startDate,defaultMaxPlayerPerPool,defaultLocation,defaultCapOn21,eventCount,defaultSetConfig,defaultCourtCount,name,defaultTimePerPoint,defaultCapOn15,defaultCapOn25,endDate,defaultStartTime,league,eventList</item>
       </annotation>
       <parameter name="arg0" type="integer"/>
     </function>
@@ -304,7 +304,7 @@
         <item name="returnType">Player</item>
       </annotation>
       <annotation name="ValidProperties">
-        <item name="propertySpecifier">id,lastName,sex,phone,height,email,zipCode,birthDate,longitude,latitude,firstName,password</item>
+        <item name="propertySpecifier">id,lastName,phone,sex,height,email,zipCode,birthDate,longitude,latitude,firstName,password</item>
       </annotation>
       <parameter name="arg0" type="integer"/>
     </function>
@@ -337,7 +337,7 @@
         <item name="returnType">League</item>
       </annotation>
       <annotation name="ValidProperties">
-        <item name="propertySpecifier">id,organization,seasonList,name,volleyType,hasSeasonTeams,adminList</item>
+        <item name="propertySpecifier">id,organization,seasonList,volleyType,name,hasSeasonTeams,adminList</item>
       </annotation>
       <parameter name="arg0" type="integer"/>
     </function>
@@ -350,7 +350,7 @@
         <item name="returnType">Invitation</item>
       </annotation>
       <annotation name="ValidProperties">
-        <item name="propertySpecifier">fromPlayer,response,id,status,seasonEvent,toPlayer,team,fromMessage</item>
+        <item name="propertySpecifier">response,id,fromPlayer,status,seasonEvent,toPlayer,team,fromMessage</item>
       </annotation>
       <parameter name="arg0" type="integer"/>
     </function>
@@ -396,7 +396,7 @@
         <item name="returnType">Location</item>
       </annotation>
       <annotation name="ValidProperties">
-        <item name="propertySpecifier">id,googleMapsUrl,address,name,zipcode,province,longitude,latitude,city,country</item>
+        <item name="propertySpecifier">id,googleMapsUrl,address,zipcode,name,province,longitude,latitude,city,country</item>
       </annotation>
     </function>
     <function name="addLeagueSeason" return-type="integer">
@@ -429,7 +429,7 @@
         <item name="returnType">Player</item>
       </annotation>
       <annotation name="ValidProperties">
-        <item name="propertySpecifier">id,lastName,sex,phone,height,email,zipCode,birthDate,longitude,latitude,firstName,password</item>
+        <item name="propertySpecifier">id,lastName,phone,sex,height,email,zipCode,birthDate,longitude,latitude,firstName,password</item>
       </annotation>
       <parameter name="arg0" type="integer"/>
     </function>
@@ -450,7 +450,7 @@
         <item name="returnType">TransacResult</item>
       </annotation>
       <annotation name="ValidProperties">
-        <item name="propertySpecifier">id,message,errorCode,success</item>
+        <item name="propertySpecifier">message,id,errorCode,success</item>
       </annotation>
       <parameter name="arg0" type="Player"/>
     </function>
@@ -495,7 +495,7 @@
         <item name="returnType">SessionFactory</item>
       </annotation>
       <annotation name="ValidProperties">
-        <item name="propertySpecifier">allClassMetadata,sessionFactoryOptions,cache,closed,currentSession,definedFilterNames,typeHelper,allCollectionMetadata,statistics</item>
+        <item name="propertySpecifier">sessionFactoryOptions,allClassMetadata,cache,currentSession,closed,definedFilterNames,typeHelper,statistics,allCollectionMetadata</item>
       </annotation>
     </function>
     <function name="listEventTeams" return-type="Team[]">
@@ -507,7 +507,7 @@
         <item name="returnType">Team</item>
       </annotation>
       <annotation name="ValidProperties">
-        <item name="propertySpecifier">id,teamPlayers,lost,pool,name,won,pos</item>
+        <item name="propertySpecifier">id,lost,teamPlayers,pool,name,won,pos</item>
       </annotation>
       <parameter name="arg0" type="integer"/>
     </function>
@@ -520,7 +520,7 @@
         <item name="returnType">TransacResult</item>
       </annotation>
       <annotation name="ValidProperties">
-        <item name="propertySpecifier">id,message,errorCode,success</item>
+        <item name="propertySpecifier">message,id,errorCode,success</item>
       </annotation>
       <parameter name="arg0" type="integer"/>
     </function>
@@ -559,9 +559,19 @@
         <item name="returnType">TransacResult</item>
       </annotation>
       <annotation name="ValidProperties">
-        <item name="propertySpecifier">id,message,errorCode,success</item>
+        <item name="propertySpecifier">message,id,errorCode,success</item>
       </annotation>
       <parameter name="arg0" type="MatchSet"/>
+    </function>
+    <function name="updateEventMatch" return-type="TransacResult">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">EventMatch</item>
+        <item name="returnType">TransacResult</item>
+      </annotation>
+      <parameter name="arg0" type="EventMatch"/>
     </function>
   </service>
   <entity name="Statistics">
@@ -589,8 +599,8 @@
     <property name="startTime" type="long"/>
     <property name="updateTimestampsCacheHitCount" type="long"/>
     <property name="sessionOpenCount" type="long"/>
-    <property name="statisticsEnabled" type="boolean"/>
     <property name="entityFetchCount" type="long"/>
+    <property name="statisticsEnabled" type="boolean"/>
     <property name="naturalIdQueryExecutionCount" type="long"/>
     <property name="connectCount" type="long"/>
     <property name="sessionCloseCount" type="long"/>
@@ -603,8 +613,8 @@
     <property name="collectionLoadCount" type="long"/>
     <property name="entityUpdateCount" type="long"/>
     <property name="transactionCount" type="long"/>
-    <property name="queryExecutionMaxTimeQueryString" type="string"/>
     <property name="naturalIdQueryExecutionMaxTimeRegion" type="string"/>
+    <property name="queryExecutionMaxTimeQueryString" type="string"/>
     <property name="queryCachePutCount" type="long"/>
     <property name="naturalIdQueryExecutionMaxTime" type="long"/>
     <property name="closeStatementCount" type="long"/>
@@ -613,10 +623,10 @@
     <property name="entityDeleteCount" type="long"/>
     <property name="collectionUpdateCount" type="long"/>
     <property name="flushCount" type="long"/>
-    <property name="prepareStatementCount" type="long"/>
     <property name="updateTimestampsCachePutCount" type="long"/>
-    <property name="queries" type="string[]"/>
+    <property name="prepareStatementCount" type="long"/>
     <property name="collectionRemoveCount" type="long"/>
+    <property name="queries" type="string[]"/>
     <property name="successfulTransactionCount" type="long"/>
     <property name="collectionRoleNames" type="string[]"/>
     <property name="secondLevelCacheRegionNames" type="string[]"/>
@@ -658,18 +668,18 @@
       <item name="Package">valueObjects</item>
     </annotation>
     <annotation name="login">
-      <item name="propertySpecifier">id,lastName,sex,phone,height,email,zipCode,birthDate,longitude,latitude,firstName,password</item>
+      <item name="propertySpecifier">id,lastName,phone,sex,height,email,zipCode,birthDate,longitude,latitude,firstName,password</item>
     </annotation>
     <annotation name="listLeagueAdministrators">
-      <item name="propertySpecifier">id,lastName,sex,phone,height,email,zipCode,birthDate,longitude,latitude,firstName,password</item>
+      <item name="propertySpecifier">id,lastName,phone,sex,height,email,zipCode,birthDate,longitude,latitude,firstName,password</item>
     </annotation>
     <annotation name="getPlayerById">
-      <item name="propertySpecifier">id,lastName,sex,phone,height,email,zipCode,birthDate,longitude,latitude,firstName,password</item>
+      <item name="propertySpecifier">id,lastName,phone,sex,height,email,zipCode,birthDate,longitude,latitude,firstName,password</item>
     </annotation>
     <property name="id" type="integer"/>
     <property name="lastName" type="string"/>
-    <property name="sex" type="integer"/>
     <property name="phone" type="string"/>
+    <property name="sex" type="integer"/>
     <property name="height" type="integer"/>
     <property name="email" type="string"/>
     <property name="zipCode" type="string"/>
@@ -742,8 +752,8 @@
       <item name="Package">valueObjects</item>
     </annotation>
     <property name="id" type="integer"/>
-    <property name="player" type="Player"/>
     <property name="maxLevel" type="VolleyLevel"/>
+    <property name="player" type="Player"/>
     <property name="minLevel" type="VolleyLevel"/>
     <property name="volleyType" type="VolleyType"/>
   </entity>
@@ -807,9 +817,11 @@
     <property name="team2" type="TeamDAO"/>
     <property name="id" type="integer"/>
     <property name="scheduled" type="boolean"/>
+    <property name="winningTeam" type="integer"/>
     <property name="setList" type="MatchSetDAO[]"/>
     <property name="seasonEvent" type="SeasonEventDAO"/>
     <property name="courtNo" type="integer"/>
+    <property name="finished" type="boolean"/>
     <property name="eventTeam2" type="EventTeamDAO"/>
     <property name="eventTeam1" type="EventTeamDAO"/>
     <property name="poolNo" type="integer"/>
@@ -851,25 +863,6 @@
     <property name="leagueSeasonList" type="LeagueSeasonDAO[]"/>
     <property name="name" type="string"/>
   </entity>
-  <entity name="TeamPlayerDAO">
-    <annotation name="EntityProperties">
-      <item name="EntityOriginalName">TeamPlayerDAO</item>
-    </annotation>
-    <annotation name="ServerProperties">
-      <item name="RemoteClass">com.sportsmanager.model.dao.TeamPlayerDAO</item>
-      <item name="IncludeRemoteClass">nonempty</item>
-    </annotation>
-    <annotation name="service Group">
-      <item name="service">PlayerService</item>
-    </annotation>
-    <annotation name="ActionScriptGeneration">
-      <item name="Package">valueObjects</item>
-    </annotation>
-    <property name="id" type="integer"/>
-    <property name="player" type="PlayerDAO"/>
-    <property name="role" type="integer"/>
-    <property name="team" type="TeamDAO"/>
-  </entity>
   <entity name="EventTeam">
     <annotation name="EntityProperties">
       <item name="EntityOriginalName">EventTeam</item>
@@ -889,10 +882,29 @@
     <property name="id" type="integer"/>
     <property name="lost" type="integer"/>
     <property name="pool" type="integer"/>
-    <property name="team" type="Team"/>
     <property name="won" type="integer"/>
+    <property name="team" type="Team"/>
     <property name="teamId" type="integer"/>
     <property name="pos" type="integer"/>
+  </entity>
+  <entity name="TeamPlayerDAO">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">TeamPlayerDAO</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dao.TeamPlayerDAO</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="id" type="integer"/>
+    <property name="player" type="PlayerDAO"/>
+    <property name="role" type="integer"/>
+    <property name="team" type="TeamDAO"/>
   </entity>
   <entity name="LeagueAdminDAO">
     <annotation name="EntityProperties">
@@ -987,8 +999,8 @@
     <annotation name="ActionScriptGeneration">
       <item name="Package">valueObjects</item>
     </annotation>
-    <property name="id" type="integer"/>
     <property name="minInterest" type="LevelInterest[]"/>
+    <property name="id" type="integer"/>
     <property name="maxInterest" type="LevelInterest[]"/>
     <property name="skillLevel" type="integer"/>
     <property name="name" type="string"/>
@@ -1036,11 +1048,11 @@
     <property name="location" type="LocationDAO"/>
     <property name="capOn25" type="integer"/>
     <property name="maxPlayerPerPool" type="integer"/>
-    <property name="setConfig" type="integer"/>
     <property name="date" type="long"/>
+    <property name="setConfig" type="integer"/>
     <property name="poolCount" type="integer"/>
-    <property name="id" type="integer"/>
     <property name="startTime" type="double"/>
+    <property name="id" type="integer"/>
     <property name="leagueSeason" type="LeagueSeasonDAO"/>
     <property name="scheduleLocked" type="boolean"/>
     <property name="courtCount" type="integer"/>
@@ -1085,8 +1097,8 @@
     <property name="id" type="integer"/>
     <property name="organization" type="OrganizationDAO"/>
     <property name="seasonList" type="LeagueSeasonDAO[]"/>
-    <property name="name" type="string"/>
     <property name="volleyType" type="VolleyTypeDAO"/>
+    <property name="name" type="string"/>
     <property name="hasSeasonTeams" type="boolean"/>
     <property name="adminList" type="LeagueAdminDAO[]"/>
   </entity>
@@ -1105,7 +1117,7 @@
       <item name="Package">valueObjects</item>
     </annotation>
     <annotation name="listLeagueSeasons">
-      <item name="propertySpecifier">startDate,seasonTeamList,defaultLocation,defaultCapOn21,defaultCourtCount,eventCount,endDate,defaultStartTime,league,eventList,id,defaultMaxPlayerPerPool,defaultSetConfig,name,defaultTimePerPoint,defaultCapOn15,defaultCapOn25</item>
+      <item name="propertySpecifier">id,seasonTeamList,startDate,defaultMaxPlayerPerPool,defaultLocation,defaultCapOn21,eventCount,defaultSetConfig,defaultCourtCount,name,defaultTimePerPoint,defaultCapOn15,defaultCapOn25,endDate,defaultStartTime,league,eventList</item>
     </annotation>
     <property name="setTime" type="integer"/>
     <property name="startTime" type="double"/>
@@ -1115,23 +1127,23 @@
     <property name="defaultSetCount" type="integer"/>
     <property name="defaultSetTime" type="integer"/>
     <property name="defaultSetPoints" type="integer"/>
-    <property name="startDate" type="long"/>
+    <property name="id" type="integer"/>
     <property name="seasonTeamList" type="Team[]"/>
+    <property name="startDate" type="long"/>
+    <property name="defaultMaxPlayerPerPool" type="integer"/>
     <property name="defaultLocation" type="Location"/>
     <property name="defaultCapOn21" type="integer"/>
-    <property name="defaultCourtCount" type="integer"/>
     <property name="eventCount" type="integer"/>
-    <property name="endDate" type="long"/>
-    <property name="defaultStartTime" type="double"/>
-    <property name="league" type="League"/>
-    <property name="eventList" type="SeasonEvent[]"/>
-    <property name="id" type="integer"/>
-    <property name="defaultMaxPlayerPerPool" type="integer"/>
     <property name="defaultSetConfig" type="integer"/>
+    <property name="defaultCourtCount" type="integer"/>
     <property name="name" type="string"/>
     <property name="defaultTimePerPoint" type="integer"/>
     <property name="defaultCapOn15" type="integer"/>
     <property name="defaultCapOn25" type="integer"/>
+    <property name="endDate" type="long"/>
+    <property name="defaultStartTime" type="double"/>
+    <property name="league" type="League"/>
+    <property name="eventList" type="SeasonEvent[]"/>
   </entity>
   <entity name="LeagueAdmin">
     <annotation name="EntityProperties">
@@ -1176,11 +1188,11 @@
     <property name="invitationsReceived" type="InvitationDAO[]"/>
     <property name="id" type="integer"/>
     <property name="height" type="integer"/>
-    <property name="availabilityList" type="PlayerAvailabilityDAO[]"/>
     <property name="email" type="string"/>
+    <property name="availabilityList" type="PlayerAvailabilityDAO[]"/>
     <property name="zipCode" type="string"/>
-    <property name="longitude" type="float"/>
     <property name="birthDate" type="long"/>
+    <property name="longitude" type="float"/>
     <property name="latitude" type="float"/>
     <property name="firstName" type="string"/>
     <property name="teamList" type="TeamPlayerDAO[]"/>
@@ -1216,8 +1228,8 @@
       <item name="Package">valueObjects</item>
     </annotation>
     <property name="id" type="integer"/>
-    <property name="fromPlayer" type="PlayerDAO"/>
     <property name="response" type="string"/>
+    <property name="fromPlayer" type="PlayerDAO"/>
     <property name="status" type="integer"/>
     <property name="seasonEvent" type="SeasonEventDAO"/>
     <property name="toPlayer" type="PlayerDAO"/>
@@ -1246,8 +1258,8 @@
     <property name="province" type="string"/>
     <property name="longitude" type="float"/>
     <property name="latitude" type="float"/>
-    <property name="country" type="string"/>
     <property name="city" type="string"/>
+    <property name="country" type="string"/>
   </entity>
   <entity name="League">
     <annotation name="EntityProperties">
@@ -1264,15 +1276,38 @@
       <item name="Package">valueObjects</item>
     </annotation>
     <annotation name="listLeagues">
-      <item name="propertySpecifier">id,organization,seasonList,name,volleyType,hasSeasonTeams,adminList</item>
+      <item name="propertySpecifier">id,organization,seasonList,volleyType,name,hasSeasonTeams,adminList</item>
     </annotation>
     <property name="id" type="integer"/>
     <property name="organization" type="Organization"/>
     <property name="seasonList" type="LeagueSeason[]"/>
-    <property name="name" type="string"/>
     <property name="volleyType" type="VolleyType"/>
+    <property name="name" type="string"/>
     <property name="hasSeasonTeams" type="boolean"/>
     <property name="adminList" type="LeagueAdmin[]"/>
+  </entity>
+  <entity name="EventTeamDAO">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">EventTeamDAO</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.sportsmanager.model.dao.EventTeamDAO</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">PlayerService,Dummy</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="id" type="integer"/>
+    <property name="lost" type="integer"/>
+    <property name="pool" type="integer"/>
+    <property name="seasonEvent" type="SeasonEventDAO"/>
+    <property name="happy" type="integer"/>
+    <property name="team" type="TeamDAO"/>
+    <property name="won" type="integer"/>
+    <property name="pos" type="integer"/>
   </entity>
   <entity name="SeasonEvent">
     <annotation name="EntityProperties">
@@ -1321,29 +1356,6 @@
     <property name="matchList" type="EventMatch[]"/>
     <property name="teamPosList" type="EventTeam[]"/>
   </entity>
-  <entity name="EventTeamDAO">
-    <annotation name="EntityProperties">
-      <item name="EntityOriginalName">EventTeamDAO</item>
-    </annotation>
-    <annotation name="ServerProperties">
-      <item name="RemoteClass">com.sportsmanager.model.dao.EventTeamDAO</item>
-      <item name="IncludeRemoteClass">nonempty</item>
-    </annotation>
-    <annotation name="service Group">
-      <item name="service">PlayerService,Dummy</item>
-    </annotation>
-    <annotation name="ActionScriptGeneration">
-      <item name="Package">valueObjects</item>
-    </annotation>
-    <property name="id" type="integer"/>
-    <property name="lost" type="integer"/>
-    <property name="pool" type="integer"/>
-    <property name="happy" type="integer"/>
-    <property name="seasonEvent" type="SeasonEventDAO"/>
-    <property name="team" type="TeamDAO"/>
-    <property name="won" type="integer"/>
-    <property name="pos" type="integer"/>
-  </entity>
   <entity name="SessionFactory">
     <annotation name="EntityProperties">
       <item name="EntityOriginalName">SessionFactory</item>
@@ -1359,17 +1371,17 @@
       <item name="Package">valueObjects</item>
     </annotation>
     <annotation name="getSessionFactory">
-      <item name="propertySpecifier">allClassMetadata,sessionFactoryOptions,cache,closed,currentSession,definedFilterNames,typeHelper,allCollectionMetadata,statistics</item>
+      <item name="propertySpecifier">sessionFactoryOptions,allClassMetadata,cache,currentSession,closed,definedFilterNames,typeHelper,statistics,allCollectionMetadata</item>
     </annotation>
-    <property name="allClassMetadata" type="opaque"/>
     <property name="sessionFactoryOptions" type="SessionFactoryOptions"/>
+    <property name="allClassMetadata" type="opaque"/>
     <property name="cache" type="Cache"/>
-    <property name="closed" type="boolean"/>
     <property name="currentSession" type="Session"/>
+    <property name="closed" type="boolean"/>
     <property name="definedFilterNames" type="opaque[]"/>
     <property name="typeHelper" type="TypeHelper"/>
-    <property name="allCollectionMetadata" type="opaque"/>
     <property name="statistics" type="Statistics"/>
+    <property name="allCollectionMetadata" type="opaque"/>
   </entity>
   <entity name="Location">
     <annotation name="EntityProperties">
@@ -1386,13 +1398,13 @@
       <item name="Package">valueObjects</item>
     </annotation>
     <annotation name="listLocations">
-      <item name="propertySpecifier">id,googleMapsUrl,address,name,zipcode,province,longitude,latitude,city,country</item>
+      <item name="propertySpecifier">id,googleMapsUrl,address,zipcode,name,province,longitude,latitude,city,country</item>
     </annotation>
     <property name="id" type="integer"/>
     <property name="googleMapsUrl" type="string"/>
     <property name="address" type="string"/>
-    <property name="name" type="string"/>
     <property name="zipcode" type="string"/>
+    <property name="name" type="string"/>
     <property name="province" type="string"/>
     <property name="longitude" type="float"/>
     <property name="latitude" type="float"/>
@@ -1451,11 +1463,11 @@
       <item name="Package">valueObjects</item>
     </annotation>
     <annotation name="listPlayerInvitations">
-      <item name="propertySpecifier">fromPlayer,response,id,status,seasonEvent,toPlayer,team,fromMessage</item>
+      <item name="propertySpecifier">response,id,fromPlayer,status,seasonEvent,toPlayer,team,fromMessage</item>
     </annotation>
-    <property name="fromPlayer" type="Player"/>
     <property name="response" type="string"/>
     <property name="id" type="integer"/>
+    <property name="fromPlayer" type="Player"/>
     <property name="status" type="integer"/>
     <property name="seasonEvent" type="SeasonEvent"/>
     <property name="toPlayer" type="Player"/>
@@ -1500,16 +1512,16 @@
       <item name="Package">valueObjects</item>
     </annotation>
     <annotation name="listSeasonTeams">
-      <item name="propertySpecifier">id,teamPlayers,lost,pool,name,won,pos</item>
+      <item name="propertySpecifier">id,lost,teamPlayers,pool,name,won,pos</item>
     </annotation>
     <annotation name="listEventTeams">
-      <item name="propertySpecifier">id,teamPlayers,lost,pool,name,won,pos</item>
+      <item name="propertySpecifier">id,lost,teamPlayers,pool,name,won,pos</item>
     </annotation>
     <property name="invitations" type="Invitation[]"/>
     <property name="leagueSeasonList" type="LeagueSeason[]"/>
     <property name="id" type="integer"/>
-    <property name="teamPlayers" type="TeamPlayer[]"/>
     <property name="lost" type="integer"/>
+    <property name="teamPlayers" type="TeamPlayer[]"/>
     <property name="pool" type="integer"/>
     <property name="name" type="string"/>
     <property name="won" type="integer"/>
@@ -1530,22 +1542,22 @@
       <item name="Package">valueObjects</item>
     </annotation>
     <annotation name="savePlayerProfile">
-      <item name="propertySpecifier">id,message,errorCode,success</item>
+      <item name="propertySpecifier">message,id,errorCode,success</item>
     </annotation>
     <annotation name="addTeamPlayer">
-      <item name="propertySpecifier">id,message,errorCode,success</item>
+      <item name="propertySpecifier">message,id,errorCode,success</item>
     </annotation>
     <annotation name="addLocation">
-      <item name="propertySpecifier">id,message,errorCode,success</item>
+      <item name="propertySpecifier">message,id,errorCode,success</item>
     </annotation>
     <annotation name="generateEventSchedule">
-      <item name="propertySpecifier">id,message,errorCode,success</item>
+      <item name="propertySpecifier">message,id,errorCode,success</item>
     </annotation>
     <annotation name="saveSetScore">
-      <item name="propertySpecifier">id,message,errorCode,success</item>
+      <item name="propertySpecifier">message,id,errorCode,success</item>
     </annotation>
-    <property name="id" type="integer"/>
     <property name="message" type="string"/>
+    <property name="id" type="integer"/>
     <property name="errorCode" type="integer"/>
     <property name="success" type="boolean"/>
   </entity>
@@ -1571,12 +1583,12 @@
     <property name="defaultSetCount" type="integer"/>
     <property name="defaultSetTime" type="integer"/>
     <property name="defaultSetPoints" type="integer"/>
-    <property name="seasonTeamList" type="TeamDAO[]"/>
     <property name="startDate" type="long"/>
+    <property name="seasonTeamList" type="TeamDAO[]"/>
     <property name="defaultLocation" type="LocationDAO"/>
     <property name="defaultCapOn21" type="integer"/>
-    <property name="defaultCourtCount" type="integer"/>
     <property name="eventCount" type="integer"/>
+    <property name="defaultCourtCount" type="integer"/>
     <property name="endDate" type="long"/>
     <property name="defaultStartTime" type="double"/>
     <property name="league" type="LeagueDAO"/>
@@ -1585,8 +1597,8 @@
     <property name="defaultMaxPlayerPerPool" type="integer"/>
     <property name="defaultSetConfig" type="integer"/>
     <property name="name" type="string"/>
-    <property name="defaultCapOn15" type="integer"/>
     <property name="defaultTimePerPoint" type="integer"/>
+    <property name="defaultCapOn15" type="integer"/>
     <property name="defaultCapOn25" type="integer"/>
   </entity>
   <entity name="Interceptor">
@@ -1619,17 +1631,17 @@
       <item name="Package">valueObjects</item>
     </annotation>
     <annotation name="listMatchSets">
-      <item name="propertySpecifier">id,winningTeam,matchId,eventMatch,scoreTeam1,scoreTeam2,finished,setPoints,setNo</item>
+      <item name="propertySpecifier">id,winningTeam,eventMatch,matchId,scoreTeam1,scoreTeam2,finished,setNo,setPoints</item>
     </annotation>
     <property name="id" type="integer"/>
     <property name="winningTeam" type="integer"/>
-    <property name="matchId" type="integer"/>
     <property name="eventMatch" type="EventMatch"/>
+    <property name="matchId" type="integer"/>
     <property name="scoreTeam1" type="integer"/>
     <property name="scoreTeam2" type="integer"/>
     <property name="finished" type="boolean"/>
-    <property name="setPoints" type="integer"/>
     <property name="setNo" type="integer"/>
+    <property name="setPoints" type="integer"/>
   </entity>
   <entity name="SessionStatistics">
     <annotation name="EntityProperties">
@@ -1646,8 +1658,8 @@
       <item name="Package">valueObjects</item>
     </annotation>
     <property name="collectionCount" type="integer"/>
-    <property name="collectionKeys" type="opaque[]"/>
     <property name="entityKeys" type="opaque[]"/>
+    <property name="collectionKeys" type="opaque[]"/>
     <property name="entityCount" type="integer"/>
   </entity>
   <entity name="EventMatch">
@@ -1665,15 +1677,17 @@
       <item name="Package">valueObjects</item>
     </annotation>
     <annotation name="listEventMatches">
-      <item name="propertySpecifier">id,team2Id,eventId,setList,seasonEvent,courtNo,team1Id,team1,team2,timeSlot</item>
+      <item name="propertySpecifier">id,winningTeam,team2Id,eventId,setList,seasonEvent,courtNo,team1Id,finished,team1,team2,timeSlot</item>
     </annotation>
     <property name="id" type="integer"/>
+    <property name="winningTeam" type="integer"/>
     <property name="team2Id" type="integer"/>
     <property name="eventId" type="integer"/>
     <property name="setList" type="MatchSet[]"/>
     <property name="seasonEvent" type="SeasonEvent"/>
     <property name="courtNo" type="integer"/>
     <property name="team1Id" type="integer"/>
+    <property name="finished" type="boolean"/>
     <property name="team1" type="Team"/>
     <property name="team2" type="Team"/>
     <property name="timeSlot" type="integer"/>

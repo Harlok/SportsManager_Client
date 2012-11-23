@@ -24,14 +24,14 @@ internal class _TeamEntityMetadata extends com.adobe.fiber.valueobjects.Abstract
 {
     private static var emptyArray:Array = new Array();
 
-    model_internal static var allProperties:Array = new Array("invitations", "leagueSeasonList", "id", "teamPlayers", "lost", "pool", "name", "won", "pos");
+    model_internal static var allProperties:Array = new Array("invitations", "leagueSeasonList", "id", "lost", "teamPlayers", "pool", "name", "won", "pos");
     model_internal static var allAssociationProperties:Array = new Array();
     model_internal static var allRequiredProperties:Array = new Array();
-    model_internal static var allAlwaysAvailableProperties:Array = new Array("invitations", "leagueSeasonList", "id", "teamPlayers", "lost", "pool", "name", "won", "pos");
+    model_internal static var allAlwaysAvailableProperties:Array = new Array("invitations", "leagueSeasonList", "id", "lost", "teamPlayers", "pool", "name", "won", "pos");
     model_internal static var guardedProperties:Array = new Array();
-    model_internal static var dataProperties:Array = new Array("invitations", "leagueSeasonList", "id", "teamPlayers", "lost", "pool", "name", "won", "pos");
+    model_internal static var dataProperties:Array = new Array("invitations", "leagueSeasonList", "id", "lost", "teamPlayers", "pool", "name", "won", "pos");
     model_internal static var sourceProperties:Array = emptyArray
-    model_internal static var nonDerivedProperties:Array = new Array("invitations", "leagueSeasonList", "id", "teamPlayers", "lost", "pool", "name", "won", "pos");
+    model_internal static var nonDerivedProperties:Array = new Array("invitations", "leagueSeasonList", "id", "lost", "teamPlayers", "pool", "name", "won", "pos");
     model_internal static var derivedProperties:Array = new Array();
     model_internal static var collectionProperties:Array = new Array("invitations", "leagueSeasonList", "teamPlayers");
     model_internal static var collectionBaseMap:Object;
@@ -54,8 +54,8 @@ internal class _TeamEntityMetadata extends com.adobe.fiber.valueobjects.Abstract
             model_internal::dependentsOnMap["invitations"] = new Array();
             model_internal::dependentsOnMap["leagueSeasonList"] = new Array();
             model_internal::dependentsOnMap["id"] = new Array();
-            model_internal::dependentsOnMap["teamPlayers"] = new Array();
             model_internal::dependentsOnMap["lost"] = new Array();
+            model_internal::dependentsOnMap["teamPlayers"] = new Array();
             model_internal::dependentsOnMap["pool"] = new Array();
             model_internal::dependentsOnMap["name"] = new Array();
             model_internal::dependentsOnMap["won"] = new Array();
@@ -73,8 +73,8 @@ internal class _TeamEntityMetadata extends com.adobe.fiber.valueobjects.Abstract
         model_internal::propertyTypeMap["invitations"] = "ArrayCollection";
         model_internal::propertyTypeMap["leagueSeasonList"] = "ArrayCollection";
         model_internal::propertyTypeMap["id"] = "int";
-        model_internal::propertyTypeMap["teamPlayers"] = "ArrayCollection";
         model_internal::propertyTypeMap["lost"] = "int";
+        model_internal::propertyTypeMap["teamPlayers"] = "ArrayCollection";
         model_internal::propertyTypeMap["pool"] = "int";
         model_internal::propertyTypeMap["name"] = "String";
         model_internal::propertyTypeMap["won"] = "int";
@@ -326,13 +326,13 @@ internal class _TeamEntityMetadata extends com.adobe.fiber.valueobjects.Abstract
     }
 
     [Bindable(event="propertyChange")]
-    public function get isTeamPlayersAvailable():Boolean
+    public function get isLostAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
-    public function get isLostAvailable():Boolean
+    public function get isTeamPlayersAvailable():Boolean
     {
         return true;
     }
@@ -390,13 +390,13 @@ internal class _TeamEntityMetadata extends com.adobe.fiber.valueobjects.Abstract
     }
 
     [Bindable(event="propertyChange")]   
-    public function get teamPlayersStyle():com.adobe.fiber.styles.Style
+    public function get lostStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
-    public function get lostStyle():com.adobe.fiber.styles.Style
+    public function get teamPlayersStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }

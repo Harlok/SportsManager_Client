@@ -21,14 +21,14 @@ internal class _MatchSetEntityMetadata extends com.adobe.fiber.valueobjects.Abst
 {
     private static var emptyArray:Array = new Array();
 
-    model_internal static var allProperties:Array = new Array("id", "winningTeam", "matchId", "eventMatch", "scoreTeam1", "scoreTeam2", "finished", "setPoints", "setNo");
+    model_internal static var allProperties:Array = new Array("id", "winningTeam", "eventMatch", "matchId", "scoreTeam1", "scoreTeam2", "finished", "setNo", "setPoints");
     model_internal static var allAssociationProperties:Array = new Array();
     model_internal static var allRequiredProperties:Array = new Array();
-    model_internal static var allAlwaysAvailableProperties:Array = new Array("id", "winningTeam", "matchId", "eventMatch", "scoreTeam1", "scoreTeam2", "finished", "setPoints", "setNo");
+    model_internal static var allAlwaysAvailableProperties:Array = new Array("id", "winningTeam", "eventMatch", "matchId", "scoreTeam1", "scoreTeam2", "finished", "setNo", "setPoints");
     model_internal static var guardedProperties:Array = new Array();
-    model_internal static var dataProperties:Array = new Array("id", "winningTeam", "matchId", "eventMatch", "scoreTeam1", "scoreTeam2", "finished", "setPoints", "setNo");
+    model_internal static var dataProperties:Array = new Array("id", "winningTeam", "eventMatch", "matchId", "scoreTeam1", "scoreTeam2", "finished", "setNo", "setPoints");
     model_internal static var sourceProperties:Array = emptyArray
-    model_internal static var nonDerivedProperties:Array = new Array("id", "winningTeam", "matchId", "eventMatch", "scoreTeam1", "scoreTeam2", "finished", "setPoints", "setNo");
+    model_internal static var nonDerivedProperties:Array = new Array("id", "winningTeam", "eventMatch", "matchId", "scoreTeam1", "scoreTeam2", "finished", "setNo", "setPoints");
     model_internal static var derivedProperties:Array = new Array();
     model_internal static var collectionProperties:Array = new Array();
     model_internal static var collectionBaseMap:Object;
@@ -50,13 +50,13 @@ internal class _MatchSetEntityMetadata extends com.adobe.fiber.valueobjects.Abst
             model_internal::dependentsOnMap = new Object();
             model_internal::dependentsOnMap["id"] = new Array();
             model_internal::dependentsOnMap["winningTeam"] = new Array();
-            model_internal::dependentsOnMap["matchId"] = new Array();
             model_internal::dependentsOnMap["eventMatch"] = new Array();
+            model_internal::dependentsOnMap["matchId"] = new Array();
             model_internal::dependentsOnMap["scoreTeam1"] = new Array();
             model_internal::dependentsOnMap["scoreTeam2"] = new Array();
             model_internal::dependentsOnMap["finished"] = new Array();
-            model_internal::dependentsOnMap["setPoints"] = new Array();
             model_internal::dependentsOnMap["setNo"] = new Array();
+            model_internal::dependentsOnMap["setPoints"] = new Array();
 
             // collection base map
             model_internal::collectionBaseMap = new Object();
@@ -66,13 +66,13 @@ internal class _MatchSetEntityMetadata extends com.adobe.fiber.valueobjects.Abst
         model_internal::propertyTypeMap = new Object();
         model_internal::propertyTypeMap["id"] = "int";
         model_internal::propertyTypeMap["winningTeam"] = "int";
-        model_internal::propertyTypeMap["matchId"] = "int";
         model_internal::propertyTypeMap["eventMatch"] = "valueObjects.EventMatch";
+        model_internal::propertyTypeMap["matchId"] = "int";
         model_internal::propertyTypeMap["scoreTeam1"] = "int";
         model_internal::propertyTypeMap["scoreTeam2"] = "int";
         model_internal::propertyTypeMap["finished"] = "Boolean";
-        model_internal::propertyTypeMap["setPoints"] = "int";
         model_internal::propertyTypeMap["setNo"] = "int";
+        model_internal::propertyTypeMap["setPoints"] = "int";
 
         model_internal::_instance = value;
     }
@@ -314,13 +314,13 @@ internal class _MatchSetEntityMetadata extends com.adobe.fiber.valueobjects.Abst
     }
 
     [Bindable(event="propertyChange")]
-    public function get isMatchIdAvailable():Boolean
+    public function get isEventMatchAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
-    public function get isEventMatchAvailable():Boolean
+    public function get isMatchIdAvailable():Boolean
     {
         return true;
     }
@@ -344,13 +344,13 @@ internal class _MatchSetEntityMetadata extends com.adobe.fiber.valueobjects.Abst
     }
 
     [Bindable(event="propertyChange")]
-    public function get isSetPointsAvailable():Boolean
+    public function get isSetNoAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
-    public function get isSetNoAvailable():Boolean
+    public function get isSetPointsAvailable():Boolean
     {
         return true;
     }
@@ -378,13 +378,13 @@ internal class _MatchSetEntityMetadata extends com.adobe.fiber.valueobjects.Abst
     }
 
     [Bindable(event="propertyChange")]   
-    public function get matchIdStyle():com.adobe.fiber.styles.Style
+    public function get eventMatchStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
-    public function get eventMatchStyle():com.adobe.fiber.styles.Style
+    public function get matchIdStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
@@ -408,13 +408,13 @@ internal class _MatchSetEntityMetadata extends com.adobe.fiber.valueobjects.Abst
     }
 
     [Bindable(event="propertyChange")]   
-    public function get setPointsStyle():com.adobe.fiber.styles.Style
+    public function get setNoStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
-    public function get setNoStyle():com.adobe.fiber.styles.Style
+    public function get setPointsStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }

@@ -39,6 +39,10 @@
 			protected function onCreationComplete(event:FlexEvent):void
 			{
 				lblTeamNames.text = _label;
+				if (_match.finished)
+				{
+					container.setStyle("backgroundColor", 0x665555);
+				}
 			}
 			
 			protected function onMouseOver(event:MouseEvent):void

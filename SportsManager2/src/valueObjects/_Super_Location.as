@@ -61,8 +61,8 @@ public class _Super_Location extends flash.events.EventDispatcher implements com
     private var _internal_id : int;
     private var _internal_googleMapsUrl : String;
     private var _internal_address : String;
-    private var _internal_name : String;
     private var _internal_zipcode : String;
+    private var _internal_name : String;
     private var _internal_province : String;
     private var _internal_longitude : Number;
     private var _internal_latitude : Number;
@@ -112,15 +112,15 @@ public class _Super_Location extends flash.events.EventDispatcher implements com
     }
 
     [Bindable(event="propertyChange")]
-    public function get name() : String
-    {
-        return _internal_name;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get zipcode() : String
     {
         return _internal_zipcode;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get name() : String
+    {
+        return _internal_name;
     }
 
     [Bindable(event="propertyChange")]
@@ -191,16 +191,6 @@ public class _Super_Location extends flash.events.EventDispatcher implements com
         }
     }
 
-    public function set name(value:String) : void
-    {
-        var oldValue:String = _internal_name;
-        if (oldValue !== value)
-        {
-            _internal_name = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "name", oldValue, _internal_name));
-        }
-    }
-
     public function set zipcode(value:String) : void
     {
         var oldValue:String = _internal_zipcode;
@@ -208,6 +198,16 @@ public class _Super_Location extends flash.events.EventDispatcher implements com
         {
             _internal_zipcode = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "zipcode", oldValue, _internal_zipcode));
+        }
+    }
+
+    public function set name(value:String) : void
+    {
+        var oldValue:String = _internal_name;
+        if (oldValue !== value)
+        {
+            _internal_name = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "name", oldValue, _internal_name));
         }
     }
 

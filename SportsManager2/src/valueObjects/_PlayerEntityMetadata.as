@@ -20,14 +20,14 @@ internal class _PlayerEntityMetadata extends com.adobe.fiber.valueobjects.Abstra
 {
     private static var emptyArray:Array = new Array();
 
-    model_internal static var allProperties:Array = new Array("id", "lastName", "sex", "phone", "height", "email", "zipCode", "birthDate", "longitude", "latitude", "firstName", "password");
+    model_internal static var allProperties:Array = new Array("id", "lastName", "phone", "sex", "height", "email", "zipCode", "birthDate", "longitude", "latitude", "firstName", "password");
     model_internal static var allAssociationProperties:Array = new Array();
     model_internal static var allRequiredProperties:Array = new Array();
-    model_internal static var allAlwaysAvailableProperties:Array = new Array("id", "lastName", "sex", "phone", "height", "email", "zipCode", "birthDate", "longitude", "latitude", "firstName", "password");
+    model_internal static var allAlwaysAvailableProperties:Array = new Array("id", "lastName", "phone", "sex", "height", "email", "zipCode", "birthDate", "longitude", "latitude", "firstName", "password");
     model_internal static var guardedProperties:Array = new Array();
-    model_internal static var dataProperties:Array = new Array("id", "lastName", "sex", "phone", "height", "email", "zipCode", "birthDate", "longitude", "latitude", "firstName", "password");
+    model_internal static var dataProperties:Array = new Array("id", "lastName", "phone", "sex", "height", "email", "zipCode", "birthDate", "longitude", "latitude", "firstName", "password");
     model_internal static var sourceProperties:Array = emptyArray
-    model_internal static var nonDerivedProperties:Array = new Array("id", "lastName", "sex", "phone", "height", "email", "zipCode", "birthDate", "longitude", "latitude", "firstName", "password");
+    model_internal static var nonDerivedProperties:Array = new Array("id", "lastName", "phone", "sex", "height", "email", "zipCode", "birthDate", "longitude", "latitude", "firstName", "password");
     model_internal static var derivedProperties:Array = new Array();
     model_internal static var collectionProperties:Array = new Array();
     model_internal static var collectionBaseMap:Object;
@@ -49,8 +49,8 @@ internal class _PlayerEntityMetadata extends com.adobe.fiber.valueobjects.Abstra
             model_internal::dependentsOnMap = new Object();
             model_internal::dependentsOnMap["id"] = new Array();
             model_internal::dependentsOnMap["lastName"] = new Array();
-            model_internal::dependentsOnMap["sex"] = new Array();
             model_internal::dependentsOnMap["phone"] = new Array();
+            model_internal::dependentsOnMap["sex"] = new Array();
             model_internal::dependentsOnMap["height"] = new Array();
             model_internal::dependentsOnMap["email"] = new Array();
             model_internal::dependentsOnMap["zipCode"] = new Array();
@@ -68,8 +68,8 @@ internal class _PlayerEntityMetadata extends com.adobe.fiber.valueobjects.Abstra
         model_internal::propertyTypeMap = new Object();
         model_internal::propertyTypeMap["id"] = "int";
         model_internal::propertyTypeMap["lastName"] = "String";
-        model_internal::propertyTypeMap["sex"] = "int";
         model_internal::propertyTypeMap["phone"] = "String";
+        model_internal::propertyTypeMap["sex"] = "int";
         model_internal::propertyTypeMap["height"] = "int";
         model_internal::propertyTypeMap["email"] = "String";
         model_internal::propertyTypeMap["zipCode"] = "String";
@@ -319,13 +319,13 @@ internal class _PlayerEntityMetadata extends com.adobe.fiber.valueobjects.Abstra
     }
 
     [Bindable(event="propertyChange")]
-    public function get isSexAvailable():Boolean
+    public function get isPhoneAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
-    public function get isPhoneAvailable():Boolean
+    public function get isSexAvailable():Boolean
     {
         return true;
     }
@@ -401,13 +401,13 @@ internal class _PlayerEntityMetadata extends com.adobe.fiber.valueobjects.Abstra
     }
 
     [Bindable(event="propertyChange")]   
-    public function get sexStyle():com.adobe.fiber.styles.Style
+    public function get phoneStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
-    public function get phoneStyle():com.adobe.fiber.styles.Style
+    public function get sexStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }

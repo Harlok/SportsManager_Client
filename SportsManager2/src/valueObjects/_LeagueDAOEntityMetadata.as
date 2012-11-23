@@ -25,14 +25,14 @@ internal class _LeagueDAOEntityMetadata extends com.adobe.fiber.valueobjects.Abs
 {
     private static var emptyArray:Array = new Array();
 
-    model_internal static var allProperties:Array = new Array("id", "organization", "seasonList", "name", "volleyType", "hasSeasonTeams", "adminList");
+    model_internal static var allProperties:Array = new Array("id", "organization", "seasonList", "volleyType", "name", "hasSeasonTeams", "adminList");
     model_internal static var allAssociationProperties:Array = new Array();
     model_internal static var allRequiredProperties:Array = new Array();
-    model_internal static var allAlwaysAvailableProperties:Array = new Array("id", "organization", "seasonList", "name", "volleyType", "hasSeasonTeams", "adminList");
+    model_internal static var allAlwaysAvailableProperties:Array = new Array("id", "organization", "seasonList", "volleyType", "name", "hasSeasonTeams", "adminList");
     model_internal static var guardedProperties:Array = new Array();
-    model_internal static var dataProperties:Array = new Array("id", "organization", "seasonList", "name", "volleyType", "hasSeasonTeams", "adminList");
+    model_internal static var dataProperties:Array = new Array("id", "organization", "seasonList", "volleyType", "name", "hasSeasonTeams", "adminList");
     model_internal static var sourceProperties:Array = emptyArray
-    model_internal static var nonDerivedProperties:Array = new Array("id", "organization", "seasonList", "name", "volleyType", "hasSeasonTeams", "adminList");
+    model_internal static var nonDerivedProperties:Array = new Array("id", "organization", "seasonList", "volleyType", "name", "hasSeasonTeams", "adminList");
     model_internal static var derivedProperties:Array = new Array();
     model_internal static var collectionProperties:Array = new Array("seasonList", "adminList");
     model_internal static var collectionBaseMap:Object;
@@ -55,8 +55,8 @@ internal class _LeagueDAOEntityMetadata extends com.adobe.fiber.valueobjects.Abs
             model_internal::dependentsOnMap["id"] = new Array();
             model_internal::dependentsOnMap["organization"] = new Array();
             model_internal::dependentsOnMap["seasonList"] = new Array();
-            model_internal::dependentsOnMap["name"] = new Array();
             model_internal::dependentsOnMap["volleyType"] = new Array();
+            model_internal::dependentsOnMap["name"] = new Array();
             model_internal::dependentsOnMap["hasSeasonTeams"] = new Array();
             model_internal::dependentsOnMap["adminList"] = new Array();
 
@@ -71,8 +71,8 @@ internal class _LeagueDAOEntityMetadata extends com.adobe.fiber.valueobjects.Abs
         model_internal::propertyTypeMap["id"] = "int";
         model_internal::propertyTypeMap["organization"] = "valueObjects.OrganizationDAO";
         model_internal::propertyTypeMap["seasonList"] = "ArrayCollection";
-        model_internal::propertyTypeMap["name"] = "String";
         model_internal::propertyTypeMap["volleyType"] = "valueObjects.VolleyTypeDAO";
+        model_internal::propertyTypeMap["name"] = "String";
         model_internal::propertyTypeMap["hasSeasonTeams"] = "Boolean";
         model_internal::propertyTypeMap["adminList"] = "ArrayCollection";
 
@@ -322,13 +322,13 @@ internal class _LeagueDAOEntityMetadata extends com.adobe.fiber.valueobjects.Abs
     }
 
     [Bindable(event="propertyChange")]
-    public function get isNameAvailable():Boolean
+    public function get isVolleyTypeAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
-    public function get isVolleyTypeAvailable():Boolean
+    public function get isNameAvailable():Boolean
     {
         return true;
     }
@@ -374,13 +374,13 @@ internal class _LeagueDAOEntityMetadata extends com.adobe.fiber.valueobjects.Abs
     }
 
     [Bindable(event="propertyChange")]   
-    public function get nameStyle():com.adobe.fiber.styles.Style
+    public function get volleyTypeStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
-    public function get volleyTypeStyle():com.adobe.fiber.styles.Style
+    public function get nameStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }

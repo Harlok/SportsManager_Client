@@ -82,13 +82,13 @@ public class _Super_LeagueSeasonDAO extends flash.events.EventDispatcher impleme
     private var _internal_defaultSetCount : int;
     private var _internal_defaultSetTime : int;
     private var _internal_defaultSetPoints : int;
+    private var _internal_startDate : Number;
     private var _internal_seasonTeamList : ArrayCollection;
     model_internal var _internal_seasonTeamList_leaf:valueObjects.TeamDAO;
-    private var _internal_startDate : Number;
     private var _internal_defaultLocation : valueObjects.LocationDAO;
     private var _internal_defaultCapOn21 : int;
-    private var _internal_defaultCourtCount : int;
     private var _internal_eventCount : int;
+    private var _internal_defaultCourtCount : int;
     private var _internal_endDate : Number;
     private var _internal_defaultStartTime : Number;
     private var _internal_league : valueObjects.LeagueDAO;
@@ -98,8 +98,8 @@ public class _Super_LeagueSeasonDAO extends flash.events.EventDispatcher impleme
     private var _internal_defaultMaxPlayerPerPool : int;
     private var _internal_defaultSetConfig : int;
     private var _internal_name : String;
-    private var _internal_defaultCapOn15 : int;
     private var _internal_defaultTimePerPoint : int;
+    private var _internal_defaultCapOn15 : int;
     private var _internal_defaultCapOn25 : int;
 
     private static var emptyArray:Array = new Array();
@@ -175,15 +175,15 @@ public class _Super_LeagueSeasonDAO extends flash.events.EventDispatcher impleme
     }
 
     [Bindable(event="propertyChange")]
-    public function get seasonTeamList() : ArrayCollection
-    {
-        return _internal_seasonTeamList;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get startDate() : Number
     {
         return _internal_startDate;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get seasonTeamList() : ArrayCollection
+    {
+        return _internal_seasonTeamList;
     }
 
     [Bindable(event="propertyChange")]
@@ -199,15 +199,15 @@ public class _Super_LeagueSeasonDAO extends flash.events.EventDispatcher impleme
     }
 
     [Bindable(event="propertyChange")]
-    public function get defaultCourtCount() : int
-    {
-        return _internal_defaultCourtCount;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get eventCount() : int
     {
         return _internal_eventCount;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get defaultCourtCount() : int
+    {
+        return _internal_defaultCourtCount;
     }
 
     [Bindable(event="propertyChange")]
@@ -259,15 +259,15 @@ public class _Super_LeagueSeasonDAO extends flash.events.EventDispatcher impleme
     }
 
     [Bindable(event="propertyChange")]
-    public function get defaultCapOn15() : int
-    {
-        return _internal_defaultCapOn15;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get defaultTimePerPoint() : int
     {
         return _internal_defaultTimePerPoint;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get defaultCapOn15() : int
+    {
+        return _internal_defaultCapOn15;
     }
 
     [Bindable(event="propertyChange")]
@@ -364,6 +364,16 @@ public class _Super_LeagueSeasonDAO extends flash.events.EventDispatcher impleme
         }
     }
 
+    public function set startDate(value:Number) : void
+    {
+        var oldValue:Number = _internal_startDate;
+        if (oldValue !== value)
+        {
+            _internal_startDate = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "startDate", oldValue, _internal_startDate));
+        }
+    }
+
     public function set seasonTeamList(value:*) : void
     {
         var oldValue:ArrayCollection = _internal_seasonTeamList;
@@ -389,16 +399,6 @@ public class _Super_LeagueSeasonDAO extends flash.events.EventDispatcher impleme
         }
     }
 
-    public function set startDate(value:Number) : void
-    {
-        var oldValue:Number = _internal_startDate;
-        if (oldValue !== value)
-        {
-            _internal_startDate = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "startDate", oldValue, _internal_startDate));
-        }
-    }
-
     public function set defaultLocation(value:valueObjects.LocationDAO) : void
     {
         var oldValue:valueObjects.LocationDAO = _internal_defaultLocation;
@@ -419,16 +419,6 @@ public class _Super_LeagueSeasonDAO extends flash.events.EventDispatcher impleme
         }
     }
 
-    public function set defaultCourtCount(value:int) : void
-    {
-        var oldValue:int = _internal_defaultCourtCount;
-        if (oldValue !== value)
-        {
-            _internal_defaultCourtCount = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "defaultCourtCount", oldValue, _internal_defaultCourtCount));
-        }
-    }
-
     public function set eventCount(value:int) : void
     {
         var oldValue:int = _internal_eventCount;
@@ -436,6 +426,16 @@ public class _Super_LeagueSeasonDAO extends flash.events.EventDispatcher impleme
         {
             _internal_eventCount = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "eventCount", oldValue, _internal_eventCount));
+        }
+    }
+
+    public function set defaultCourtCount(value:int) : void
+    {
+        var oldValue:int = _internal_defaultCourtCount;
+        if (oldValue !== value)
+        {
+            _internal_defaultCourtCount = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "defaultCourtCount", oldValue, _internal_defaultCourtCount));
         }
     }
 
@@ -534,16 +534,6 @@ public class _Super_LeagueSeasonDAO extends flash.events.EventDispatcher impleme
         }
     }
 
-    public function set defaultCapOn15(value:int) : void
-    {
-        var oldValue:int = _internal_defaultCapOn15;
-        if (oldValue !== value)
-        {
-            _internal_defaultCapOn15 = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "defaultCapOn15", oldValue, _internal_defaultCapOn15));
-        }
-    }
-
     public function set defaultTimePerPoint(value:int) : void
     {
         var oldValue:int = _internal_defaultTimePerPoint;
@@ -551,6 +541,16 @@ public class _Super_LeagueSeasonDAO extends flash.events.EventDispatcher impleme
         {
             _internal_defaultTimePerPoint = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "defaultTimePerPoint", oldValue, _internal_defaultTimePerPoint));
+        }
+    }
+
+    public function set defaultCapOn15(value:int) : void
+    {
+        var oldValue:int = _internal_defaultCapOn15;
+        if (oldValue !== value)
+        {
+            _internal_defaultCapOn15 = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "defaultCapOn15", oldValue, _internal_defaultCapOn15));
         }
     }
 

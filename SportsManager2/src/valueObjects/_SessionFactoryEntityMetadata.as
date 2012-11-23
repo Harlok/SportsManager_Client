@@ -26,14 +26,14 @@ internal class _SessionFactoryEntityMetadata extends com.adobe.fiber.valueobject
 {
     private static var emptyArray:Array = new Array();
 
-    model_internal static var allProperties:Array = new Array("allClassMetadata", "sessionFactoryOptions", "cache", "closed", "currentSession", "definedFilterNames", "typeHelper", "allCollectionMetadata", "statistics");
+    model_internal static var allProperties:Array = new Array("sessionFactoryOptions", "allClassMetadata", "cache", "currentSession", "closed", "definedFilterNames", "typeHelper", "statistics", "allCollectionMetadata");
     model_internal static var allAssociationProperties:Array = new Array();
     model_internal static var allRequiredProperties:Array = new Array();
-    model_internal static var allAlwaysAvailableProperties:Array = new Array("allClassMetadata", "sessionFactoryOptions", "cache", "closed", "currentSession", "definedFilterNames", "typeHelper", "allCollectionMetadata", "statistics");
+    model_internal static var allAlwaysAvailableProperties:Array = new Array("sessionFactoryOptions", "allClassMetadata", "cache", "currentSession", "closed", "definedFilterNames", "typeHelper", "statistics", "allCollectionMetadata");
     model_internal static var guardedProperties:Array = new Array();
-    model_internal static var dataProperties:Array = new Array("allClassMetadata", "sessionFactoryOptions", "cache", "closed", "currentSession", "definedFilterNames", "typeHelper", "allCollectionMetadata", "statistics");
+    model_internal static var dataProperties:Array = new Array("sessionFactoryOptions", "allClassMetadata", "cache", "currentSession", "closed", "definedFilterNames", "typeHelper", "statistics", "allCollectionMetadata");
     model_internal static var sourceProperties:Array = emptyArray
-    model_internal static var nonDerivedProperties:Array = new Array("allClassMetadata", "sessionFactoryOptions", "cache", "closed", "currentSession", "definedFilterNames", "typeHelper", "allCollectionMetadata", "statistics");
+    model_internal static var nonDerivedProperties:Array = new Array("sessionFactoryOptions", "allClassMetadata", "cache", "currentSession", "closed", "definedFilterNames", "typeHelper", "statistics", "allCollectionMetadata");
     model_internal static var derivedProperties:Array = new Array();
     model_internal static var collectionProperties:Array = new Array("definedFilterNames");
     model_internal static var collectionBaseMap:Object;
@@ -53,15 +53,15 @@ internal class _SessionFactoryEntityMetadata extends com.adobe.fiber.valueobject
         {
             // dependents map
             model_internal::dependentsOnMap = new Object();
-            model_internal::dependentsOnMap["allClassMetadata"] = new Array();
             model_internal::dependentsOnMap["sessionFactoryOptions"] = new Array();
+            model_internal::dependentsOnMap["allClassMetadata"] = new Array();
             model_internal::dependentsOnMap["cache"] = new Array();
-            model_internal::dependentsOnMap["closed"] = new Array();
             model_internal::dependentsOnMap["currentSession"] = new Array();
+            model_internal::dependentsOnMap["closed"] = new Array();
             model_internal::dependentsOnMap["definedFilterNames"] = new Array();
             model_internal::dependentsOnMap["typeHelper"] = new Array();
-            model_internal::dependentsOnMap["allCollectionMetadata"] = new Array();
             model_internal::dependentsOnMap["statistics"] = new Array();
+            model_internal::dependentsOnMap["allCollectionMetadata"] = new Array();
 
             // collection base map
             model_internal::collectionBaseMap = new Object();
@@ -70,15 +70,15 @@ internal class _SessionFactoryEntityMetadata extends com.adobe.fiber.valueobject
 
         // Property type Map
         model_internal::propertyTypeMap = new Object();
-        model_internal::propertyTypeMap["allClassMetadata"] = "Object";
         model_internal::propertyTypeMap["sessionFactoryOptions"] = "valueObjects.SessionFactoryOptions";
+        model_internal::propertyTypeMap["allClassMetadata"] = "Object";
         model_internal::propertyTypeMap["cache"] = "valueObjects.Cache";
-        model_internal::propertyTypeMap["closed"] = "Boolean";
         model_internal::propertyTypeMap["currentSession"] = "valueObjects.Session";
+        model_internal::propertyTypeMap["closed"] = "Boolean";
         model_internal::propertyTypeMap["definedFilterNames"] = "ArrayCollection";
         model_internal::propertyTypeMap["typeHelper"] = "valueObjects.TypeHelper";
-        model_internal::propertyTypeMap["allCollectionMetadata"] = "Object";
         model_internal::propertyTypeMap["statistics"] = "valueObjects.Statistics";
+        model_internal::propertyTypeMap["allCollectionMetadata"] = "Object";
 
         model_internal::_instance = value;
     }
@@ -308,13 +308,13 @@ internal class _SessionFactoryEntityMetadata extends com.adobe.fiber.valueobject
     }
 
     [Bindable(event="propertyChange")]
-    public function get isAllClassMetadataAvailable():Boolean
+    public function get isSessionFactoryOptionsAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
-    public function get isSessionFactoryOptionsAvailable():Boolean
+    public function get isAllClassMetadataAvailable():Boolean
     {
         return true;
     }
@@ -326,13 +326,13 @@ internal class _SessionFactoryEntityMetadata extends com.adobe.fiber.valueobject
     }
 
     [Bindable(event="propertyChange")]
-    public function get isClosedAvailable():Boolean
+    public function get isCurrentSessionAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
-    public function get isCurrentSessionAvailable():Boolean
+    public function get isClosedAvailable():Boolean
     {
         return true;
     }
@@ -350,13 +350,13 @@ internal class _SessionFactoryEntityMetadata extends com.adobe.fiber.valueobject
     }
 
     [Bindable(event="propertyChange")]
-    public function get isAllCollectionMetadataAvailable():Boolean
+    public function get isStatisticsAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
-    public function get isStatisticsAvailable():Boolean
+    public function get isAllCollectionMetadataAvailable():Boolean
     {
         return true;
     }
@@ -372,13 +372,13 @@ internal class _SessionFactoryEntityMetadata extends com.adobe.fiber.valueobject
     }
 
     [Bindable(event="propertyChange")]   
-    public function get allClassMetadataStyle():com.adobe.fiber.styles.Style
+    public function get sessionFactoryOptionsStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
-    public function get sessionFactoryOptionsStyle():com.adobe.fiber.styles.Style
+    public function get allClassMetadataStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
@@ -390,13 +390,13 @@ internal class _SessionFactoryEntityMetadata extends com.adobe.fiber.valueobject
     }
 
     [Bindable(event="propertyChange")]   
-    public function get closedStyle():com.adobe.fiber.styles.Style
+    public function get currentSessionStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
-    public function get currentSessionStyle():com.adobe.fiber.styles.Style
+    public function get closedStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
@@ -414,13 +414,13 @@ internal class _SessionFactoryEntityMetadata extends com.adobe.fiber.valueobject
     }
 
     [Bindable(event="propertyChange")]   
-    public function get allCollectionMetadataStyle():com.adobe.fiber.styles.Style
+    public function get statisticsStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
-    public function get statisticsStyle():com.adobe.fiber.styles.Style
+    public function get allCollectionMetadataStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }

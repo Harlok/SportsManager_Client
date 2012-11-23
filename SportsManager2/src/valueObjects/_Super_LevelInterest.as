@@ -42,9 +42,9 @@ public class _Super_LevelInterest extends flash.events.EventDispatcher implement
 
     model_internal static function initRemoteClassAliasAllRelated() : void
     {
-        valueObjects.Player.initRemoteClassAliasSingleChild();
         valueObjects.VolleyLevel.initRemoteClassAliasSingleChild();
         valueObjects.LevelInterest.initRemoteClassAliasSingleChild();
+        valueObjects.Player.initRemoteClassAliasSingleChild();
         valueObjects.VolleyType.initRemoteClassAliasSingleChild();
     }
 
@@ -66,8 +66,8 @@ public class _Super_LevelInterest extends flash.events.EventDispatcher implement
      * properties
      */
     private var _internal_id : int;
-    private var _internal_player : valueObjects.Player;
     private var _internal_maxLevel : valueObjects.VolleyLevel;
+    private var _internal_player : valueObjects.Player;
     private var _internal_minLevel : valueObjects.VolleyLevel;
     private var _internal_volleyType : valueObjects.VolleyType;
 
@@ -100,15 +100,15 @@ public class _Super_LevelInterest extends flash.events.EventDispatcher implement
     }
 
     [Bindable(event="propertyChange")]
-    public function get player() : valueObjects.Player
-    {
-        return _internal_player;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get maxLevel() : valueObjects.VolleyLevel
     {
         return _internal_maxLevel;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get player() : valueObjects.Player
+    {
+        return _internal_player;
     }
 
     [Bindable(event="propertyChange")]
@@ -141,16 +141,6 @@ public class _Super_LevelInterest extends flash.events.EventDispatcher implement
         }
     }
 
-    public function set player(value:valueObjects.Player) : void
-    {
-        var oldValue:valueObjects.Player = _internal_player;
-        if (oldValue !== value)
-        {
-            _internal_player = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "player", oldValue, _internal_player));
-        }
-    }
-
     public function set maxLevel(value:valueObjects.VolleyLevel) : void
     {
         var oldValue:valueObjects.VolleyLevel = _internal_maxLevel;
@@ -158,6 +148,16 @@ public class _Super_LevelInterest extends flash.events.EventDispatcher implement
         {
             _internal_maxLevel = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "maxLevel", oldValue, _internal_maxLevel));
+        }
+    }
+
+    public function set player(value:valueObjects.Player) : void
+    {
+        var oldValue:valueObjects.Player = _internal_player;
+        if (oldValue !== value)
+        {
+            _internal_player = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "player", oldValue, _internal_player));
         }
     }
 

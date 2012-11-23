@@ -86,11 +86,11 @@ public class _Super_SeasonEventDAO extends flash.events.EventDispatcher implemen
     private var _internal_location : valueObjects.LocationDAO;
     private var _internal_capOn25 : int;
     private var _internal_maxPlayerPerPool : int;
-    private var _internal_setConfig : int;
     private var _internal_date : Number;
+    private var _internal_setConfig : int;
     private var _internal_poolCount : int;
-    private var _internal_id : int;
     private var _internal_startTime : Number;
+    private var _internal_id : int;
     private var _internal_leagueSeason : valueObjects.LeagueSeasonDAO;
     private var _internal_scheduleLocked : Boolean;
     private var _internal_courtCount : int;
@@ -180,15 +180,15 @@ public class _Super_SeasonEventDAO extends flash.events.EventDispatcher implemen
     }
 
     [Bindable(event="propertyChange")]
-    public function get setConfig() : int
-    {
-        return _internal_setConfig;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get date() : Number
     {
         return _internal_date;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get setConfig() : int
+    {
+        return _internal_setConfig;
     }
 
     [Bindable(event="propertyChange")]
@@ -198,15 +198,15 @@ public class _Super_SeasonEventDAO extends flash.events.EventDispatcher implemen
     }
 
     [Bindable(event="propertyChange")]
-    public function get id() : int
-    {
-        return _internal_id;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get startTime() : Number
     {
         return _internal_startTime;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get id() : int
+    {
+        return _internal_id;
     }
 
     [Bindable(event="propertyChange")]
@@ -343,16 +343,6 @@ public class _Super_SeasonEventDAO extends flash.events.EventDispatcher implemen
         }
     }
 
-    public function set setConfig(value:int) : void
-    {
-        var oldValue:int = _internal_setConfig;
-        if (oldValue !== value)
-        {
-            _internal_setConfig = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "setConfig", oldValue, _internal_setConfig));
-        }
-    }
-
     public function set date(value:Number) : void
     {
         var oldValue:Number = _internal_date;
@@ -360,6 +350,16 @@ public class _Super_SeasonEventDAO extends flash.events.EventDispatcher implemen
         {
             _internal_date = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "date", oldValue, _internal_date));
+        }
+    }
+
+    public function set setConfig(value:int) : void
+    {
+        var oldValue:int = _internal_setConfig;
+        if (oldValue !== value)
+        {
+            _internal_setConfig = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "setConfig", oldValue, _internal_setConfig));
         }
     }
 
@@ -373,16 +373,6 @@ public class _Super_SeasonEventDAO extends flash.events.EventDispatcher implemen
         }
     }
 
-    public function set id(value:int) : void
-    {
-        var oldValue:int = _internal_id;
-        if (oldValue !== value)
-        {
-            _internal_id = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "id", oldValue, _internal_id));
-        }
-    }
-
     public function set startTime(value:Number) : void
     {
         var oldValue:Number = _internal_startTime;
@@ -390,6 +380,16 @@ public class _Super_SeasonEventDAO extends flash.events.EventDispatcher implemen
         {
             _internal_startTime = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "startTime", oldValue, _internal_startTime));
+        }
+    }
+
+    public function set id(value:int) : void
+    {
+        var oldValue:int = _internal_id;
+        if (oldValue !== value)
+        {
+            _internal_id = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "id", oldValue, _internal_id));
         }
     }
 

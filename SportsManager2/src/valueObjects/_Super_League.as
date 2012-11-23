@@ -48,8 +48,8 @@ public class _Super_League extends flash.events.EventDispatcher implements com.a
         valueObjects.LeagueSeason.initRemoteClassAliasSingleChild();
         valueObjects.VolleyType.initRemoteClassAliasSingleChild();
         valueObjects.LevelInterest.initRemoteClassAliasSingleChild();
-        valueObjects.Player.initRemoteClassAliasSingleChild();
         valueObjects.VolleyLevel.initRemoteClassAliasSingleChild();
+        valueObjects.Player.initRemoteClassAliasSingleChild();
         valueObjects.LeagueAdmin.initRemoteClassAliasSingleChild();
     }
 
@@ -74,8 +74,8 @@ public class _Super_League extends flash.events.EventDispatcher implements com.a
     private var _internal_organization : valueObjects.Organization;
     private var _internal_seasonList : ArrayCollection;
     model_internal var _internal_seasonList_leaf:valueObjects.LeagueSeason;
-    private var _internal_name : String;
     private var _internal_volleyType : valueObjects.VolleyType;
+    private var _internal_name : String;
     private var _internal_hasSeasonTeams : Boolean;
     private var _internal_adminList : ArrayCollection;
     model_internal var _internal_adminList_leaf:valueObjects.LeagueAdmin;
@@ -121,15 +121,15 @@ public class _Super_League extends flash.events.EventDispatcher implements com.a
     }
 
     [Bindable(event="propertyChange")]
-    public function get name() : String
-    {
-        return _internal_name;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get volleyType() : valueObjects.VolleyType
     {
         return _internal_volleyType;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get name() : String
+    {
+        return _internal_name;
     }
 
     [Bindable(event="propertyChange")]
@@ -197,16 +197,6 @@ public class _Super_League extends flash.events.EventDispatcher implements com.a
         }
     }
 
-    public function set name(value:String) : void
-    {
-        var oldValue:String = _internal_name;
-        if (oldValue !== value)
-        {
-            _internal_name = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "name", oldValue, _internal_name));
-        }
-    }
-
     public function set volleyType(value:valueObjects.VolleyType) : void
     {
         var oldValue:valueObjects.VolleyType = _internal_volleyType;
@@ -214,6 +204,16 @@ public class _Super_League extends flash.events.EventDispatcher implements com.a
         {
             _internal_volleyType = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "volleyType", oldValue, _internal_volleyType));
+        }
+    }
+
+    public function set name(value:String) : void
+    {
+        var oldValue:String = _internal_name;
+        if (oldValue !== value)
+        {
+            _internal_name = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "name", oldValue, _internal_name));
         }
     }
 

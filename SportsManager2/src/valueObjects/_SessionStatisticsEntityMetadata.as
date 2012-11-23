@@ -21,16 +21,16 @@ internal class _SessionStatisticsEntityMetadata extends com.adobe.fiber.valueobj
 {
     private static var emptyArray:Array = new Array();
 
-    model_internal static var allProperties:Array = new Array("collectionCount", "collectionKeys", "entityKeys", "entityCount");
+    model_internal static var allProperties:Array = new Array("collectionCount", "entityKeys", "collectionKeys", "entityCount");
     model_internal static var allAssociationProperties:Array = new Array();
     model_internal static var allRequiredProperties:Array = new Array();
-    model_internal static var allAlwaysAvailableProperties:Array = new Array("collectionCount", "collectionKeys", "entityKeys", "entityCount");
+    model_internal static var allAlwaysAvailableProperties:Array = new Array("collectionCount", "entityKeys", "collectionKeys", "entityCount");
     model_internal static var guardedProperties:Array = new Array();
-    model_internal static var dataProperties:Array = new Array("collectionCount", "collectionKeys", "entityKeys", "entityCount");
+    model_internal static var dataProperties:Array = new Array("collectionCount", "entityKeys", "collectionKeys", "entityCount");
     model_internal static var sourceProperties:Array = emptyArray
-    model_internal static var nonDerivedProperties:Array = new Array("collectionCount", "collectionKeys", "entityKeys", "entityCount");
+    model_internal static var nonDerivedProperties:Array = new Array("collectionCount", "entityKeys", "collectionKeys", "entityCount");
     model_internal static var derivedProperties:Array = new Array();
-    model_internal static var collectionProperties:Array = new Array("collectionKeys", "entityKeys");
+    model_internal static var collectionProperties:Array = new Array("entityKeys", "collectionKeys");
     model_internal static var collectionBaseMap:Object;
     model_internal static var entityName:String = "SessionStatistics";
     model_internal static var dependentsOnMap:Object;
@@ -49,21 +49,21 @@ internal class _SessionStatisticsEntityMetadata extends com.adobe.fiber.valueobj
             // dependents map
             model_internal::dependentsOnMap = new Object();
             model_internal::dependentsOnMap["collectionCount"] = new Array();
-            model_internal::dependentsOnMap["collectionKeys"] = new Array();
             model_internal::dependentsOnMap["entityKeys"] = new Array();
+            model_internal::dependentsOnMap["collectionKeys"] = new Array();
             model_internal::dependentsOnMap["entityCount"] = new Array();
 
             // collection base map
             model_internal::collectionBaseMap = new Object();
-            model_internal::collectionBaseMap["collectionKeys"] = "Object";
             model_internal::collectionBaseMap["entityKeys"] = "Object";
+            model_internal::collectionBaseMap["collectionKeys"] = "Object";
         }
 
         // Property type Map
         model_internal::propertyTypeMap = new Object();
         model_internal::propertyTypeMap["collectionCount"] = "int";
-        model_internal::propertyTypeMap["collectionKeys"] = "ArrayCollection";
         model_internal::propertyTypeMap["entityKeys"] = "ArrayCollection";
+        model_internal::propertyTypeMap["collectionKeys"] = "ArrayCollection";
         model_internal::propertyTypeMap["entityCount"] = "int";
 
         model_internal::_instance = value;
@@ -300,13 +300,13 @@ internal class _SessionStatisticsEntityMetadata extends com.adobe.fiber.valueobj
     }
 
     [Bindable(event="propertyChange")]
-    public function get isCollectionKeysAvailable():Boolean
+    public function get isEntityKeysAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
-    public function get isEntityKeysAvailable():Boolean
+    public function get isCollectionKeysAvailable():Boolean
     {
         return true;
     }
@@ -334,13 +334,13 @@ internal class _SessionStatisticsEntityMetadata extends com.adobe.fiber.valueobj
     }
 
     [Bindable(event="propertyChange")]   
-    public function get collectionKeysStyle():com.adobe.fiber.styles.Style
+    public function get entityKeysStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
-    public function get entityKeysStyle():com.adobe.fiber.styles.Style
+    public function get collectionKeysStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }

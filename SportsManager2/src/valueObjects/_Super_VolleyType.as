@@ -41,8 +41,8 @@ public class _Super_VolleyType extends flash.events.EventDispatcher implements c
     model_internal static function initRemoteClassAliasAllRelated() : void
     {
         valueObjects.LevelInterest.initRemoteClassAliasSingleChild();
-        valueObjects.Player.initRemoteClassAliasSingleChild();
         valueObjects.VolleyLevel.initRemoteClassAliasSingleChild();
+        valueObjects.Player.initRemoteClassAliasSingleChild();
         valueObjects.VolleyType.initRemoteClassAliasSingleChild();
     }
 

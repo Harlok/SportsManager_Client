@@ -23,14 +23,14 @@ internal class _InvitationDAOEntityMetadata extends com.adobe.fiber.valueobjects
 {
     private static var emptyArray:Array = new Array();
 
-    model_internal static var allProperties:Array = new Array("id", "fromPlayer", "response", "status", "seasonEvent", "toPlayer", "team", "fromMessage");
+    model_internal static var allProperties:Array = new Array("id", "response", "fromPlayer", "status", "seasonEvent", "toPlayer", "team", "fromMessage");
     model_internal static var allAssociationProperties:Array = new Array();
     model_internal static var allRequiredProperties:Array = new Array();
-    model_internal static var allAlwaysAvailableProperties:Array = new Array("id", "fromPlayer", "response", "status", "seasonEvent", "toPlayer", "team", "fromMessage");
+    model_internal static var allAlwaysAvailableProperties:Array = new Array("id", "response", "fromPlayer", "status", "seasonEvent", "toPlayer", "team", "fromMessage");
     model_internal static var guardedProperties:Array = new Array();
-    model_internal static var dataProperties:Array = new Array("id", "fromPlayer", "response", "status", "seasonEvent", "toPlayer", "team", "fromMessage");
+    model_internal static var dataProperties:Array = new Array("id", "response", "fromPlayer", "status", "seasonEvent", "toPlayer", "team", "fromMessage");
     model_internal static var sourceProperties:Array = emptyArray
-    model_internal static var nonDerivedProperties:Array = new Array("id", "fromPlayer", "response", "status", "seasonEvent", "toPlayer", "team", "fromMessage");
+    model_internal static var nonDerivedProperties:Array = new Array("id", "response", "fromPlayer", "status", "seasonEvent", "toPlayer", "team", "fromMessage");
     model_internal static var derivedProperties:Array = new Array();
     model_internal static var collectionProperties:Array = new Array();
     model_internal static var collectionBaseMap:Object;
@@ -51,8 +51,8 @@ internal class _InvitationDAOEntityMetadata extends com.adobe.fiber.valueobjects
             // dependents map
             model_internal::dependentsOnMap = new Object();
             model_internal::dependentsOnMap["id"] = new Array();
-            model_internal::dependentsOnMap["fromPlayer"] = new Array();
             model_internal::dependentsOnMap["response"] = new Array();
+            model_internal::dependentsOnMap["fromPlayer"] = new Array();
             model_internal::dependentsOnMap["status"] = new Array();
             model_internal::dependentsOnMap["seasonEvent"] = new Array();
             model_internal::dependentsOnMap["toPlayer"] = new Array();
@@ -66,8 +66,8 @@ internal class _InvitationDAOEntityMetadata extends com.adobe.fiber.valueobjects
         // Property type Map
         model_internal::propertyTypeMap = new Object();
         model_internal::propertyTypeMap["id"] = "int";
-        model_internal::propertyTypeMap["fromPlayer"] = "valueObjects.PlayerDAO";
         model_internal::propertyTypeMap["response"] = "String";
+        model_internal::propertyTypeMap["fromPlayer"] = "valueObjects.PlayerDAO";
         model_internal::propertyTypeMap["status"] = "int";
         model_internal::propertyTypeMap["seasonEvent"] = "valueObjects.SeasonEventDAO";
         model_internal::propertyTypeMap["toPlayer"] = "valueObjects.PlayerDAO";
@@ -308,13 +308,13 @@ internal class _InvitationDAOEntityMetadata extends com.adobe.fiber.valueobjects
     }
 
     [Bindable(event="propertyChange")]
-    public function get isFromPlayerAvailable():Boolean
+    public function get isResponseAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
-    public function get isResponseAvailable():Boolean
+    public function get isFromPlayerAvailable():Boolean
     {
         return true;
     }
@@ -366,13 +366,13 @@ internal class _InvitationDAOEntityMetadata extends com.adobe.fiber.valueobjects
     }
 
     [Bindable(event="propertyChange")]   
-    public function get fromPlayerStyle():com.adobe.fiber.styles.Style
+    public function get responseStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
-    public function get responseStyle():com.adobe.fiber.styles.Style
+    public function get fromPlayerStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }

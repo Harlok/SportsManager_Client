@@ -72,8 +72,8 @@ public class _Super_LeagueDAO extends flash.events.EventDispatcher implements co
     private var _internal_organization : valueObjects.OrganizationDAO;
     private var _internal_seasonList : ArrayCollection;
     model_internal var _internal_seasonList_leaf:valueObjects.LeagueSeasonDAO;
-    private var _internal_name : String;
     private var _internal_volleyType : valueObjects.VolleyTypeDAO;
+    private var _internal_name : String;
     private var _internal_hasSeasonTeams : Boolean;
     private var _internal_adminList : ArrayCollection;
     model_internal var _internal_adminList_leaf:valueObjects.LeagueAdminDAO;
@@ -119,15 +119,15 @@ public class _Super_LeagueDAO extends flash.events.EventDispatcher implements co
     }
 
     [Bindable(event="propertyChange")]
-    public function get name() : String
-    {
-        return _internal_name;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get volleyType() : valueObjects.VolleyTypeDAO
     {
         return _internal_volleyType;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get name() : String
+    {
+        return _internal_name;
     }
 
     [Bindable(event="propertyChange")]
@@ -195,16 +195,6 @@ public class _Super_LeagueDAO extends flash.events.EventDispatcher implements co
         }
     }
 
-    public function set name(value:String) : void
-    {
-        var oldValue:String = _internal_name;
-        if (oldValue !== value)
-        {
-            _internal_name = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "name", oldValue, _internal_name));
-        }
-    }
-
     public function set volleyType(value:valueObjects.VolleyTypeDAO) : void
     {
         var oldValue:valueObjects.VolleyTypeDAO = _internal_volleyType;
@@ -212,6 +202,16 @@ public class _Super_LeagueDAO extends flash.events.EventDispatcher implements co
         {
             _internal_volleyType = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "volleyType", oldValue, _internal_volleyType));
+        }
+    }
+
+    public function set name(value:String) : void
+    {
+        var oldValue:String = _internal_name;
+        if (oldValue !== value)
+        {
+            _internal_name = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "name", oldValue, _internal_name));
         }
     }
 

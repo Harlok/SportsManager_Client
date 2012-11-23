@@ -66,8 +66,8 @@ public class _Super_LocationDAO extends flash.events.EventDispatcher implements 
     private var _internal_province : String;
     private var _internal_longitude : Number;
     private var _internal_latitude : Number;
-    private var _internal_country : String;
     private var _internal_city : String;
+    private var _internal_country : String;
 
     private static var emptyArray:Array = new Array();
 
@@ -142,15 +142,15 @@ public class _Super_LocationDAO extends flash.events.EventDispatcher implements 
     }
 
     [Bindable(event="propertyChange")]
-    public function get country() : String
-    {
-        return _internal_country;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get city() : String
     {
         return _internal_city;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get country() : String
+    {
+        return _internal_country;
     }
 
     public function clearAssociations() : void
@@ -241,16 +241,6 @@ public class _Super_LocationDAO extends flash.events.EventDispatcher implements 
         }
     }
 
-    public function set country(value:String) : void
-    {
-        var oldValue:String = _internal_country;
-        if (oldValue !== value)
-        {
-            _internal_country = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "country", oldValue, _internal_country));
-        }
-    }
-
     public function set city(value:String) : void
     {
         var oldValue:String = _internal_city;
@@ -258,6 +248,16 @@ public class _Super_LocationDAO extends flash.events.EventDispatcher implements 
         {
             _internal_city = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "city", oldValue, _internal_city));
+        }
+    }
+
+    public function set country(value:String) : void
+    {
+        var oldValue:String = _internal_country;
+        if (oldValue !== value)
+        {
+            _internal_country = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "country", oldValue, _internal_country));
         }
     }
 

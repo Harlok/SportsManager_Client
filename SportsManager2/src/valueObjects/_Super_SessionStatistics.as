@@ -59,8 +59,8 @@ public class _Super_SessionStatistics extends flash.events.EventDispatcher imple
      * properties
      */
     private var _internal_collectionCount : int;
-    private var _internal_collectionKeys : ArrayCollection;
     private var _internal_entityKeys : ArrayCollection;
+    private var _internal_collectionKeys : ArrayCollection;
     private var _internal_entityCount : int;
 
     private static var emptyArray:Array = new Array();
@@ -92,15 +92,15 @@ public class _Super_SessionStatistics extends flash.events.EventDispatcher imple
     }
 
     [Bindable(event="propertyChange")]
-    public function get collectionKeys() : ArrayCollection
-    {
-        return _internal_collectionKeys;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get entityKeys() : ArrayCollection
     {
         return _internal_entityKeys;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get collectionKeys() : ArrayCollection
+    {
+        return _internal_collectionKeys;
     }
 
     [Bindable(event="propertyChange")]
@@ -127,31 +127,6 @@ public class _Super_SessionStatistics extends flash.events.EventDispatcher imple
         }
     }
 
-    public function set collectionKeys(value:*) : void
-    {
-        var oldValue:ArrayCollection = _internal_collectionKeys;
-        if (oldValue !== value)
-        {
-            if (value is ArrayCollection)
-            {
-                _internal_collectionKeys = value;
-            }
-            else if (value is Array)
-            {
-                _internal_collectionKeys = new ArrayCollection(value);
-            }
-            else if (value == null)
-            {
-                _internal_collectionKeys = null;
-            }
-            else
-            {
-                throw new Error("value of collectionKeys must be a collection");
-            }
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "collectionKeys", oldValue, _internal_collectionKeys));
-        }
-    }
-
     public function set entityKeys(value:*) : void
     {
         var oldValue:ArrayCollection = _internal_entityKeys;
@@ -174,6 +149,31 @@ public class _Super_SessionStatistics extends flash.events.EventDispatcher imple
                 throw new Error("value of entityKeys must be a collection");
             }
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "entityKeys", oldValue, _internal_entityKeys));
+        }
+    }
+
+    public function set collectionKeys(value:*) : void
+    {
+        var oldValue:ArrayCollection = _internal_collectionKeys;
+        if (oldValue !== value)
+        {
+            if (value is ArrayCollection)
+            {
+                _internal_collectionKeys = value;
+            }
+            else if (value is Array)
+            {
+                _internal_collectionKeys = new ArrayCollection(value);
+            }
+            else if (value == null)
+            {
+                _internal_collectionKeys = null;
+            }
+            else
+            {
+                throw new Error("value of collectionKeys must be a collection");
+            }
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "collectionKeys", oldValue, _internal_collectionKeys));
         }
     }
 

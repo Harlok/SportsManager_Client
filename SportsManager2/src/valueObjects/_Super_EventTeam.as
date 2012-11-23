@@ -70,8 +70,8 @@ public class _Super_EventTeam extends flash.events.EventDispatcher implements co
     private var _internal_id : int;
     private var _internal_lost : int;
     private var _internal_pool : int;
-    private var _internal_team : valueObjects.Team;
     private var _internal_won : int;
+    private var _internal_team : valueObjects.Team;
     private var _internal_teamId : int;
     private var _internal_pos : int;
 
@@ -128,15 +128,15 @@ public class _Super_EventTeam extends flash.events.EventDispatcher implements co
     }
 
     [Bindable(event="propertyChange")]
-    public function get team() : valueObjects.Team
-    {
-        return _internal_team;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get won() : int
     {
         return _internal_won;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get team() : valueObjects.Team
+    {
+        return _internal_team;
     }
 
     [Bindable(event="propertyChange")]
@@ -224,16 +224,6 @@ public class _Super_EventTeam extends flash.events.EventDispatcher implements co
         }
     }
 
-    public function set team(value:valueObjects.Team) : void
-    {
-        var oldValue:valueObjects.Team = _internal_team;
-        if (oldValue !== value)
-        {
-            _internal_team = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "team", oldValue, _internal_team));
-        }
-    }
-
     public function set won(value:int) : void
     {
         var oldValue:int = _internal_won;
@@ -241,6 +231,16 @@ public class _Super_EventTeam extends flash.events.EventDispatcher implements co
         {
             _internal_won = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "won", oldValue, _internal_won));
+        }
+    }
+
+    public function set team(value:valueObjects.Team) : void
+    {
+        var oldValue:valueObjects.Team = _internal_team;
+        if (oldValue !== value)
+        {
+            _internal_team = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "team", oldValue, _internal_team));
         }
     }
 

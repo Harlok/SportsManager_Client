@@ -25,14 +25,14 @@ internal class _LeagueSeasonDAOEntityMetadata extends com.adobe.fiber.valueobjec
 {
     private static var emptyArray:Array = new Array();
 
-    model_internal static var allProperties:Array = new Array("startTime", "setTime", "courtCount", "setPoints", "setCount", "defaultSetCount", "defaultSetTime", "defaultSetPoints", "seasonTeamList", "startDate", "defaultLocation", "defaultCapOn21", "defaultCourtCount", "eventCount", "endDate", "defaultStartTime", "league", "eventList", "id", "defaultMaxPlayerPerPool", "defaultSetConfig", "name", "defaultCapOn15", "defaultTimePerPoint", "defaultCapOn25");
+    model_internal static var allProperties:Array = new Array("startTime", "setTime", "courtCount", "setPoints", "setCount", "defaultSetCount", "defaultSetTime", "defaultSetPoints", "startDate", "seasonTeamList", "defaultLocation", "defaultCapOn21", "eventCount", "defaultCourtCount", "endDate", "defaultStartTime", "league", "eventList", "id", "defaultMaxPlayerPerPool", "defaultSetConfig", "name", "defaultTimePerPoint", "defaultCapOn15", "defaultCapOn25");
     model_internal static var allAssociationProperties:Array = new Array();
     model_internal static var allRequiredProperties:Array = new Array();
-    model_internal static var allAlwaysAvailableProperties:Array = new Array("startTime", "setTime", "courtCount", "setPoints", "setCount", "defaultSetCount", "defaultSetTime", "defaultSetPoints", "seasonTeamList", "startDate", "defaultLocation", "defaultCapOn21", "defaultCourtCount", "eventCount", "endDate", "defaultStartTime", "league", "eventList", "id", "defaultMaxPlayerPerPool", "defaultSetConfig", "name", "defaultCapOn15", "defaultTimePerPoint", "defaultCapOn25");
+    model_internal static var allAlwaysAvailableProperties:Array = new Array("startTime", "setTime", "courtCount", "setPoints", "setCount", "defaultSetCount", "defaultSetTime", "defaultSetPoints", "startDate", "seasonTeamList", "defaultLocation", "defaultCapOn21", "eventCount", "defaultCourtCount", "endDate", "defaultStartTime", "league", "eventList", "id", "defaultMaxPlayerPerPool", "defaultSetConfig", "name", "defaultTimePerPoint", "defaultCapOn15", "defaultCapOn25");
     model_internal static var guardedProperties:Array = new Array();
-    model_internal static var dataProperties:Array = new Array("startTime", "setTime", "courtCount", "setPoints", "setCount", "defaultSetCount", "defaultSetTime", "defaultSetPoints", "seasonTeamList", "startDate", "defaultLocation", "defaultCapOn21", "defaultCourtCount", "eventCount", "endDate", "defaultStartTime", "league", "eventList", "id", "defaultMaxPlayerPerPool", "defaultSetConfig", "name", "defaultCapOn15", "defaultTimePerPoint", "defaultCapOn25");
+    model_internal static var dataProperties:Array = new Array("startTime", "setTime", "courtCount", "setPoints", "setCount", "defaultSetCount", "defaultSetTime", "defaultSetPoints", "startDate", "seasonTeamList", "defaultLocation", "defaultCapOn21", "eventCount", "defaultCourtCount", "endDate", "defaultStartTime", "league", "eventList", "id", "defaultMaxPlayerPerPool", "defaultSetConfig", "name", "defaultTimePerPoint", "defaultCapOn15", "defaultCapOn25");
     model_internal static var sourceProperties:Array = emptyArray
-    model_internal static var nonDerivedProperties:Array = new Array("startTime", "setTime", "courtCount", "setPoints", "setCount", "defaultSetCount", "defaultSetTime", "defaultSetPoints", "seasonTeamList", "startDate", "defaultLocation", "defaultCapOn21", "defaultCourtCount", "eventCount", "endDate", "defaultStartTime", "league", "eventList", "id", "defaultMaxPlayerPerPool", "defaultSetConfig", "name", "defaultCapOn15", "defaultTimePerPoint", "defaultCapOn25");
+    model_internal static var nonDerivedProperties:Array = new Array("startTime", "setTime", "courtCount", "setPoints", "setCount", "defaultSetCount", "defaultSetTime", "defaultSetPoints", "startDate", "seasonTeamList", "defaultLocation", "defaultCapOn21", "eventCount", "defaultCourtCount", "endDate", "defaultStartTime", "league", "eventList", "id", "defaultMaxPlayerPerPool", "defaultSetConfig", "name", "defaultTimePerPoint", "defaultCapOn15", "defaultCapOn25");
     model_internal static var derivedProperties:Array = new Array();
     model_internal static var collectionProperties:Array = new Array("seasonTeamList", "eventList");
     model_internal static var collectionBaseMap:Object;
@@ -60,12 +60,12 @@ internal class _LeagueSeasonDAOEntityMetadata extends com.adobe.fiber.valueobjec
             model_internal::dependentsOnMap["defaultSetCount"] = new Array();
             model_internal::dependentsOnMap["defaultSetTime"] = new Array();
             model_internal::dependentsOnMap["defaultSetPoints"] = new Array();
-            model_internal::dependentsOnMap["seasonTeamList"] = new Array();
             model_internal::dependentsOnMap["startDate"] = new Array();
+            model_internal::dependentsOnMap["seasonTeamList"] = new Array();
             model_internal::dependentsOnMap["defaultLocation"] = new Array();
             model_internal::dependentsOnMap["defaultCapOn21"] = new Array();
-            model_internal::dependentsOnMap["defaultCourtCount"] = new Array();
             model_internal::dependentsOnMap["eventCount"] = new Array();
+            model_internal::dependentsOnMap["defaultCourtCount"] = new Array();
             model_internal::dependentsOnMap["endDate"] = new Array();
             model_internal::dependentsOnMap["defaultStartTime"] = new Array();
             model_internal::dependentsOnMap["league"] = new Array();
@@ -74,8 +74,8 @@ internal class _LeagueSeasonDAOEntityMetadata extends com.adobe.fiber.valueobjec
             model_internal::dependentsOnMap["defaultMaxPlayerPerPool"] = new Array();
             model_internal::dependentsOnMap["defaultSetConfig"] = new Array();
             model_internal::dependentsOnMap["name"] = new Array();
-            model_internal::dependentsOnMap["defaultCapOn15"] = new Array();
             model_internal::dependentsOnMap["defaultTimePerPoint"] = new Array();
+            model_internal::dependentsOnMap["defaultCapOn15"] = new Array();
             model_internal::dependentsOnMap["defaultCapOn25"] = new Array();
 
             // collection base map
@@ -94,12 +94,12 @@ internal class _LeagueSeasonDAOEntityMetadata extends com.adobe.fiber.valueobjec
         model_internal::propertyTypeMap["defaultSetCount"] = "int";
         model_internal::propertyTypeMap["defaultSetTime"] = "int";
         model_internal::propertyTypeMap["defaultSetPoints"] = "int";
-        model_internal::propertyTypeMap["seasonTeamList"] = "ArrayCollection";
         model_internal::propertyTypeMap["startDate"] = "Number";
+        model_internal::propertyTypeMap["seasonTeamList"] = "ArrayCollection";
         model_internal::propertyTypeMap["defaultLocation"] = "valueObjects.LocationDAO";
         model_internal::propertyTypeMap["defaultCapOn21"] = "int";
-        model_internal::propertyTypeMap["defaultCourtCount"] = "int";
         model_internal::propertyTypeMap["eventCount"] = "int";
+        model_internal::propertyTypeMap["defaultCourtCount"] = "int";
         model_internal::propertyTypeMap["endDate"] = "Number";
         model_internal::propertyTypeMap["defaultStartTime"] = "Number";
         model_internal::propertyTypeMap["league"] = "valueObjects.LeagueDAO";
@@ -108,8 +108,8 @@ internal class _LeagueSeasonDAOEntityMetadata extends com.adobe.fiber.valueobjec
         model_internal::propertyTypeMap["defaultMaxPlayerPerPool"] = "int";
         model_internal::propertyTypeMap["defaultSetConfig"] = "int";
         model_internal::propertyTypeMap["name"] = "String";
-        model_internal::propertyTypeMap["defaultCapOn15"] = "int";
         model_internal::propertyTypeMap["defaultTimePerPoint"] = "int";
+        model_internal::propertyTypeMap["defaultCapOn15"] = "int";
         model_internal::propertyTypeMap["defaultCapOn25"] = "int";
 
         model_internal::_instance = value;
@@ -388,13 +388,13 @@ internal class _LeagueSeasonDAOEntityMetadata extends com.adobe.fiber.valueobjec
     }
 
     [Bindable(event="propertyChange")]
-    public function get isSeasonTeamListAvailable():Boolean
+    public function get isStartDateAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
-    public function get isStartDateAvailable():Boolean
+    public function get isSeasonTeamListAvailable():Boolean
     {
         return true;
     }
@@ -412,13 +412,13 @@ internal class _LeagueSeasonDAOEntityMetadata extends com.adobe.fiber.valueobjec
     }
 
     [Bindable(event="propertyChange")]
-    public function get isDefaultCourtCountAvailable():Boolean
+    public function get isEventCountAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
-    public function get isEventCountAvailable():Boolean
+    public function get isDefaultCourtCountAvailable():Boolean
     {
         return true;
     }
@@ -472,13 +472,13 @@ internal class _LeagueSeasonDAOEntityMetadata extends com.adobe.fiber.valueobjec
     }
 
     [Bindable(event="propertyChange")]
-    public function get isDefaultCapOn15Available():Boolean
+    public function get isDefaultTimePerPointAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
-    public function get isDefaultTimePerPointAvailable():Boolean
+    public function get isDefaultCapOn15Available():Boolean
     {
         return true;
     }
@@ -548,13 +548,13 @@ internal class _LeagueSeasonDAOEntityMetadata extends com.adobe.fiber.valueobjec
     }
 
     [Bindable(event="propertyChange")]   
-    public function get seasonTeamListStyle():com.adobe.fiber.styles.Style
+    public function get startDateStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
-    public function get startDateStyle():com.adobe.fiber.styles.Style
+    public function get seasonTeamListStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
@@ -572,13 +572,13 @@ internal class _LeagueSeasonDAOEntityMetadata extends com.adobe.fiber.valueobjec
     }
 
     [Bindable(event="propertyChange")]   
-    public function get defaultCourtCountStyle():com.adobe.fiber.styles.Style
+    public function get eventCountStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
-    public function get eventCountStyle():com.adobe.fiber.styles.Style
+    public function get defaultCourtCountStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
@@ -632,13 +632,13 @@ internal class _LeagueSeasonDAOEntityMetadata extends com.adobe.fiber.valueobjec
     }
 
     [Bindable(event="propertyChange")]   
-    public function get defaultCapOn15Style():com.adobe.fiber.styles.Style
+    public function get defaultTimePerPointStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
-    public function get defaultTimePerPointStyle():com.adobe.fiber.styles.Style
+    public function get defaultCapOn15Style():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }

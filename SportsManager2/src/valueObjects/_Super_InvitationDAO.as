@@ -76,8 +76,8 @@ public class _Super_InvitationDAO extends flash.events.EventDispatcher implement
      * properties
      */
     private var _internal_id : int;
-    private var _internal_fromPlayer : valueObjects.PlayerDAO;
     private var _internal_response : String;
+    private var _internal_fromPlayer : valueObjects.PlayerDAO;
     private var _internal_status : int;
     private var _internal_seasonEvent : valueObjects.SeasonEventDAO;
     private var _internal_toPlayer : valueObjects.PlayerDAO;
@@ -113,15 +113,15 @@ public class _Super_InvitationDAO extends flash.events.EventDispatcher implement
     }
 
     [Bindable(event="propertyChange")]
-    public function get fromPlayer() : valueObjects.PlayerDAO
-    {
-        return _internal_fromPlayer;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get response() : String
     {
         return _internal_response;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get fromPlayer() : valueObjects.PlayerDAO
+    {
+        return _internal_fromPlayer;
     }
 
     [Bindable(event="propertyChange")]
@@ -172,16 +172,6 @@ public class _Super_InvitationDAO extends flash.events.EventDispatcher implement
         }
     }
 
-    public function set fromPlayer(value:valueObjects.PlayerDAO) : void
-    {
-        var oldValue:valueObjects.PlayerDAO = _internal_fromPlayer;
-        if (oldValue !== value)
-        {
-            _internal_fromPlayer = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "fromPlayer", oldValue, _internal_fromPlayer));
-        }
-    }
-
     public function set response(value:String) : void
     {
         var oldValue:String = _internal_response;
@@ -189,6 +179,16 @@ public class _Super_InvitationDAO extends flash.events.EventDispatcher implement
         {
             _internal_response = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "response", oldValue, _internal_response));
+        }
+    }
+
+    public function set fromPlayer(value:valueObjects.PlayerDAO) : void
+    {
+        var oldValue:valueObjects.PlayerDAO = _internal_fromPlayer;
+        if (oldValue !== value)
+        {
+            _internal_fromPlayer = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "fromPlayer", oldValue, _internal_fromPlayer));
         }
     }
 

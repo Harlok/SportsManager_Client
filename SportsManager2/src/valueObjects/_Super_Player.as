@@ -60,8 +60,8 @@ public class _Super_Player extends flash.events.EventDispatcher implements com.a
      */
     private var _internal_id : int;
     private var _internal_lastName : String;
-    private var _internal_sex : int;
     private var _internal_phone : String;
+    private var _internal_sex : int;
     private var _internal_height : int;
     private var _internal_email : String;
     private var _internal_zipCode : String;
@@ -108,15 +108,15 @@ public class _Super_Player extends flash.events.EventDispatcher implements com.a
     }
 
     [Bindable(event="propertyChange")]
-    public function get sex() : int
-    {
-        return _internal_sex;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get phone() : String
     {
         return _internal_phone;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get sex() : int
+    {
+        return _internal_sex;
     }
 
     [Bindable(event="propertyChange")]
@@ -195,16 +195,6 @@ public class _Super_Player extends flash.events.EventDispatcher implements com.a
         }
     }
 
-    public function set sex(value:int) : void
-    {
-        var oldValue:int = _internal_sex;
-        if (oldValue !== value)
-        {
-            _internal_sex = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "sex", oldValue, _internal_sex));
-        }
-    }
-
     public function set phone(value:String) : void
     {
         var oldValue:String = _internal_phone;
@@ -212,6 +202,16 @@ public class _Super_Player extends flash.events.EventDispatcher implements com.a
         {
             _internal_phone = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "phone", oldValue, _internal_phone));
+        }
+    }
+
+    public function set sex(value:int) : void
+    {
+        var oldValue:int = _internal_sex;
+        if (oldValue !== value)
+        {
+            _internal_sex = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "sex", oldValue, _internal_sex));
         }
     }
 

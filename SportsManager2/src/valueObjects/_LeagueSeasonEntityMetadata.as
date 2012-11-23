@@ -25,14 +25,14 @@ internal class _LeagueSeasonEntityMetadata extends com.adobe.fiber.valueobjects.
 {
     private static var emptyArray:Array = new Array();
 
-    model_internal static var allProperties:Array = new Array("setTime", "startTime", "courtCount", "setPoints", "setCount", "defaultSetCount", "defaultSetTime", "defaultSetPoints", "startDate", "seasonTeamList", "defaultLocation", "defaultCapOn21", "defaultCourtCount", "eventCount", "endDate", "defaultStartTime", "league", "eventList", "id", "defaultMaxPlayerPerPool", "defaultSetConfig", "name", "defaultTimePerPoint", "defaultCapOn15", "defaultCapOn25");
+    model_internal static var allProperties:Array = new Array("setTime", "startTime", "courtCount", "setPoints", "setCount", "defaultSetCount", "defaultSetTime", "defaultSetPoints", "id", "seasonTeamList", "startDate", "defaultMaxPlayerPerPool", "defaultLocation", "defaultCapOn21", "eventCount", "defaultSetConfig", "defaultCourtCount", "name", "defaultTimePerPoint", "defaultCapOn15", "defaultCapOn25", "endDate", "defaultStartTime", "league", "eventList");
     model_internal static var allAssociationProperties:Array = new Array();
     model_internal static var allRequiredProperties:Array = new Array();
-    model_internal static var allAlwaysAvailableProperties:Array = new Array("setTime", "startTime", "courtCount", "setPoints", "setCount", "defaultSetCount", "defaultSetTime", "defaultSetPoints", "startDate", "seasonTeamList", "defaultLocation", "defaultCapOn21", "defaultCourtCount", "eventCount", "endDate", "defaultStartTime", "league", "eventList", "id", "defaultMaxPlayerPerPool", "defaultSetConfig", "name", "defaultTimePerPoint", "defaultCapOn15", "defaultCapOn25");
+    model_internal static var allAlwaysAvailableProperties:Array = new Array("setTime", "startTime", "courtCount", "setPoints", "setCount", "defaultSetCount", "defaultSetTime", "defaultSetPoints", "id", "seasonTeamList", "startDate", "defaultMaxPlayerPerPool", "defaultLocation", "defaultCapOn21", "eventCount", "defaultSetConfig", "defaultCourtCount", "name", "defaultTimePerPoint", "defaultCapOn15", "defaultCapOn25", "endDate", "defaultStartTime", "league", "eventList");
     model_internal static var guardedProperties:Array = new Array();
-    model_internal static var dataProperties:Array = new Array("setTime", "startTime", "courtCount", "setPoints", "setCount", "defaultSetCount", "defaultSetTime", "defaultSetPoints", "startDate", "seasonTeamList", "defaultLocation", "defaultCapOn21", "defaultCourtCount", "eventCount", "endDate", "defaultStartTime", "league", "eventList", "id", "defaultMaxPlayerPerPool", "defaultSetConfig", "name", "defaultTimePerPoint", "defaultCapOn15", "defaultCapOn25");
+    model_internal static var dataProperties:Array = new Array("setTime", "startTime", "courtCount", "setPoints", "setCount", "defaultSetCount", "defaultSetTime", "defaultSetPoints", "id", "seasonTeamList", "startDate", "defaultMaxPlayerPerPool", "defaultLocation", "defaultCapOn21", "eventCount", "defaultSetConfig", "defaultCourtCount", "name", "defaultTimePerPoint", "defaultCapOn15", "defaultCapOn25", "endDate", "defaultStartTime", "league", "eventList");
     model_internal static var sourceProperties:Array = emptyArray
-    model_internal static var nonDerivedProperties:Array = new Array("setTime", "startTime", "courtCount", "setPoints", "setCount", "defaultSetCount", "defaultSetTime", "defaultSetPoints", "startDate", "seasonTeamList", "defaultLocation", "defaultCapOn21", "defaultCourtCount", "eventCount", "endDate", "defaultStartTime", "league", "eventList", "id", "defaultMaxPlayerPerPool", "defaultSetConfig", "name", "defaultTimePerPoint", "defaultCapOn15", "defaultCapOn25");
+    model_internal static var nonDerivedProperties:Array = new Array("setTime", "startTime", "courtCount", "setPoints", "setCount", "defaultSetCount", "defaultSetTime", "defaultSetPoints", "id", "seasonTeamList", "startDate", "defaultMaxPlayerPerPool", "defaultLocation", "defaultCapOn21", "eventCount", "defaultSetConfig", "defaultCourtCount", "name", "defaultTimePerPoint", "defaultCapOn15", "defaultCapOn25", "endDate", "defaultStartTime", "league", "eventList");
     model_internal static var derivedProperties:Array = new Array();
     model_internal static var collectionProperties:Array = new Array("seasonTeamList", "eventList");
     model_internal static var collectionBaseMap:Object;
@@ -60,23 +60,23 @@ internal class _LeagueSeasonEntityMetadata extends com.adobe.fiber.valueobjects.
             model_internal::dependentsOnMap["defaultSetCount"] = new Array();
             model_internal::dependentsOnMap["defaultSetTime"] = new Array();
             model_internal::dependentsOnMap["defaultSetPoints"] = new Array();
-            model_internal::dependentsOnMap["startDate"] = new Array();
+            model_internal::dependentsOnMap["id"] = new Array();
             model_internal::dependentsOnMap["seasonTeamList"] = new Array();
+            model_internal::dependentsOnMap["startDate"] = new Array();
+            model_internal::dependentsOnMap["defaultMaxPlayerPerPool"] = new Array();
             model_internal::dependentsOnMap["defaultLocation"] = new Array();
             model_internal::dependentsOnMap["defaultCapOn21"] = new Array();
-            model_internal::dependentsOnMap["defaultCourtCount"] = new Array();
             model_internal::dependentsOnMap["eventCount"] = new Array();
-            model_internal::dependentsOnMap["endDate"] = new Array();
-            model_internal::dependentsOnMap["defaultStartTime"] = new Array();
-            model_internal::dependentsOnMap["league"] = new Array();
-            model_internal::dependentsOnMap["eventList"] = new Array();
-            model_internal::dependentsOnMap["id"] = new Array();
-            model_internal::dependentsOnMap["defaultMaxPlayerPerPool"] = new Array();
             model_internal::dependentsOnMap["defaultSetConfig"] = new Array();
+            model_internal::dependentsOnMap["defaultCourtCount"] = new Array();
             model_internal::dependentsOnMap["name"] = new Array();
             model_internal::dependentsOnMap["defaultTimePerPoint"] = new Array();
             model_internal::dependentsOnMap["defaultCapOn15"] = new Array();
             model_internal::dependentsOnMap["defaultCapOn25"] = new Array();
+            model_internal::dependentsOnMap["endDate"] = new Array();
+            model_internal::dependentsOnMap["defaultStartTime"] = new Array();
+            model_internal::dependentsOnMap["league"] = new Array();
+            model_internal::dependentsOnMap["eventList"] = new Array();
 
             // collection base map
             model_internal::collectionBaseMap = new Object();
@@ -94,23 +94,23 @@ internal class _LeagueSeasonEntityMetadata extends com.adobe.fiber.valueobjects.
         model_internal::propertyTypeMap["defaultSetCount"] = "int";
         model_internal::propertyTypeMap["defaultSetTime"] = "int";
         model_internal::propertyTypeMap["defaultSetPoints"] = "int";
-        model_internal::propertyTypeMap["startDate"] = "Number";
+        model_internal::propertyTypeMap["id"] = "int";
         model_internal::propertyTypeMap["seasonTeamList"] = "ArrayCollection";
+        model_internal::propertyTypeMap["startDate"] = "Number";
+        model_internal::propertyTypeMap["defaultMaxPlayerPerPool"] = "int";
         model_internal::propertyTypeMap["defaultLocation"] = "valueObjects.Location";
         model_internal::propertyTypeMap["defaultCapOn21"] = "int";
-        model_internal::propertyTypeMap["defaultCourtCount"] = "int";
         model_internal::propertyTypeMap["eventCount"] = "int";
-        model_internal::propertyTypeMap["endDate"] = "Number";
-        model_internal::propertyTypeMap["defaultStartTime"] = "Number";
-        model_internal::propertyTypeMap["league"] = "valueObjects.League";
-        model_internal::propertyTypeMap["eventList"] = "ArrayCollection";
-        model_internal::propertyTypeMap["id"] = "int";
-        model_internal::propertyTypeMap["defaultMaxPlayerPerPool"] = "int";
         model_internal::propertyTypeMap["defaultSetConfig"] = "int";
+        model_internal::propertyTypeMap["defaultCourtCount"] = "int";
         model_internal::propertyTypeMap["name"] = "String";
         model_internal::propertyTypeMap["defaultTimePerPoint"] = "int";
         model_internal::propertyTypeMap["defaultCapOn15"] = "int";
         model_internal::propertyTypeMap["defaultCapOn25"] = "int";
+        model_internal::propertyTypeMap["endDate"] = "Number";
+        model_internal::propertyTypeMap["defaultStartTime"] = "Number";
+        model_internal::propertyTypeMap["league"] = "valueObjects.League";
+        model_internal::propertyTypeMap["eventList"] = "ArrayCollection";
 
         model_internal::_instance = value;
     }
@@ -388,13 +388,25 @@ internal class _LeagueSeasonEntityMetadata extends com.adobe.fiber.valueobjects.
     }
 
     [Bindable(event="propertyChange")]
-    public function get isStartDateAvailable():Boolean
+    public function get isIdAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
     public function get isSeasonTeamListAvailable():Boolean
+    {
+        return true;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get isStartDateAvailable():Boolean
+    {
+        return true;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get isDefaultMaxPlayerPerPoolAvailable():Boolean
     {
         return true;
     }
@@ -412,55 +424,19 @@ internal class _LeagueSeasonEntityMetadata extends com.adobe.fiber.valueobjects.
     }
 
     [Bindable(event="propertyChange")]
-    public function get isDefaultCourtCountAvailable():Boolean
-    {
-        return true;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get isEventCountAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
-    public function get isEndDateAvailable():Boolean
-    {
-        return true;
-    }
-
-    [Bindable(event="propertyChange")]
-    public function get isDefaultStartTimeAvailable():Boolean
-    {
-        return true;
-    }
-
-    [Bindable(event="propertyChange")]
-    public function get isLeagueAvailable():Boolean
-    {
-        return true;
-    }
-
-    [Bindable(event="propertyChange")]
-    public function get isEventListAvailable():Boolean
-    {
-        return true;
-    }
-
-    [Bindable(event="propertyChange")]
-    public function get isIdAvailable():Boolean
-    {
-        return true;
-    }
-
-    [Bindable(event="propertyChange")]
-    public function get isDefaultMaxPlayerPerPoolAvailable():Boolean
-    {
-        return true;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get isDefaultSetConfigAvailable():Boolean
+    {
+        return true;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get isDefaultCourtCountAvailable():Boolean
     {
         return true;
     }
@@ -485,6 +461,30 @@ internal class _LeagueSeasonEntityMetadata extends com.adobe.fiber.valueobjects.
 
     [Bindable(event="propertyChange")]
     public function get isDefaultCapOn25Available():Boolean
+    {
+        return true;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get isEndDateAvailable():Boolean
+    {
+        return true;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get isDefaultStartTimeAvailable():Boolean
+    {
+        return true;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get isLeagueAvailable():Boolean
+    {
+        return true;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get isEventListAvailable():Boolean
     {
         return true;
     }
@@ -548,13 +548,25 @@ internal class _LeagueSeasonEntityMetadata extends com.adobe.fiber.valueobjects.
     }
 
     [Bindable(event="propertyChange")]   
-    public function get startDateStyle():com.adobe.fiber.styles.Style
+    public function get idStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
     public function get seasonTeamListStyle():com.adobe.fiber.styles.Style
+    {
+        return model_internal::_nullStyle;
+    }
+
+    [Bindable(event="propertyChange")]   
+    public function get startDateStyle():com.adobe.fiber.styles.Style
+    {
+        return model_internal::_nullStyle;
+    }
+
+    [Bindable(event="propertyChange")]   
+    public function get defaultMaxPlayerPerPoolStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
@@ -572,55 +584,19 @@ internal class _LeagueSeasonEntityMetadata extends com.adobe.fiber.valueobjects.
     }
 
     [Bindable(event="propertyChange")]   
-    public function get defaultCourtCountStyle():com.adobe.fiber.styles.Style
-    {
-        return model_internal::_nullStyle;
-    }
-
-    [Bindable(event="propertyChange")]   
     public function get eventCountStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
-    public function get endDateStyle():com.adobe.fiber.styles.Style
-    {
-        return model_internal::_nullStyle;
-    }
-
-    [Bindable(event="propertyChange")]   
-    public function get defaultStartTimeStyle():com.adobe.fiber.styles.Style
-    {
-        return model_internal::_nullStyle;
-    }
-
-    [Bindable(event="propertyChange")]   
-    public function get leagueStyle():com.adobe.fiber.styles.Style
-    {
-        return model_internal::_nullStyle;
-    }
-
-    [Bindable(event="propertyChange")]   
-    public function get eventListStyle():com.adobe.fiber.styles.Style
-    {
-        return model_internal::_nullStyle;
-    }
-
-    [Bindable(event="propertyChange")]   
-    public function get idStyle():com.adobe.fiber.styles.Style
-    {
-        return model_internal::_nullStyle;
-    }
-
-    [Bindable(event="propertyChange")]   
-    public function get defaultMaxPlayerPerPoolStyle():com.adobe.fiber.styles.Style
-    {
-        return model_internal::_nullStyle;
-    }
-
-    [Bindable(event="propertyChange")]   
     public function get defaultSetConfigStyle():com.adobe.fiber.styles.Style
+    {
+        return model_internal::_nullStyle;
+    }
+
+    [Bindable(event="propertyChange")]   
+    public function get defaultCourtCountStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
@@ -645,6 +621,30 @@ internal class _LeagueSeasonEntityMetadata extends com.adobe.fiber.valueobjects.
 
     [Bindable(event="propertyChange")]   
     public function get defaultCapOn25Style():com.adobe.fiber.styles.Style
+    {
+        return model_internal::_nullStyle;
+    }
+
+    [Bindable(event="propertyChange")]   
+    public function get endDateStyle():com.adobe.fiber.styles.Style
+    {
+        return model_internal::_nullStyle;
+    }
+
+    [Bindable(event="propertyChange")]   
+    public function get defaultStartTimeStyle():com.adobe.fiber.styles.Style
+    {
+        return model_internal::_nullStyle;
+    }
+
+    [Bindable(event="propertyChange")]   
+    public function get leagueStyle():com.adobe.fiber.styles.Style
+    {
+        return model_internal::_nullStyle;
+    }
+
+    [Bindable(event="propertyChange")]   
+    public function get eventListStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }

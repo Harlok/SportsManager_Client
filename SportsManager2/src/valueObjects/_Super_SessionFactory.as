@@ -70,15 +70,15 @@ public class _Super_SessionFactory extends flash.events.EventDispatcher implemen
     /**
      * properties
      */
-    private var _internal_allClassMetadata : Object;
     private var _internal_sessionFactoryOptions : valueObjects.SessionFactoryOptions;
+    private var _internal_allClassMetadata : Object;
     private var _internal_cache : valueObjects.Cache;
-    private var _internal_closed : Boolean;
     private var _internal_currentSession : valueObjects.Session;
+    private var _internal_closed : Boolean;
     private var _internal_definedFilterNames : ArrayCollection;
     private var _internal_typeHelper : valueObjects.TypeHelper;
-    private var _internal_allCollectionMetadata : Object;
     private var _internal_statistics : valueObjects.Statistics;
+    private var _internal_allCollectionMetadata : Object;
 
     private static var emptyArray:Array = new Array();
 
@@ -103,15 +103,15 @@ public class _Super_SessionFactory extends flash.events.EventDispatcher implemen
      */
 
     [Bindable(event="propertyChange")]
-    public function get allClassMetadata() : Object
-    {
-        return _internal_allClassMetadata;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get sessionFactoryOptions() : valueObjects.SessionFactoryOptions
     {
         return _internal_sessionFactoryOptions;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get allClassMetadata() : Object
+    {
+        return _internal_allClassMetadata;
     }
 
     [Bindable(event="propertyChange")]
@@ -121,15 +121,15 @@ public class _Super_SessionFactory extends flash.events.EventDispatcher implemen
     }
 
     [Bindable(event="propertyChange")]
-    public function get closed() : Boolean
-    {
-        return _internal_closed;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get currentSession() : valueObjects.Session
     {
         return _internal_currentSession;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get closed() : Boolean
+    {
+        return _internal_closed;
     }
 
     [Bindable(event="propertyChange")]
@@ -145,15 +145,15 @@ public class _Super_SessionFactory extends flash.events.EventDispatcher implemen
     }
 
     [Bindable(event="propertyChange")]
-    public function get allCollectionMetadata() : Object
-    {
-        return _internal_allCollectionMetadata;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get statistics() : valueObjects.Statistics
     {
         return _internal_statistics;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get allCollectionMetadata() : Object
+    {
+        return _internal_allCollectionMetadata;
     }
 
     public function clearAssociations() : void
@@ -164,16 +164,6 @@ public class _Super_SessionFactory extends flash.events.EventDispatcher implemen
      * data/source property setters
      */
 
-    public function set allClassMetadata(value:Object) : void
-    {
-        var oldValue:Object = _internal_allClassMetadata;
-        if (oldValue !== value)
-        {
-            _internal_allClassMetadata = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "allClassMetadata", oldValue, _internal_allClassMetadata));
-        }
-    }
-
     public function set sessionFactoryOptions(value:valueObjects.SessionFactoryOptions) : void
     {
         var oldValue:valueObjects.SessionFactoryOptions = _internal_sessionFactoryOptions;
@@ -181,6 +171,16 @@ public class _Super_SessionFactory extends flash.events.EventDispatcher implemen
         {
             _internal_sessionFactoryOptions = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "sessionFactoryOptions", oldValue, _internal_sessionFactoryOptions));
+        }
+    }
+
+    public function set allClassMetadata(value:Object) : void
+    {
+        var oldValue:Object = _internal_allClassMetadata;
+        if (oldValue !== value)
+        {
+            _internal_allClassMetadata = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "allClassMetadata", oldValue, _internal_allClassMetadata));
         }
     }
 
@@ -194,16 +194,6 @@ public class _Super_SessionFactory extends flash.events.EventDispatcher implemen
         }
     }
 
-    public function set closed(value:Boolean) : void
-    {
-        var oldValue:Boolean = _internal_closed;
-        if (oldValue !== value)
-        {
-            _internal_closed = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "closed", oldValue, _internal_closed));
-        }
-    }
-
     public function set currentSession(value:valueObjects.Session) : void
     {
         var oldValue:valueObjects.Session = _internal_currentSession;
@@ -211,6 +201,16 @@ public class _Super_SessionFactory extends flash.events.EventDispatcher implemen
         {
             _internal_currentSession = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "currentSession", oldValue, _internal_currentSession));
+        }
+    }
+
+    public function set closed(value:Boolean) : void
+    {
+        var oldValue:Boolean = _internal_closed;
+        if (oldValue !== value)
+        {
+            _internal_closed = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "closed", oldValue, _internal_closed));
         }
     }
 
@@ -249,16 +249,6 @@ public class _Super_SessionFactory extends flash.events.EventDispatcher implemen
         }
     }
 
-    public function set allCollectionMetadata(value:Object) : void
-    {
-        var oldValue:Object = _internal_allCollectionMetadata;
-        if (oldValue !== value)
-        {
-            _internal_allCollectionMetadata = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "allCollectionMetadata", oldValue, _internal_allCollectionMetadata));
-        }
-    }
-
     public function set statistics(value:valueObjects.Statistics) : void
     {
         var oldValue:valueObjects.Statistics = _internal_statistics;
@@ -266,6 +256,16 @@ public class _Super_SessionFactory extends flash.events.EventDispatcher implemen
         {
             _internal_statistics = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "statistics", oldValue, _internal_statistics));
+        }
+    }
+
+    public function set allCollectionMetadata(value:Object) : void
+    {
+        var oldValue:Object = _internal_allCollectionMetadata;
+        if (oldValue !== value)
+        {
+            _internal_allCollectionMetadata = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "allCollectionMetadata", oldValue, _internal_allCollectionMetadata));
         }
     }
 

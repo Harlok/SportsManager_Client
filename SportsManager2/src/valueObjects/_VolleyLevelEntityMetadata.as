@@ -22,14 +22,14 @@ internal class _VolleyLevelEntityMetadata extends com.adobe.fiber.valueobjects.A
 {
     private static var emptyArray:Array = new Array();
 
-    model_internal static var allProperties:Array = new Array("id", "minInterest", "maxInterest", "skillLevel", "name");
+    model_internal static var allProperties:Array = new Array("minInterest", "id", "maxInterest", "skillLevel", "name");
     model_internal static var allAssociationProperties:Array = new Array();
     model_internal static var allRequiredProperties:Array = new Array();
-    model_internal static var allAlwaysAvailableProperties:Array = new Array("id", "minInterest", "maxInterest", "skillLevel", "name");
+    model_internal static var allAlwaysAvailableProperties:Array = new Array("minInterest", "id", "maxInterest", "skillLevel", "name");
     model_internal static var guardedProperties:Array = new Array();
-    model_internal static var dataProperties:Array = new Array("id", "minInterest", "maxInterest", "skillLevel", "name");
+    model_internal static var dataProperties:Array = new Array("minInterest", "id", "maxInterest", "skillLevel", "name");
     model_internal static var sourceProperties:Array = emptyArray
-    model_internal static var nonDerivedProperties:Array = new Array("id", "minInterest", "maxInterest", "skillLevel", "name");
+    model_internal static var nonDerivedProperties:Array = new Array("minInterest", "id", "maxInterest", "skillLevel", "name");
     model_internal static var derivedProperties:Array = new Array();
     model_internal static var collectionProperties:Array = new Array("minInterest", "maxInterest");
     model_internal static var collectionBaseMap:Object;
@@ -49,8 +49,8 @@ internal class _VolleyLevelEntityMetadata extends com.adobe.fiber.valueobjects.A
         {
             // dependents map
             model_internal::dependentsOnMap = new Object();
-            model_internal::dependentsOnMap["id"] = new Array();
             model_internal::dependentsOnMap["minInterest"] = new Array();
+            model_internal::dependentsOnMap["id"] = new Array();
             model_internal::dependentsOnMap["maxInterest"] = new Array();
             model_internal::dependentsOnMap["skillLevel"] = new Array();
             model_internal::dependentsOnMap["name"] = new Array();
@@ -63,8 +63,8 @@ internal class _VolleyLevelEntityMetadata extends com.adobe.fiber.valueobjects.A
 
         // Property type Map
         model_internal::propertyTypeMap = new Object();
-        model_internal::propertyTypeMap["id"] = "int";
         model_internal::propertyTypeMap["minInterest"] = "ArrayCollection";
+        model_internal::propertyTypeMap["id"] = "int";
         model_internal::propertyTypeMap["maxInterest"] = "ArrayCollection";
         model_internal::propertyTypeMap["skillLevel"] = "int";
         model_internal::propertyTypeMap["name"] = "String";
@@ -297,13 +297,13 @@ internal class _VolleyLevelEntityMetadata extends com.adobe.fiber.valueobjects.A
     }
 
     [Bindable(event="propertyChange")]
-    public function get isIdAvailable():Boolean
+    public function get isMinInterestAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
-    public function get isMinInterestAvailable():Boolean
+    public function get isIdAvailable():Boolean
     {
         return true;
     }
@@ -337,13 +337,13 @@ internal class _VolleyLevelEntityMetadata extends com.adobe.fiber.valueobjects.A
     }
 
     [Bindable(event="propertyChange")]   
-    public function get idStyle():com.adobe.fiber.styles.Style
+    public function get minInterestStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
-    public function get minInterestStyle():com.adobe.fiber.styles.Style
+    public function get idStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }

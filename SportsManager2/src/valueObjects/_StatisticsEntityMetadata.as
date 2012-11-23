@@ -21,14 +21,14 @@ internal class _StatisticsEntityMetadata extends com.adobe.fiber.valueobjects.Ab
 {
     private static var emptyArray:Array = new Array();
 
-    model_internal static var allProperties:Array = new Array("naturalIdCacheHitCount", "updateTimestampsCacheMissCount", "secondLevelCacheMissCount", "entityLoadCount", "secondLevelCachePutCount", "secondLevelCacheHitCount", "collectionRecreateCount", "queryCacheHitCount", "startTime", "updateTimestampsCacheHitCount", "sessionOpenCount", "statisticsEnabled", "entityFetchCount", "naturalIdQueryExecutionCount", "connectCount", "sessionCloseCount", "naturalIdCachePutCount", "collectionFetchCount", "queryExecutionMaxTime", "queryCacheMissCount", "entityInsertCount", "naturalIdCacheMissCount", "collectionLoadCount", "entityUpdateCount", "transactionCount", "queryExecutionMaxTimeQueryString", "naturalIdQueryExecutionMaxTimeRegion", "queryCachePutCount", "naturalIdQueryExecutionMaxTime", "closeStatementCount", "queryExecutionCount", "optimisticFailureCount", "entityDeleteCount", "collectionUpdateCount", "flushCount", "prepareStatementCount", "updateTimestampsCachePutCount", "queries", "collectionRemoveCount", "successfulTransactionCount", "collectionRoleNames", "secondLevelCacheRegionNames", "entityNames");
+    model_internal static var allProperties:Array = new Array("naturalIdCacheHitCount", "updateTimestampsCacheMissCount", "secondLevelCacheMissCount", "entityLoadCount", "secondLevelCachePutCount", "secondLevelCacheHitCount", "collectionRecreateCount", "queryCacheHitCount", "startTime", "updateTimestampsCacheHitCount", "sessionOpenCount", "entityFetchCount", "statisticsEnabled", "naturalIdQueryExecutionCount", "connectCount", "sessionCloseCount", "naturalIdCachePutCount", "collectionFetchCount", "queryExecutionMaxTime", "queryCacheMissCount", "entityInsertCount", "naturalIdCacheMissCount", "collectionLoadCount", "entityUpdateCount", "transactionCount", "naturalIdQueryExecutionMaxTimeRegion", "queryExecutionMaxTimeQueryString", "queryCachePutCount", "naturalIdQueryExecutionMaxTime", "closeStatementCount", "queryExecutionCount", "optimisticFailureCount", "entityDeleteCount", "collectionUpdateCount", "flushCount", "updateTimestampsCachePutCount", "prepareStatementCount", "collectionRemoveCount", "queries", "successfulTransactionCount", "collectionRoleNames", "secondLevelCacheRegionNames", "entityNames");
     model_internal static var allAssociationProperties:Array = new Array();
     model_internal static var allRequiredProperties:Array = new Array();
-    model_internal static var allAlwaysAvailableProperties:Array = new Array("naturalIdCacheHitCount", "updateTimestampsCacheMissCount", "secondLevelCacheMissCount", "entityLoadCount", "secondLevelCachePutCount", "secondLevelCacheHitCount", "collectionRecreateCount", "queryCacheHitCount", "startTime", "updateTimestampsCacheHitCount", "sessionOpenCount", "statisticsEnabled", "entityFetchCount", "naturalIdQueryExecutionCount", "connectCount", "sessionCloseCount", "naturalIdCachePutCount", "collectionFetchCount", "queryExecutionMaxTime", "queryCacheMissCount", "entityInsertCount", "naturalIdCacheMissCount", "collectionLoadCount", "entityUpdateCount", "transactionCount", "queryExecutionMaxTimeQueryString", "naturalIdQueryExecutionMaxTimeRegion", "queryCachePutCount", "naturalIdQueryExecutionMaxTime", "closeStatementCount", "queryExecutionCount", "optimisticFailureCount", "entityDeleteCount", "collectionUpdateCount", "flushCount", "prepareStatementCount", "updateTimestampsCachePutCount", "queries", "collectionRemoveCount", "successfulTransactionCount", "collectionRoleNames", "secondLevelCacheRegionNames", "entityNames");
+    model_internal static var allAlwaysAvailableProperties:Array = new Array("naturalIdCacheHitCount", "updateTimestampsCacheMissCount", "secondLevelCacheMissCount", "entityLoadCount", "secondLevelCachePutCount", "secondLevelCacheHitCount", "collectionRecreateCount", "queryCacheHitCount", "startTime", "updateTimestampsCacheHitCount", "sessionOpenCount", "entityFetchCount", "statisticsEnabled", "naturalIdQueryExecutionCount", "connectCount", "sessionCloseCount", "naturalIdCachePutCount", "collectionFetchCount", "queryExecutionMaxTime", "queryCacheMissCount", "entityInsertCount", "naturalIdCacheMissCount", "collectionLoadCount", "entityUpdateCount", "transactionCount", "naturalIdQueryExecutionMaxTimeRegion", "queryExecutionMaxTimeQueryString", "queryCachePutCount", "naturalIdQueryExecutionMaxTime", "closeStatementCount", "queryExecutionCount", "optimisticFailureCount", "entityDeleteCount", "collectionUpdateCount", "flushCount", "updateTimestampsCachePutCount", "prepareStatementCount", "collectionRemoveCount", "queries", "successfulTransactionCount", "collectionRoleNames", "secondLevelCacheRegionNames", "entityNames");
     model_internal static var guardedProperties:Array = new Array();
-    model_internal static var dataProperties:Array = new Array("naturalIdCacheHitCount", "updateTimestampsCacheMissCount", "secondLevelCacheMissCount", "entityLoadCount", "secondLevelCachePutCount", "secondLevelCacheHitCount", "collectionRecreateCount", "queryCacheHitCount", "startTime", "updateTimestampsCacheHitCount", "sessionOpenCount", "statisticsEnabled", "entityFetchCount", "naturalIdQueryExecutionCount", "connectCount", "sessionCloseCount", "naturalIdCachePutCount", "collectionFetchCount", "queryExecutionMaxTime", "queryCacheMissCount", "entityInsertCount", "naturalIdCacheMissCount", "collectionLoadCount", "entityUpdateCount", "transactionCount", "queryExecutionMaxTimeQueryString", "naturalIdQueryExecutionMaxTimeRegion", "queryCachePutCount", "naturalIdQueryExecutionMaxTime", "closeStatementCount", "queryExecutionCount", "optimisticFailureCount", "entityDeleteCount", "collectionUpdateCount", "flushCount", "prepareStatementCount", "updateTimestampsCachePutCount", "queries", "collectionRemoveCount", "successfulTransactionCount", "collectionRoleNames", "secondLevelCacheRegionNames", "entityNames");
+    model_internal static var dataProperties:Array = new Array("naturalIdCacheHitCount", "updateTimestampsCacheMissCount", "secondLevelCacheMissCount", "entityLoadCount", "secondLevelCachePutCount", "secondLevelCacheHitCount", "collectionRecreateCount", "queryCacheHitCount", "startTime", "updateTimestampsCacheHitCount", "sessionOpenCount", "entityFetchCount", "statisticsEnabled", "naturalIdQueryExecutionCount", "connectCount", "sessionCloseCount", "naturalIdCachePutCount", "collectionFetchCount", "queryExecutionMaxTime", "queryCacheMissCount", "entityInsertCount", "naturalIdCacheMissCount", "collectionLoadCount", "entityUpdateCount", "transactionCount", "naturalIdQueryExecutionMaxTimeRegion", "queryExecutionMaxTimeQueryString", "queryCachePutCount", "naturalIdQueryExecutionMaxTime", "closeStatementCount", "queryExecutionCount", "optimisticFailureCount", "entityDeleteCount", "collectionUpdateCount", "flushCount", "updateTimestampsCachePutCount", "prepareStatementCount", "collectionRemoveCount", "queries", "successfulTransactionCount", "collectionRoleNames", "secondLevelCacheRegionNames", "entityNames");
     model_internal static var sourceProperties:Array = emptyArray
-    model_internal static var nonDerivedProperties:Array = new Array("naturalIdCacheHitCount", "updateTimestampsCacheMissCount", "secondLevelCacheMissCount", "entityLoadCount", "secondLevelCachePutCount", "secondLevelCacheHitCount", "collectionRecreateCount", "queryCacheHitCount", "startTime", "updateTimestampsCacheHitCount", "sessionOpenCount", "statisticsEnabled", "entityFetchCount", "naturalIdQueryExecutionCount", "connectCount", "sessionCloseCount", "naturalIdCachePutCount", "collectionFetchCount", "queryExecutionMaxTime", "queryCacheMissCount", "entityInsertCount", "naturalIdCacheMissCount", "collectionLoadCount", "entityUpdateCount", "transactionCount", "queryExecutionMaxTimeQueryString", "naturalIdQueryExecutionMaxTimeRegion", "queryCachePutCount", "naturalIdQueryExecutionMaxTime", "closeStatementCount", "queryExecutionCount", "optimisticFailureCount", "entityDeleteCount", "collectionUpdateCount", "flushCount", "prepareStatementCount", "updateTimestampsCachePutCount", "queries", "collectionRemoveCount", "successfulTransactionCount", "collectionRoleNames", "secondLevelCacheRegionNames", "entityNames");
+    model_internal static var nonDerivedProperties:Array = new Array("naturalIdCacheHitCount", "updateTimestampsCacheMissCount", "secondLevelCacheMissCount", "entityLoadCount", "secondLevelCachePutCount", "secondLevelCacheHitCount", "collectionRecreateCount", "queryCacheHitCount", "startTime", "updateTimestampsCacheHitCount", "sessionOpenCount", "entityFetchCount", "statisticsEnabled", "naturalIdQueryExecutionCount", "connectCount", "sessionCloseCount", "naturalIdCachePutCount", "collectionFetchCount", "queryExecutionMaxTime", "queryCacheMissCount", "entityInsertCount", "naturalIdCacheMissCount", "collectionLoadCount", "entityUpdateCount", "transactionCount", "naturalIdQueryExecutionMaxTimeRegion", "queryExecutionMaxTimeQueryString", "queryCachePutCount", "naturalIdQueryExecutionMaxTime", "closeStatementCount", "queryExecutionCount", "optimisticFailureCount", "entityDeleteCount", "collectionUpdateCount", "flushCount", "updateTimestampsCachePutCount", "prepareStatementCount", "collectionRemoveCount", "queries", "successfulTransactionCount", "collectionRoleNames", "secondLevelCacheRegionNames", "entityNames");
     model_internal static var derivedProperties:Array = new Array();
     model_internal static var collectionProperties:Array = new Array("queries", "collectionRoleNames", "secondLevelCacheRegionNames", "entityNames");
     model_internal static var collectionBaseMap:Object;
@@ -59,8 +59,8 @@ internal class _StatisticsEntityMetadata extends com.adobe.fiber.valueobjects.Ab
             model_internal::dependentsOnMap["startTime"] = new Array();
             model_internal::dependentsOnMap["updateTimestampsCacheHitCount"] = new Array();
             model_internal::dependentsOnMap["sessionOpenCount"] = new Array();
-            model_internal::dependentsOnMap["statisticsEnabled"] = new Array();
             model_internal::dependentsOnMap["entityFetchCount"] = new Array();
+            model_internal::dependentsOnMap["statisticsEnabled"] = new Array();
             model_internal::dependentsOnMap["naturalIdQueryExecutionCount"] = new Array();
             model_internal::dependentsOnMap["connectCount"] = new Array();
             model_internal::dependentsOnMap["sessionCloseCount"] = new Array();
@@ -73,8 +73,8 @@ internal class _StatisticsEntityMetadata extends com.adobe.fiber.valueobjects.Ab
             model_internal::dependentsOnMap["collectionLoadCount"] = new Array();
             model_internal::dependentsOnMap["entityUpdateCount"] = new Array();
             model_internal::dependentsOnMap["transactionCount"] = new Array();
-            model_internal::dependentsOnMap["queryExecutionMaxTimeQueryString"] = new Array();
             model_internal::dependentsOnMap["naturalIdQueryExecutionMaxTimeRegion"] = new Array();
+            model_internal::dependentsOnMap["queryExecutionMaxTimeQueryString"] = new Array();
             model_internal::dependentsOnMap["queryCachePutCount"] = new Array();
             model_internal::dependentsOnMap["naturalIdQueryExecutionMaxTime"] = new Array();
             model_internal::dependentsOnMap["closeStatementCount"] = new Array();
@@ -83,10 +83,10 @@ internal class _StatisticsEntityMetadata extends com.adobe.fiber.valueobjects.Ab
             model_internal::dependentsOnMap["entityDeleteCount"] = new Array();
             model_internal::dependentsOnMap["collectionUpdateCount"] = new Array();
             model_internal::dependentsOnMap["flushCount"] = new Array();
-            model_internal::dependentsOnMap["prepareStatementCount"] = new Array();
             model_internal::dependentsOnMap["updateTimestampsCachePutCount"] = new Array();
-            model_internal::dependentsOnMap["queries"] = new Array();
+            model_internal::dependentsOnMap["prepareStatementCount"] = new Array();
             model_internal::dependentsOnMap["collectionRemoveCount"] = new Array();
+            model_internal::dependentsOnMap["queries"] = new Array();
             model_internal::dependentsOnMap["successfulTransactionCount"] = new Array();
             model_internal::dependentsOnMap["collectionRoleNames"] = new Array();
             model_internal::dependentsOnMap["secondLevelCacheRegionNames"] = new Array();
@@ -113,8 +113,8 @@ internal class _StatisticsEntityMetadata extends com.adobe.fiber.valueobjects.Ab
         model_internal::propertyTypeMap["startTime"] = "Number";
         model_internal::propertyTypeMap["updateTimestampsCacheHitCount"] = "Number";
         model_internal::propertyTypeMap["sessionOpenCount"] = "Number";
-        model_internal::propertyTypeMap["statisticsEnabled"] = "Boolean";
         model_internal::propertyTypeMap["entityFetchCount"] = "Number";
+        model_internal::propertyTypeMap["statisticsEnabled"] = "Boolean";
         model_internal::propertyTypeMap["naturalIdQueryExecutionCount"] = "Number";
         model_internal::propertyTypeMap["connectCount"] = "Number";
         model_internal::propertyTypeMap["sessionCloseCount"] = "Number";
@@ -127,8 +127,8 @@ internal class _StatisticsEntityMetadata extends com.adobe.fiber.valueobjects.Ab
         model_internal::propertyTypeMap["collectionLoadCount"] = "Number";
         model_internal::propertyTypeMap["entityUpdateCount"] = "Number";
         model_internal::propertyTypeMap["transactionCount"] = "Number";
-        model_internal::propertyTypeMap["queryExecutionMaxTimeQueryString"] = "String";
         model_internal::propertyTypeMap["naturalIdQueryExecutionMaxTimeRegion"] = "String";
+        model_internal::propertyTypeMap["queryExecutionMaxTimeQueryString"] = "String";
         model_internal::propertyTypeMap["queryCachePutCount"] = "Number";
         model_internal::propertyTypeMap["naturalIdQueryExecutionMaxTime"] = "Number";
         model_internal::propertyTypeMap["closeStatementCount"] = "Number";
@@ -137,10 +137,10 @@ internal class _StatisticsEntityMetadata extends com.adobe.fiber.valueobjects.Ab
         model_internal::propertyTypeMap["entityDeleteCount"] = "Number";
         model_internal::propertyTypeMap["collectionUpdateCount"] = "Number";
         model_internal::propertyTypeMap["flushCount"] = "Number";
-        model_internal::propertyTypeMap["prepareStatementCount"] = "Number";
         model_internal::propertyTypeMap["updateTimestampsCachePutCount"] = "Number";
-        model_internal::propertyTypeMap["queries"] = "ArrayCollection";
+        model_internal::propertyTypeMap["prepareStatementCount"] = "Number";
         model_internal::propertyTypeMap["collectionRemoveCount"] = "Number";
+        model_internal::propertyTypeMap["queries"] = "ArrayCollection";
         model_internal::propertyTypeMap["successfulTransactionCount"] = "Number";
         model_internal::propertyTypeMap["collectionRoleNames"] = "ArrayCollection";
         model_internal::propertyTypeMap["secondLevelCacheRegionNames"] = "ArrayCollection";
@@ -440,13 +440,13 @@ internal class _StatisticsEntityMetadata extends com.adobe.fiber.valueobjects.Ab
     }
 
     [Bindable(event="propertyChange")]
-    public function get isStatisticsEnabledAvailable():Boolean
+    public function get isEntityFetchCountAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
-    public function get isEntityFetchCountAvailable():Boolean
+    public function get isStatisticsEnabledAvailable():Boolean
     {
         return true;
     }
@@ -524,13 +524,13 @@ internal class _StatisticsEntityMetadata extends com.adobe.fiber.valueobjects.Ab
     }
 
     [Bindable(event="propertyChange")]
-    public function get isQueryExecutionMaxTimeQueryStringAvailable():Boolean
+    public function get isNaturalIdQueryExecutionMaxTimeRegionAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
-    public function get isNaturalIdQueryExecutionMaxTimeRegionAvailable():Boolean
+    public function get isQueryExecutionMaxTimeQueryStringAvailable():Boolean
     {
         return true;
     }
@@ -584,25 +584,25 @@ internal class _StatisticsEntityMetadata extends com.adobe.fiber.valueobjects.Ab
     }
 
     [Bindable(event="propertyChange")]
-    public function get isPrepareStatementCountAvailable():Boolean
-    {
-        return true;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get isUpdateTimestampsCachePutCountAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
-    public function get isQueriesAvailable():Boolean
+    public function get isPrepareStatementCountAvailable():Boolean
     {
         return true;
     }
 
     [Bindable(event="propertyChange")]
     public function get isCollectionRemoveCountAvailable():Boolean
+    {
+        return true;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get isQueriesAvailable():Boolean
     {
         return true;
     }
@@ -708,13 +708,13 @@ internal class _StatisticsEntityMetadata extends com.adobe.fiber.valueobjects.Ab
     }
 
     [Bindable(event="propertyChange")]   
-    public function get statisticsEnabledStyle():com.adobe.fiber.styles.Style
+    public function get entityFetchCountStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
-    public function get entityFetchCountStyle():com.adobe.fiber.styles.Style
+    public function get statisticsEnabledStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
@@ -792,13 +792,13 @@ internal class _StatisticsEntityMetadata extends com.adobe.fiber.valueobjects.Ab
     }
 
     [Bindable(event="propertyChange")]   
-    public function get queryExecutionMaxTimeQueryStringStyle():com.adobe.fiber.styles.Style
+    public function get naturalIdQueryExecutionMaxTimeRegionStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
-    public function get naturalIdQueryExecutionMaxTimeRegionStyle():com.adobe.fiber.styles.Style
+    public function get queryExecutionMaxTimeQueryStringStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
@@ -852,25 +852,25 @@ internal class _StatisticsEntityMetadata extends com.adobe.fiber.valueobjects.Ab
     }
 
     [Bindable(event="propertyChange")]   
-    public function get prepareStatementCountStyle():com.adobe.fiber.styles.Style
-    {
-        return model_internal::_nullStyle;
-    }
-
-    [Bindable(event="propertyChange")]   
     public function get updateTimestampsCachePutCountStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
-    public function get queriesStyle():com.adobe.fiber.styles.Style
+    public function get prepareStatementCountStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }
 
     [Bindable(event="propertyChange")]   
     public function get collectionRemoveCountStyle():com.adobe.fiber.styles.Style
+    {
+        return model_internal::_nullStyle;
+    }
+
+    [Bindable(event="propertyChange")]   
+    public function get queriesStyle():com.adobe.fiber.styles.Style
     {
         return model_internal::_nullStyle;
     }

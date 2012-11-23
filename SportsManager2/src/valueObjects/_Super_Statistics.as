@@ -69,8 +69,8 @@ public class _Super_Statistics extends flash.events.EventDispatcher implements c
     private var _internal_startTime : Number;
     private var _internal_updateTimestampsCacheHitCount : Number;
     private var _internal_sessionOpenCount : Number;
-    private var _internal_statisticsEnabled : Boolean;
     private var _internal_entityFetchCount : Number;
+    private var _internal_statisticsEnabled : Boolean;
     private var _internal_naturalIdQueryExecutionCount : Number;
     private var _internal_connectCount : Number;
     private var _internal_sessionCloseCount : Number;
@@ -83,8 +83,8 @@ public class _Super_Statistics extends flash.events.EventDispatcher implements c
     private var _internal_collectionLoadCount : Number;
     private var _internal_entityUpdateCount : Number;
     private var _internal_transactionCount : Number;
-    private var _internal_queryExecutionMaxTimeQueryString : String;
     private var _internal_naturalIdQueryExecutionMaxTimeRegion : String;
+    private var _internal_queryExecutionMaxTimeQueryString : String;
     private var _internal_queryCachePutCount : Number;
     private var _internal_naturalIdQueryExecutionMaxTime : Number;
     private var _internal_closeStatementCount : Number;
@@ -93,10 +93,10 @@ public class _Super_Statistics extends flash.events.EventDispatcher implements c
     private var _internal_entityDeleteCount : Number;
     private var _internal_collectionUpdateCount : Number;
     private var _internal_flushCount : Number;
-    private var _internal_prepareStatementCount : Number;
     private var _internal_updateTimestampsCachePutCount : Number;
-    private var _internal_queries : ArrayCollection;
+    private var _internal_prepareStatementCount : Number;
     private var _internal_collectionRemoveCount : Number;
+    private var _internal_queries : ArrayCollection;
     private var _internal_successfulTransactionCount : Number;
     private var _internal_collectionRoleNames : ArrayCollection;
     private var _internal_secondLevelCacheRegionNames : ArrayCollection;
@@ -191,15 +191,15 @@ public class _Super_Statistics extends flash.events.EventDispatcher implements c
     }
 
     [Bindable(event="propertyChange")]
-    public function get statisticsEnabled() : Boolean
-    {
-        return _internal_statisticsEnabled;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get entityFetchCount() : Number
     {
         return _internal_entityFetchCount;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get statisticsEnabled() : Boolean
+    {
+        return _internal_statisticsEnabled;
     }
 
     [Bindable(event="propertyChange")]
@@ -275,15 +275,15 @@ public class _Super_Statistics extends flash.events.EventDispatcher implements c
     }
 
     [Bindable(event="propertyChange")]
-    public function get queryExecutionMaxTimeQueryString() : String
-    {
-        return _internal_queryExecutionMaxTimeQueryString;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get naturalIdQueryExecutionMaxTimeRegion() : String
     {
         return _internal_naturalIdQueryExecutionMaxTimeRegion;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get queryExecutionMaxTimeQueryString() : String
+    {
+        return _internal_queryExecutionMaxTimeQueryString;
     }
 
     [Bindable(event="propertyChange")]
@@ -335,27 +335,27 @@ public class _Super_Statistics extends flash.events.EventDispatcher implements c
     }
 
     [Bindable(event="propertyChange")]
-    public function get prepareStatementCount() : Number
-    {
-        return _internal_prepareStatementCount;
-    }
-
-    [Bindable(event="propertyChange")]
     public function get updateTimestampsCachePutCount() : Number
     {
         return _internal_updateTimestampsCachePutCount;
     }
 
     [Bindable(event="propertyChange")]
-    public function get queries() : ArrayCollection
+    public function get prepareStatementCount() : Number
     {
-        return _internal_queries;
+        return _internal_prepareStatementCount;
     }
 
     [Bindable(event="propertyChange")]
     public function get collectionRemoveCount() : Number
     {
         return _internal_collectionRemoveCount;
+    }
+
+    [Bindable(event="propertyChange")]
+    public function get queries() : ArrayCollection
+    {
+        return _internal_queries;
     }
 
     [Bindable(event="propertyChange")]
@@ -500,16 +500,6 @@ public class _Super_Statistics extends flash.events.EventDispatcher implements c
         }
     }
 
-    public function set statisticsEnabled(value:Boolean) : void
-    {
-        var oldValue:Boolean = _internal_statisticsEnabled;
-        if (oldValue !== value)
-        {
-            _internal_statisticsEnabled = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "statisticsEnabled", oldValue, _internal_statisticsEnabled));
-        }
-    }
-
     public function set entityFetchCount(value:Number) : void
     {
         var oldValue:Number = _internal_entityFetchCount;
@@ -517,6 +507,16 @@ public class _Super_Statistics extends flash.events.EventDispatcher implements c
         {
             _internal_entityFetchCount = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "entityFetchCount", oldValue, _internal_entityFetchCount));
+        }
+    }
+
+    public function set statisticsEnabled(value:Boolean) : void
+    {
+        var oldValue:Boolean = _internal_statisticsEnabled;
+        if (oldValue !== value)
+        {
+            _internal_statisticsEnabled = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "statisticsEnabled", oldValue, _internal_statisticsEnabled));
         }
     }
 
@@ -640,16 +640,6 @@ public class _Super_Statistics extends flash.events.EventDispatcher implements c
         }
     }
 
-    public function set queryExecutionMaxTimeQueryString(value:String) : void
-    {
-        var oldValue:String = _internal_queryExecutionMaxTimeQueryString;
-        if (oldValue !== value)
-        {
-            _internal_queryExecutionMaxTimeQueryString = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "queryExecutionMaxTimeQueryString", oldValue, _internal_queryExecutionMaxTimeQueryString));
-        }
-    }
-
     public function set naturalIdQueryExecutionMaxTimeRegion(value:String) : void
     {
         var oldValue:String = _internal_naturalIdQueryExecutionMaxTimeRegion;
@@ -657,6 +647,16 @@ public class _Super_Statistics extends flash.events.EventDispatcher implements c
         {
             _internal_naturalIdQueryExecutionMaxTimeRegion = value;
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "naturalIdQueryExecutionMaxTimeRegion", oldValue, _internal_naturalIdQueryExecutionMaxTimeRegion));
+        }
+    }
+
+    public function set queryExecutionMaxTimeQueryString(value:String) : void
+    {
+        var oldValue:String = _internal_queryExecutionMaxTimeQueryString;
+        if (oldValue !== value)
+        {
+            _internal_queryExecutionMaxTimeQueryString = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "queryExecutionMaxTimeQueryString", oldValue, _internal_queryExecutionMaxTimeQueryString));
         }
     }
 
@@ -740,6 +740,16 @@ public class _Super_Statistics extends flash.events.EventDispatcher implements c
         }
     }
 
+    public function set updateTimestampsCachePutCount(value:Number) : void
+    {
+        var oldValue:Number = _internal_updateTimestampsCachePutCount;
+        if (oldValue !== value)
+        {
+            _internal_updateTimestampsCachePutCount = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "updateTimestampsCachePutCount", oldValue, _internal_updateTimestampsCachePutCount));
+        }
+    }
+
     public function set prepareStatementCount(value:Number) : void
     {
         var oldValue:Number = _internal_prepareStatementCount;
@@ -750,13 +760,13 @@ public class _Super_Statistics extends flash.events.EventDispatcher implements c
         }
     }
 
-    public function set updateTimestampsCachePutCount(value:Number) : void
+    public function set collectionRemoveCount(value:Number) : void
     {
-        var oldValue:Number = _internal_updateTimestampsCachePutCount;
+        var oldValue:Number = _internal_collectionRemoveCount;
         if (oldValue !== value)
         {
-            _internal_updateTimestampsCachePutCount = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "updateTimestampsCachePutCount", oldValue, _internal_updateTimestampsCachePutCount));
+            _internal_collectionRemoveCount = value;
+            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "collectionRemoveCount", oldValue, _internal_collectionRemoveCount));
         }
     }
 
@@ -782,16 +792,6 @@ public class _Super_Statistics extends flash.events.EventDispatcher implements c
                 throw new Error("value of queries must be a collection");
             }
             this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "queries", oldValue, _internal_queries));
-        }
-    }
-
-    public function set collectionRemoveCount(value:Number) : void
-    {
-        var oldValue:Number = _internal_collectionRemoveCount;
-        if (oldValue !== value)
-        {
-            _internal_collectionRemoveCount = value;
-            this.dispatchEvent(mx.events.PropertyChangeEvent.createUpdateEvent(this, "collectionRemoveCount", oldValue, _internal_collectionRemoveCount));
         }
     }
 
